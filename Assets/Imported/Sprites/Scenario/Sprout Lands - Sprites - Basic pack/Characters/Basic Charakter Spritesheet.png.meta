@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: char_front_idle_0
+      name: char_head_0
       rect:
         serializedVersion: 2
         x: 16
-        y: 160
+        y: 165
         width: 16
-        height: 16
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,34 +170,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_front_idle_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3118e1ab8fb7d148be0fb12e28a0c99
-      internalID: 1929503785
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: char_front_walk_0
+      name: char_head_1
       rect:
         serializedVersion: 2
         x: 112
-        y: 160
+        y: 165
         width: 16
-        height: 16
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,13 +191,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_front_walk_1
+      name: char_body_front_walk_1
       rect:
         serializedVersion: 2
         x: 160
         y: 160
         width: 16
-        height: 16
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,99 +212,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_side_idle_0
+      name: char_head_2
       rect:
         serializedVersion: 2
         x: 16
-        y: 64
+        y: 117
         width: 16
-        height: 16
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 722311e1c7b75b24e878c8e05db3a103
-      internalID: -919016444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: char_side_idle_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c164edd47ab27cf4cb01432766c5d3c0
-      internalID: -1748334031
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: char_side_walk_0
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e21d6d6e0e8dabf46a4fced064fd6eba
-      internalID: -401159426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: char_side_walk_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b8a0aeccd1a8c44baa8fd53742546ef
-      internalID: -247897236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: char_back_idle_0
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,55 +233,160 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_back_idle_1
+      name: char_body_idle_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 112
+        x: 16
+        y: 160
         width: 16
-        height: 16
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fcdde80d8497f143856a0e0c6b5e421
-      internalID: 671092847
+      spriteID: bc48b21d9773ef44dba7c3cbabd84523
+      internalID: 983196061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_back_walk_0
+      name: char_body_front_walk_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8cbd7cdd4cbc04a9bf65c169ef2534
+      internalID: 1281735407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: char_body_idle_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56aa54ebacd05d941ae951740f638438
+      internalID: 1115882502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: char_body_back_walk_0
       rect:
         serializedVersion: 2
         x: 112
         y: 112
         width: 16
-        height: 16
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7777bbb76e1ffd4f9e415d668a75b72
-      internalID: -338691594
+      spriteID: cb21f6a76c6c5154ebb1889df84bffea
+      internalID: -926947645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_back_walk_1
+      name: char_body_back_walk_1
       rect:
         serializedVersion: 2
         x: 160
         y: 112
         width: 16
-        height: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ac107e016df5d4e90e9b6939633589
+      internalID: 1717756814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: char_body_side_walk_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1277f633239c9f34ea3462229ddc78f9
+      internalID: 826437824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: char_body_side_walk_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01144290046c8874bb415d5c2fe06482
+      internalID: -1646331747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: char_body_side_walk_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,8 +394,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a74a340f3a49c914a922a12b961e2206
-      internalID: -2033781646
+      spriteID: 8cf10390c2c2b654abf670f07c4c9bb4
+      internalID: 772129009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: char_body_side_walk_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 16
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16921c70923605c42b155b2a54e951a1
+      internalID: -347738805
       vertices: []
       indices: 
       edges: []
@@ -419,14 +440,23 @@ TextureImporter:
       Basic Charakter Spritesheet_5: 1336740254
       Basic Charakter Spritesheet_6: 1620847863
       Basic Charakter Spritesheet_7: 1383068665
-      char_back_idle_0: 1015415783
       char_back_idle_1: 671092847
       char_back_walk_0: -338691594
       char_back_walk_1: -2033781646
-      char_front_idle_0: 1667875213
+      char_body_back_walk_0: -926947645
+      char_body_back_walk_1: 1717756814
+      char_body_front_walk_0: 1281735407
+      char_body_front_walk_1: -368062048
+      char_body_idle_0: 983196061
+      char_body_idle_1: 1115882502
+      char_body_side_walk_0: 826437824
+      char_body_side_walk_1: -1646331747
+      char_body_side_walk_2: 772129009
+      char_body_side_walk_3: -347738805
       char_front_idle_1: 1929503785
-      char_front_walk_0: 520242562
-      char_front_walk_1: -368062048
+      char_head_0: 1667875213
+      char_head_1: 520242562
+      char_head_2: 1015415783
       char_side_idle_0: -919016444
       char_side_idle_1: -1748334031
       char_side_walk_0: -401159426
