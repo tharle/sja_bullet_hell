@@ -30,6 +30,7 @@ public class PlayerControls : MonoBehaviour
         float axisV = Input.GetAxis("Vertical");
 
         m_AnimatorBody.SetFloat("axis_vertical", axisV);
+        m_AnimatorBody.SetFloat("axis_horizontal", axisH);
 
         FlipHorizontal(axisH);
 
@@ -38,7 +39,7 @@ public class PlayerControls : MonoBehaviour
         velocity.y = m_Speed * axisV;
 
         m_Rigidbody.velocity = velocity;
-        m_AnimatorBody.SetFloat("velocity_horizontal", velocity.x);
+        //m_AnimatorBody.SetFloat("velocity_horizontal", velocity.x);
     }
 
     private void FlipHorizontal(float axisH)
