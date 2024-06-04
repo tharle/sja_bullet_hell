@@ -6,16 +6,14 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     [SerializeField] private float m_Speed;
-    [SerializeField] private Animator m_AnimatorBody;
+    private PlayerAnimation m_PlayerAnimation;
 
     private Rigidbody2D m_Rigidbody;
-
-    private bool m_IsLookRight;
 
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
-        m_IsLookRight = true;
+        m_PlayerAnimation = GetComponentInChildren<PlayerAnimation>();
     }
 
     // Update is called once per frame
@@ -29,28 +27,22 @@ public class PlayerControls : MonoBehaviour
         float axisH = Input.GetAxis("Horizontal");
         float axisV = Input.GetAxis("Vertical");
 
-        m_AnimatorBody.SetFloat("axis_vertical", axisV);
-        m_AnimatorBody.SetFloat("axis_horizontal", axisH);
 
-        FlipHorizontal(axisH);
+        CheckFlipHorizontal(axisH);
 
         Vector2 velocity = Vector2.zero;
         velocity.x = m_Speed * axisH;
         velocity.y = m_Speed * axisV;
 
         m_Rigidbody.velocity = velocity;
-        //m_AnimatorBody.SetFloat("velocity_horizontal", velocity.x);
+        m_PlayerAnimation.AddVelocity(velocity.magnitude);
     }
 
-    private void FlipHorizontal(float axisH)
+    private void CheckFlipHorizontal(float axisH)
     {
-        if (m_IsLookRight && axisH >= 0) return;
-        if (!m_IsLookRight && axisH <= 0) return;
+        if (m_PlayerAnimation.IsLookRight && axisH >= 0) return;
+        if (!m_PlayerAnimation.IsLookRight && axisH <= 0) return;
 
-        m_IsLookRight = !m_IsLookRight;
-
-        Vector3 scale = transform.localScale;
-        scale.x = -scale.x;
-        transform.localScale = scale;
+        m_PlayerAnimation.DoFlip();
     }
 }
