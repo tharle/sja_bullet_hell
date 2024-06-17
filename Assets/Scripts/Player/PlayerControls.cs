@@ -27,22 +27,11 @@ public class PlayerControls : MonoBehaviour
         float axisH = Input.GetAxis("Horizontal");
         float axisV = Input.GetAxis("Vertical");
 
-
-        CheckFlipHorizontal(axisH);
-
         Vector2 velocity = Vector2.zero;
         velocity.x = m_Speed * axisH;
         velocity.y = m_Speed * axisV;
 
         m_Rigidbody.velocity = velocity;
         m_PlayerAnimation.AddVelocity(velocity.magnitude);
-    }
-
-    private void CheckFlipHorizontal(float axisH)
-    {
-        if (m_PlayerAnimation.IsLookRight && axisH >= 0) return;
-        if (!m_PlayerAnimation.IsLookRight && axisH <= 0) return;
-
-        m_PlayerAnimation.DoFlip();
     }
 }
