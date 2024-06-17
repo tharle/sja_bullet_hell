@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
+    private Vector2 m_Direction;
+    public Vector2 Direction { get { return m_Direction; } }
     private void Update()
     {
         ChangeDirection();
@@ -17,9 +18,12 @@ public class Weapon : MonoBehaviour
     {
         Vector2 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
         Vector2 direction = transform.position;
         direction = mousePosition - direction;
+        direction = direction.normalized;
         transform.right = direction;
+        m_Direction = direction;
 
     }
 }
