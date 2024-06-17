@@ -42,8 +42,9 @@ public class PlayerControls : MonoBehaviour
         Move();
 
         // TODO verifier si je vais avoir du dashing
-       /* if (CanDash && Input.GetKeyDown(KeyCode.Space))
-            Dash();*/
+        /* if (CanDash && Input.GetKeyDown(KeyCode.Space))
+             Dash();*/
+        if(m_FireRateTimer >= 0) m_FireRateTimer -= Time.deltaTime;
 
         if (CanShoot && Input.GetKey(KeyCode.Mouse0))
             Shoot();

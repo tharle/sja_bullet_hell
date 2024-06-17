@@ -13,7 +13,9 @@ public class Bullet : MonoBehaviour
 
     public void ChangeColor(Color color)
     {
-        m_SpriteRender.color = color;
+        if (m_SpriteRender != null) m_SpriteRender.color = color;
+
+
     }
 
    

@@ -22,7 +22,9 @@ public class Projectile : MonoBehaviour
     {
         owner = _owner;
         color = _owner.EntityColor;
+        outerShell = Instantiate(outerShell);
         outerShell.ChangeColor(color);
+        outerShell.transform.parent = transform;
         wallEffects = _wallEffects;
         damage = _owner.Stats.damage;
         speed = _owner.Stats.bulletSpeed;
