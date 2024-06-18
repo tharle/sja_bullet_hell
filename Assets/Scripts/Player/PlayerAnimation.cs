@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator m_Animator;
+    private new String name;
 
     private void Start()
     {
