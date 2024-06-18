@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu,Serializable]
 public class Item : ScriptableObject
 {
-    public Sprite icon;
+    public Sprite Icon;
 
     //Player Effects
     [Header("Player Effects")]

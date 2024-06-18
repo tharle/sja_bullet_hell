@@ -6,7 +6,6 @@ using UnityEngine.UIElements.Experimental;
 
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] private float m_Speed;
     private PlayerAnimation m_PlayerAnimation;
     private Weapon m_Weapon;
     private Rigidbody2D m_Rigidbody;
@@ -54,7 +53,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (m_FireRateTimer <= 0)
         {
-            m_FireRateTimer = 1f / m_PlayerEntity.Stats.bulletPerSeconds;
+            m_FireRateTimer = 1f / m_PlayerEntity.Stats.BulletPerSeconds;
 
             GameObject bulletGO = Instantiate(m_PlayerEntity.BulletPrefab, m_Weapon.transform.position, Quaternion.identity);
             if (bulletGO.TryGetComponent<Projectile>(out var projectile))
@@ -63,7 +62,7 @@ public class PlayerControls : MonoBehaviour
                 foreach (var item in m_PlayerEntity.Items)
                     wallEffect.AddRange(item.wallEffects);
 
-                projectile.SetBulllet(m_Weapon.Direction, m_PlayerEntity, wallEffect);
+                projectile.SetBulllet(m_Weapon.Direction, m_PlayerEntity, m_Weapon.transform.position, wallEffect);
                 m_PlayerEntity.HasShoot();
             }
         }
@@ -75,8 +74,8 @@ public class PlayerControls : MonoBehaviour
         float axisV = Input.GetAxis("Vertical");
 
         Vector2 velocity = Vector2.zero;
-        velocity.x = m_Speed * axisH;
-        velocity.y = m_Speed * axisV;
+        velocity.x = m_PlayerEntity.Stats.Speed * axisH * 0.16f;
+        velocity.y = m_PlayerEntity.Stats.Speed * axisV * 0.16f;
 
         m_Rigidbody.velocity = velocity;
         m_PlayerAnimation.AddVelocity(velocity.magnitude);

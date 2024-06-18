@@ -3,45 +3,47 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private Bullet outerShell;
-    private Rigidbody2D rb;
+    [SerializeField] private Bullet m_BulletPrefab;
+    private Rigidbody2D m_Body;
 
-    private float speed = 15f;
-    private int damage;
-    private Color color;
-    private Entity owner;
+    private float m_MultPixel = 0.16f; // mult fom grid layout
+    private float m_Speed = 5f;
+    private int m_Damage;
+    private Color m_Color;
+    private Entity m_Owner;
 
-    private List<ItemEffect> wallEffects = new List<ItemEffect>();
+    private List<ItemEffect> m_WallEffects = new List<ItemEffect>();
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        m_Body = GetComponent<Rigidbody2D>();
     }
 
-    public void SetBulllet(Vector2 _direction, Entity _owner, List<ItemEffect> _wallEffects = null)
+    public void SetBulllet(Vector2 _direction, Entity _owner, Vector3 _position ,List<ItemEffect> _wallEffects = null)
     {
-        owner = _owner;
-        color = _owner.EntityColor;
-        outerShell = Instantiate(outerShell);
-        outerShell.ChangeColor(color);
-        outerShell.transform.parent = transform;
-        wallEffects = _wallEffects;
-        damage = _owner.Stats.damage;
-        speed = _owner.Stats.bulletSpeed;
+        m_Owner = _owner;
+        m_Color = _owner.EntityColor;
+        m_BulletPrefab = Instantiate(m_BulletPrefab);
+        m_BulletPrefab.ChangeColor(m_Color);
+        m_BulletPrefab.transform.parent = transform;
+        m_BulletPrefab.transform.position = _position;
+        m_WallEffects = _wallEffects;
+        m_Damage = _owner.Stats.Damage;
+        m_Speed = _owner.Stats.BulletSpeed * m_MultPixel;
 
-        rb.AddForce(_direction*speed,ForceMode2D.Impulse);
+        m_Body.AddForce(_direction*m_Speed,ForceMode2D.Impulse);
     }
 
     private void HitWall()
     {
-        if (wallEffects != null)
+        if (m_WallEffects != null)
         {
-            foreach (var effect in wallEffects)
+            foreach (var effect in m_WallEffects)
             {
                 if (effect is BulletEffect bulletEffect)
-                    bulletEffect.Execute(owner, this);
+                    bulletEffect.Execute(m_Owner, this);
                 else
-                    effect.Execute(owner);
+                    effect.Execute(m_Owner);
             }
         }
 
@@ -54,10 +56,10 @@ public class Projectile : MonoBehaviour
             HitWall();
         else if (_collision.TryGetComponent<IDamageable>(out var damageable))
         {
-            if(damageable is Entity entity && entity == owner)
+            if(damageable is Entity entity && entity == m_Owner)
                 return;
 
-            damageable.TakeDamage(damage);
+            damageable.TakeDamage(m_Damage);
             Destroy(gameObject);
         }
     }

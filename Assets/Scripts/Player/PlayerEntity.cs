@@ -23,8 +23,8 @@ public class PlayerEntity : Entity
 
     public void SetSave(Save _save)
     {
-        currentHealth = _save.CurrentHealth;
-        items = _save.Items;
-        currentStats = _save.Stats;
+        m_CurrentHealth = _save.CurrentHealth;
+        m_Items = _save.Items;
+        m_CurrentStats = _save.Stats;
     }
 }

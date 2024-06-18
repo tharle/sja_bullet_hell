@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15085812b5d8f144967408d9d9f792a, type: 3}
   m_Name: BulletHeart
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1853477602023161482, guid: 746dc95e6aa572943b41aac302c6628f, type: 3}
-  color: {r: 1, g: 1, b: 1, a: 0}
-  startingItems: []
+  ProjectilePrefab: {fileID: 1853477602023161482, guid: 746dc95e6aa572943b41aac302c6628f, type: 3}
+  Color: {r: 1, g: 1, b: 1, a: 0}
+  StartingItems: []
   stats:
-    bulletPerSeconds: 1
-    maxHealth: 10
-    speed: 1
-    damage: 5
-    lifeSteal: 5
-    bulletSpeed: 5
+    BulletPerSeconds: 1
+    MaxHealth: 3
+    Speed: 1
+    Damage: 1
+    LifeSteal: 0
+    BulletSpeed: 1

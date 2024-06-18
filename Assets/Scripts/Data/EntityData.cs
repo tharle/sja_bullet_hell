@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EntityData : ScriptableObject
 {
-    public GameObject projectilePrefab;
-    public Color color;
-    public List<Item> startingItems;
+    public GameObject ProjectilePrefab;
+    public Color Color;
+    public List<Item> StartingItems;
 
     public Stats stats;
 }
@@ -15,23 +15,23 @@ public class EntityData : ScriptableObject
 [Serializable]
 public struct Stats
 {
-    public int bulletPerSeconds;
-    public int maxHealth;
-    public int speed;
-    public int damage;
-    public float lifeSteal;
-    public float bulletSpeed;
+    public int BulletPerSeconds;
+    public int MaxHealth;
+    public float Speed;
+    public int Damage;
+    public float LifeSteal;
+    public float BulletSpeed;
 
     public static Stats operator +(Stats _a,Stats _b)
     {
         return new Stats 
         {
-            bulletPerSeconds = _a.bulletPerSeconds + _b.bulletPerSeconds,
-            maxHealth = _a.maxHealth + _b.maxHealth,
-            speed = _a.speed + _b.speed,
-            damage = _a.damage + _b.damage, 
-            bulletSpeed = _a.bulletSpeed + _b.bulletSpeed,
-            lifeSteal = _a.lifeSteal + _b.lifeSteal,
+            BulletPerSeconds = _a.BulletPerSeconds + _b.BulletPerSeconds,
+            MaxHealth = _a.MaxHealth + _b.MaxHealth,
+            Speed = _a.Speed + _b.Speed,
+            Damage = _a.Damage + _b.Damage, 
+            BulletSpeed = _a.BulletSpeed + _b.BulletSpeed,
+            LifeSteal = _a.LifeSteal + _b.LifeSteal,
         };
     }
 
@@ -39,12 +39,12 @@ public struct Stats
     {
         return new Stats
         {
-            bulletPerSeconds = _a.bulletPerSeconds - _b.bulletPerSeconds,
-            maxHealth = _a.maxHealth - _b.maxHealth,
-            speed = _a.speed - _b.speed,
-            damage = _a.damage - _b.damage,
-            bulletSpeed = _a.bulletSpeed - _b.bulletSpeed,
-            lifeSteal = _a.lifeSteal - _b.lifeSteal,
+            BulletPerSeconds = _a.BulletPerSeconds - _b.BulletPerSeconds,
+            MaxHealth = _a.MaxHealth - _b.MaxHealth,
+            Speed = _a.Speed - _b.Speed,
+            Damage = _a.Damage - _b.Damage,
+            BulletSpeed = _a.BulletSpeed - _b.BulletSpeed,
+            LifeSteal = _a.LifeSteal - _b.LifeSteal,
         };
     }
 }

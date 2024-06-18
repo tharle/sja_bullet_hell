@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     //Singleton
-    private static GameManager instance;
-    public static GameManager Instance => instance;
+    private static GameManager m_Instance;
+    public static GameManager Instance => m_Instance;
     public static event Action OnInit;
 
     //GameManager
@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (m_Instance == null)
         {
-            instance = this;
+            m_Instance = this;
             DontDestroyOnLoad(gameObject);
 
             OnInit?.Invoke();
