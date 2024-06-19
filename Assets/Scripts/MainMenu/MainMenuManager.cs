@@ -50,7 +50,6 @@ public class MainMenuManager : MonoBehaviour
         // if exist data, delete
         SaveManagerJson.DeleteSave(slotIndex.ToString()); // TODO pe trater lerreur apres
         Save newSave = new Save(true, slotIndex, slotIndex.ToString(), new List<Item>(), 0);
-        SaveManagerJson.Save(newSave);
         GameManager.Instance.NewGame(newSave, false);
         LoadGame();
     }
@@ -134,7 +133,7 @@ public class MainMenuManager : MonoBehaviour
 
     IEnumerator StartGameRoutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         SceneManager.LoadScene("Game");
     }

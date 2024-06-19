@@ -29,8 +29,9 @@ public class Projectile : MonoBehaviour
         m_BulletPrefab.transform.position = _position;
         m_WallEffects = _wallEffects;
         m_Damage = _owner.Stats.Damage;
-        m_Speed = _owner.Stats.BulletSpeed * m_MultPixel;
-
+        m_Speed = _owner.Stats.BulletSpeed * m_MultPixel;       
+        // Le .16 est pas aleatoire, il est la tail en pixel de ma grid. 16x16, je vais un Classe de config apres
+        transform.Translate(_direction * 0.16f, Space.World);  // Translate un "carré" pour que le balle spawn dans l'arme
         m_Body.AddForce(_direction*m_Speed,ForceMode2D.Impulse);
     }
 
