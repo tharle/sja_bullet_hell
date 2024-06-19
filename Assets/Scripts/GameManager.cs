@@ -28,16 +28,16 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void NewGame(Save _save)
+    public void NewGame(Save _save, bool loadScene = true)
     {
         currentSave = _save;
-        SceneManager.LoadScene("Gym");
+        if(loadScene) SceneManager.LoadScene("Game");
     }
 
-    public void LoadGame(Save _save)
+    public void LoadGame(Save _save, bool loadScene = true)
     {
         currentSave = _save;
-        SceneManager.LoadScene("Gym");
+        if (loadScene) SceneManager.LoadScene("Game");
     }
 
     public void SetPlayer(PlayerEntity _playerEntiy)
