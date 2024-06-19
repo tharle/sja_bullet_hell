@@ -59,6 +59,7 @@ public class MainMenuManager : MonoBehaviour
         Save save = m_Saves[slotIndex];
 
         if (save == null) return;
+        save.NewGame = false ;
 
         GameManager.Instance.LoadGame(save, false);
         LoadGame();

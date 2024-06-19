@@ -69,7 +69,7 @@ public class SaveSlot : MonoBehaviour
     public void OnClickSlot()
     {
         GameEventMessage message = new GameEventMessage(EGameEventMessage.SlotIndex, m_SlotIndex);
-        message.Add(EGameEventMessage.HasData, m_HasData);
+        message.Add(EGameEventMessage.HasData, m_HasData && !m_IsNewGame);
 
         GameEventSystem.Instance.TriggerEvent(EGameEvent.MainMenuSelectSlot, message);
     }

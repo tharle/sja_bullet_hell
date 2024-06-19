@@ -18,7 +18,7 @@ public class Save
     public Stats Stats => stats;
     public int CurrentHealth => currentHealth;
     public int Index => index;
-    public bool NewGame => newGame;
+    public bool NewGame { get => newGame; set => newGame = value; }
 
     public Save()
     {
