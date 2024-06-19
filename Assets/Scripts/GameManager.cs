@@ -80,6 +80,9 @@ public class GameManager : MonoBehaviour
                 GameEventSystem.Instance.TriggerEvent(EGameEvent.AddItem, new GameEventMessage(EGameEventMessage.Item, m_ItemOrange));
             if (GUILayout.Button("Eat Blueberry"))
                 GameEventSystem.Instance.TriggerEvent(EGameEvent.AddItem, new GameEventMessage(EGameEventMessage.Item, m_ItemBlueberry));
+
+            if (GUILayout.Button("To main menu"))
+                SceneManager.LoadScene("MainMenu");
         }
     }
 }
