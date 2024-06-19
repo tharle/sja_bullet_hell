@@ -8,7 +8,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -79,11 +78,13 @@ public class MainMenuManager : MonoBehaviour
     public void OnStartGame()
     {
         LoadAllSaves(true);
+        AudioManager.Instance.Play(EAudio.SFXConfirm, transform.position);
     }
 
     public void OnLoadMenuEnter()
     {
         LoadAllSaves(false);
+        AudioManager.Instance.Play(EAudio.SFXConfirm, transform.position);
     }
 
     private void LoadAllSaves(bool newGame)
@@ -113,11 +114,13 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnLoadMenuExit()
     {
+        AudioManager.Instance.Play(EAudio.SFXConfirm, transform.position);
         AnimationMenuLoad(false);
     }
 
     public void OnQuit()
     {
+        AudioManager.Instance.Play(EAudio.SFXConfirm, transform.position);
         Application.Quit();
     }
 

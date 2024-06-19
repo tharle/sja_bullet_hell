@@ -68,6 +68,8 @@ public class SaveSlot : MonoBehaviour
 
     public void OnClickSlot()
     {
+        AudioManager.Instance.Play(EAudio.SFXConfirm, transform.position);
+
         GameEventMessage message = new GameEventMessage(EGameEventMessage.SlotIndex, m_SlotIndex);
         message.Add(EGameEventMessage.HasData, m_HasData && !m_IsNewGame);
 

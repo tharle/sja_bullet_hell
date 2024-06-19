@@ -17,4 +17,14 @@ public class PlayerAnimation : MonoBehaviour
     {
         m_Animator.SetFloat("velocity", velocity);
     }
+
+    public void PlayWalkSound()
+    {
+        AudioManager.Instance.Play(EAudio.SFXWalkDirty, transform.position, true, 0.5f);
+    }
+
+    public void StopWalkSound()
+    {
+        AudioManager.Instance.StopAllLooping();
+    }
 }

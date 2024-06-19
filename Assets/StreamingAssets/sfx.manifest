@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2655249957
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e69f7e7b540effea202dcbf78e5d40aa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/BundleAssets/Sounds/SFX/SFXFishingRod.wav
+- Assets/BundleAssets/Sounds/SFX/SFXConfirm.wav
+- Assets/BundleAssets/Sounds/SFX/SFXMiniGameWin.wav
+- Assets/BundleAssets/Sounds/SFX/SFXMenuHide.wav
+- Assets/BundleAssets/Sounds/SFX/SFXWalkDirty.wav
+- Assets/BundleAssets/Sounds/SFX/SFXMiniGameLose.wav
+- Assets/BundleAssets/Sounds/SFX/SFXEnterWellcome.wav
+- Assets/BundleAssets/Sounds/SFX/SFXMenuShow.wav
+- Assets/BundleAssets/Sounds/SFX/SFXCard.wav
+- Assets/BundleAssets/Sounds/SFX/SFXAmbianceSound.mp3
+- Assets/BundleAssets/Sounds/SFX/SFXWinGame.wav
+Dependencies: []

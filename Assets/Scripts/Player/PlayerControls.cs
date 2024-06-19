@@ -78,6 +78,7 @@ public class PlayerControls : MonoBehaviour
                     wallEffect.AddRange(item.wallEffects);
 
                 projectile.SetBulllet(m_Weapon.Direction, m_PlayerEntity, m_Weapon.transform.position, wallEffect);
+                AudioManager.Instance.Play(EAudio.SFXFishingRod, transform.position);
                 m_PlayerEntity.HasShoot();
             }
         }
