@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.85
+  m_fontSize: 29.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.95
+  m_fontSize: 97
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4103,6 +4103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a76c8d9360857a47a45e7eed8cfaf30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ItemApple: {fileID: 11400000, guid: 20865680c5e885b459f2dd4c19f63d3f, type: 2}
+  m_ItemOrange: {fileID: 11400000, guid: cfa286419080d89439a0762b7930e236, type: 2}
+  m_ItemBlueberry: {fileID: 11400000, guid: 631df12b61f726d4aa2ca46f6e433a36, type: 2}
 --- !u!4 &1866814773
 Transform:
   m_ObjectHideFlags: 0

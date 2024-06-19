@@ -8,6 +8,7 @@ public enum EGameEventMessage
     SlotIndex,
     SlotData,
     IsNewGame,
+    Item,
 }
 
 public class GameEventMessage

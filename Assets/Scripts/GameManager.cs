@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => m_Instance;
     public static event Action OnInit;
 
+
+    // TODO: Load ça via bundle dans le future
+    [SerializeField] private Item m_ItemApple;
+    [SerializeField] private Item m_ItemOrange;
+    [SerializeField] private Item m_ItemBlueberry;
+
     //GameManager
     private Save currentSave;
     private PlayerEntity playerEntity;
@@ -67,6 +73,13 @@ public class GameManager : MonoBehaviour
                 playerEntity.TakeDamage(5);
             if (GUILayout.Button("Save"))
                 GameManager.Instance.Save();
+
+            if (GUILayout.Button("Eat Apple"))
+                GameEventSystem.Instance.TriggerEvent(EGameEvent.AddItem, new GameEventMessage(EGameEventMessage.Item, m_ItemApple));
+            if (GUILayout.Button("Eat Orange"))
+                GameEventSystem.Instance.TriggerEvent(EGameEvent.AddItem, new GameEventMessage(EGameEventMessage.Item, m_ItemOrange));
+            if (GUILayout.Button("Eat Blueberry"))
+                GameEventSystem.Instance.TriggerEvent(EGameEvent.AddItem, new GameEventMessage(EGameEventMessage.Item, m_ItemBlueberry));
         }
     }
 }

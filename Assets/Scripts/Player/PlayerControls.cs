@@ -25,6 +25,21 @@ public class PlayerControls : MonoBehaviour
         m_PlayerAnimation = GetComponentInChildren<PlayerAnimation>();
         m_Weapon = GetComponentInChildren<Weapon>();
         m_PlayerEntity = GetComponent<PlayerEntity>();
+
+        SubscribeAll();
+    }
+
+    private void SubscribeAll()
+    {
+        GameEventSystem.Instance.SubscribeTo(EGameEvent.AddItem, OnAddItem);
+    }
+
+    private void OnAddItem(GameEventMessage message)
+    {
+        if (message.Contains<Item>(EGameEventMessage.Item, out Item item))
+        {
+            m_PlayerEntity.AddItem(item);
+        }
     }
 
     // Update is called once per frame

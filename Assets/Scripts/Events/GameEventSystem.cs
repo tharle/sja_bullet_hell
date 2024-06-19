@@ -7,7 +7,8 @@ using UnityEngine;
 public enum EGameEvent
 {
     MainMenuSelectSlot,
-    MainMenuLoadSlot
+    MainMenuLoadSlot,
+    AddItem
 }
 
 public class GameEventSystem
