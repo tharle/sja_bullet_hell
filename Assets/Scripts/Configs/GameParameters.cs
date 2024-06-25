@@ -56,6 +56,7 @@ public class GameParameters
         public const string PREFAB_ACHIVEMENTS = "prefab_achivement";
         public const string PREFAB_LEVEL = "prefab_level";
         public const string SCRIT_OBJETS = "data";
+        public const string ITEM = "item";
         public const string SFX = "sfx";
         public const string SPRITE_ITEM = "sprite_item";
     }
@@ -69,6 +70,7 @@ public class GameParameters
         public const string PREFAB_ACHIVEMENTS = "/Prefabs/Achivements";
         public const string PREFAB_LEVELS = "/Prefabs/Levels";
         public const string SCRIT_OBJETS = "/Data";
+        public const string ITEM = "/Data/Itens";
         public const string SFX = "/Sounds/SFX";
         public const string SPRITES_STAMPS = "/Sprites/Stamps";
     }

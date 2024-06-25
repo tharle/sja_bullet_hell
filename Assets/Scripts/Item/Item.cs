@@ -1,8 +1,18 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 //https://github.com/mackysoft/Unity-SerializeReferenceExtensions
+
+// Is the name of item
+public enum EItem
+{
+    None,
+    Apple,
+    Blueberry,
+    Orange
+}
 
 [CreateAssetMenu,Serializable]
 public class Item : ScriptableObject
@@ -26,4 +36,11 @@ public class Item : ScriptableObject
     //[SerializeReference, SubclassSelector] public List <BulletEffect> projectileHitEffects;
     [SerializeReference, SubclassSelector] public List <ItemEffect> wallEffects;
     //[SerializeReference, SubclassSelector] public List <BulletEffect> trailEffects;
+
+    public EItem Type { get
+        {
+            if (Enum.TryParse<EItem>(name, out EItem type)) return type;
+            return EItem.None;
+        }
+    }
 }

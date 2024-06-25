@@ -20,6 +20,14 @@ public class CreatAssetBundles
             assetBundleDefinitionList.Add(ab);
         }
 
+        // SCRIPT OBJETS
+        {
+            AssetBundleBuild ab = new();
+            ab.assetBundleName = BundleNames.ITEM;
+            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.ITEM).ToArray();
+            assetBundleDefinitionList.Add(ab);
+        }
+
         // Create if not exist streaming Assets directory
         if (!Directory.Exists(Application.streamingAssetsPath))
         {

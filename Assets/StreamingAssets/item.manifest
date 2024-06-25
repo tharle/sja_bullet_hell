@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 1008870326
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3cdb113d43587cfe6559bba0f860e530
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9dba085d757ada5132c6733b541e269f
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc7767e4b29a4ff42961fdb02d1de314, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: AddStatsEffect
+Assets:
+- Assets/BundleAssets/Data/Itens/Apple.asset
+- Assets/BundleAssets/Data/Itens/Orange.asset
+- Assets/BundleAssets/Data/Itens/Blueberry.asset
+Dependencies: []

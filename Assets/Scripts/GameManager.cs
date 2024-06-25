@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
 
 
     // TODO: Load ça via bundle dans le future
-    [SerializeField] private Item m_ItemApple;
-    [SerializeField] private Item m_ItemOrange;
-    [SerializeField] private Item m_ItemBlueberry;
+    private Item m_ItemApple;
+    private Item m_ItemOrange;
+    private Item m_ItemBlueberry;
 
     //GameManager
     private Save currentSave;
@@ -32,6 +32,14 @@ public class GameManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        ItemLoader.Instance.LoadAll();
+        m_ItemApple = ItemLoader.Instance.Get(EItem.Apple);
+        m_ItemBlueberry = ItemLoader.Instance.Get(EItem.Blueberry);
+        m_ItemOrange = ItemLoader.Instance.Get(EItem.Orange);
     }
 
     public void NewGame(Save _save, bool loadScene = true)
