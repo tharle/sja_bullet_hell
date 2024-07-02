@@ -27,7 +27,7 @@ MonoBehaviour:
         statsToAdd:
           BulletPerSeconds: 0
           MaxHealth: 0
-          Speed: 3
+          Speed: 1
           Damage: 0
           LifeSteal: 0
           BulletSpeed: 0

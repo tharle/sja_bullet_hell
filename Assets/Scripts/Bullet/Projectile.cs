@@ -3,30 +3,29 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private Bullet m_BulletPrefab;
     private Rigidbody2D m_Body;
+    private BulletLoader m_BulletLoader;
 
     private float m_MultPixel = 0.16f; // mult fom grid layout
     private float m_Speed = 5f;
     private int m_Damage;
     private Color m_Color;
     private Entity m_Owner;
-
     private List<ItemEffect> m_WallEffects = new List<ItemEffect>();
 
     private void Awake()
     {
         m_Body = GetComponent<Rigidbody2D>();
+        m_BulletLoader = BulletLoader.Instance;
     }
 
     public void SetBulllet(Vector2 _direction, Entity _owner, Vector3 _position ,List<ItemEffect> _wallEffects = null)
     {
         m_Owner = _owner;
         m_Color = _owner.EntityColor;
-        m_BulletPrefab = Instantiate(m_BulletPrefab);
-        m_BulletPrefab.ChangeColor(m_Color);
-        m_BulletPrefab.transform.parent = transform;
-        m_BulletPrefab.transform.position = _position;
+        GameObject currentBullet = m_BulletLoader.Get(_owner.CurrentBullet);
+        currentBullet.transform.parent = transform;
+        currentBullet.transform.position = _position;
         m_WallEffects = _wallEffects;
         m_Damage = _owner.Stats.Damage;
         m_Speed = _owner.Stats.BulletSpeed * m_MultPixel;       

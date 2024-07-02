@@ -12,11 +12,12 @@ public class CreatAssetBundles
     {
         List<AssetBundleBuild> assetBundleDefinitionList = new();
 
-        // FOR SFX
+
+        // BULLETS PREFABS
         {
             AssetBundleBuild ab = new();
-            ab.assetBundleName = BundleNames.SFX;
-            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.SFX).ToArray();
+            ab.assetBundleName = BundleNames.BULLET;
+            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.BULLETS).ToArray();
             assetBundleDefinitionList.Add(ab);
         }
 
@@ -25,6 +26,15 @@ public class CreatAssetBundles
             AssetBundleBuild ab = new();
             ab.assetBundleName = BundleNames.ITEM;
             ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.ITEM).ToArray();
+            assetBundleDefinitionList.Add(ab);
+        }
+
+
+        // FOR SFX
+        {
+            AssetBundleBuild ab = new();
+            ab.assetBundleName = BundleNames.SFX;
+            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.SFX).ToArray();
             assetBundleDefinitionList.Add(ab);
         }
 

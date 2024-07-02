@@ -8,6 +8,7 @@ public class EntityData : ScriptableObject
     public GameObject ProjectilePrefab;
     public Color Color;
     public List<Item> StartingItems;
+    public EBullet Bullet;
 
     public Stats stats;
 }

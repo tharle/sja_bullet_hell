@@ -26,7 +26,7 @@ MonoBehaviour:
         name: Hp up
         statsToAdd:
           BulletPerSeconds: 0
-          MaxHealth: 5
+          MaxHealth: 1
           Speed: 0
           Damage: 0
           LifeSteal: 0

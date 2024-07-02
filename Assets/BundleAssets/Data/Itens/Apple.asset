@@ -30,4 +30,4 @@ MonoBehaviour:
           Speed: 0
           Damage: 0
           LifeSteal: 0
-          BulletSpeed: 3
+          BulletSpeed: 1

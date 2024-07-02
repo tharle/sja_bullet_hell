@@ -12,9 +12,12 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
 
     [Header("Entity")]
     [SerializeField] private EntityData m_Data;
+
     protected List<Item> m_Items = new List<Item>();
     protected Stats m_CurrentStats;
     protected int m_CurrentHealth;
+    protected EBullet m_CurrentBulletType;
+    public EBullet CurrentBullet => m_CurrentBulletType;
 
     public GameObject BulletPrefab => m_Data.ProjectilePrefab;
     public Stats Stats => m_CurrentStats;
@@ -27,6 +30,7 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     {
         m_CurrentStats = m_Data.stats;
         m_CurrentHealth = m_CurrentStats.MaxHealth;
+        m_CurrentBulletType = m_Data.Bullet;
 
         foreach (var item in StartingItems)
             AddItem(item);
