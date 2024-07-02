@@ -2609,6 +2609,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337f5f6a877f7c840833729678a50bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1831763242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831763244}
+  - component: {fileID: 1831763243}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1831763243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831763242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8212ab09c206dfe4fab879c91ef58a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DefaultState:
+    GuidAssignmentFailed: 0
+    GUID: 1c49f2e68dbed8640901976c9b876388
+    _typeNameAndAssembly: IdleState, Assembly-CSharp
+    _suppressLogs: 0
+  m_States:
+  - rid: 5639179696897523712
+  references:
+    version: 2
+    RefIds:
+    - rid: 5639179696897523712
+      type: {class: IdleState, ns: , asm: Assembly-CSharp}
+      data:
+        Owner: {fileID: 0}
+        m_Id: 
+        m_Rules: 0
+--- !u!4 &1831763244
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831763242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4975006, y: -0.06698884, z: 0.0004159005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5831272467921772722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2680,3 +2740,4 @@ SceneRoots:
   - {fileID: 5831272467921772722}
   - {fileID: 653074187}
   - {fileID: 748301552}
+  - {fileID: 1831763244}
