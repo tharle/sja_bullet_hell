@@ -6,11 +6,11 @@ public abstract class ItemEffect
 {
     [SerializeField] private string name;
 
-    public abstract void Execute(Entity _owner);
+    public abstract void Execute(Entity owner);
 }
 
 [Serializable]
 public abstract class BulletEffect : ItemEffect
 {
-    public abstract void Execute(Entity _owner, Projectile _projectile = null);
+    public abstract void Execute(Entity owner, Projectile projectile = null);
 }

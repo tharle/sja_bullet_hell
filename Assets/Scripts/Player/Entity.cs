@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     protected Stats m_CurrentStats;
     protected int m_CurrentHealth;
     protected EBullet m_CurrentBulletType;
-    public EBullet CurrentBullet => m_CurrentBulletType;
+    public EBullet BulletType => m_CurrentBulletType;
 
     public GameObject BulletPrefab => m_Data.ProjectilePrefab;
     public Stats Stats => m_CurrentStats;

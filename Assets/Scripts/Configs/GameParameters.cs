@@ -5,16 +5,6 @@ using UnityEngine.UIElements;
 
 public class GameParameters
 {
-    public class TypeWriteConfiguration
-    {
-        public const char BREAK_LINE = '|';
-    }
-
-    public class AnimationCard
-    {
-        public const string TRIGGER_Card_To_Front = "CardToFront";
-        public const string TRIGGER_Card_To_Back = "CardToBack";
-    }
 
     public class AnimationEnemy
     {
@@ -28,17 +18,7 @@ public class GameParameters
         public const string FLOAT_VELOCITY = "velocity";
         public const string TRIGGER_INTERACT = "interact";
         public const string TRIGGER_IDLE = "idle";
-        public const string TRIGGER_LOSE = "lose";
-        public const string TRIGGER_WIN = "win";
-        public const string TRIGGER_FISHING = "fishing";
     }
-
-    public class AnimationScenario
-    {
-        public const string TRIGGER_AUTOMATIC_DOOR_OPEN = "AutomaticDoorOpen";
-        public const string TRIGGER_AUTOMATIC_DOOR_CLOSE = "AutomaticDoorClose";
-    }
-
 
     public class AnimationTips
     {
@@ -89,6 +69,11 @@ public class GameParameters
     {
         public const string MAIN_MENU = "MainMenu";
         public const string GAME = "Game";
+    }
+
+    public class ScreenConfig
+    {
+        public const float DENSITY_PIXELS = 0.16f;
     }
 
     public class TagName {
