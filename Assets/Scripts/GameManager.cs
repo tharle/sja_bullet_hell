@@ -45,13 +45,13 @@ public class GameManager : MonoBehaviour
     public void NewGame(Save _save, bool loadScene = true)
     {
         currentSave = _save;
-        if(loadScene) SceneManager.LoadScene("Game");
+        if(loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 
     public void LoadGame(Save _save, bool loadScene = true)
     {
         currentSave = _save;
-        if (loadScene) SceneManager.LoadScene("Game");
+        if (loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 
     public void SetPlayer(PlayerEntity _playerEntiy)
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
                 GameEventSystem.Instance.TriggerEvent(EGameEvent.AddItem, new GameEventMessage(EGameEventMessage.Item, m_ItemBlueberry));
 
             if (GUILayout.Button("To main menu"))
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene(GameParameters.SceneName.MAIN_MENU);
         }
     }
 }
