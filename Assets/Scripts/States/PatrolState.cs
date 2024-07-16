@@ -21,7 +21,8 @@ public class PatrolState : State
         m_Walking = false;
         m_CurrentSpot = 0;
 
-        if (m_Spots.Count <= 0) Owner.StartCoroutine(WaitRoutine());
+        if (m_Spots.Count <= 0) Owner.ChangeState<IdleState>();
+        Owner.StartCoroutine(WaitRoutine());
     }
 
     public override void OnExit()
@@ -40,7 +41,7 @@ public class PatrolState : State
 
         if(m_Walking)
         {
-           // Owner.Move(m_Direction);
+            Owner.Move(m_Direction);
 
             Transform nextSpot = m_Spots[m_CurrentSpot];
             if (Vector2.Distance(nextSpot.position, Owner.transform.position) <= m_MinDistance)
