@@ -7,12 +7,15 @@ using Unity.VisualScripting;
 
 public class StateMachine : MonoBehaviour
 {
+    [SerializeField] Animator m_Animator;
+
     // https://github.com/SolidAlloy/ClassTypeReference-for-Unity
- 
     [SerializeField, Inherits(typeof(State))] protected TypeReference m_DefaultState;
 
     [SerializeReference, SubclassSelector] protected List<State> m_States;
     protected State m_CurrentState;
+
+    Rigidbody2D m_Rigidbody;
 
     public virtual void Awake()
     {
@@ -24,6 +27,8 @@ public class StateMachine : MonoBehaviour
 
     private void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+
         State state = GetState(m_DefaultState.Type);
         if (state != null) ChangeState(state);
     }
@@ -86,6 +91,19 @@ public class StateMachine : MonoBehaviour
             if (state is T) return state;
 
         return null;
+    }
+
+    public void Move(Vector2 m_Direction)
+    {
+        //transform.forward = m_Direction;
+        m_Rigidbody.velocity = m_Direction * 0.2f; // TODO change for entity 
+        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, 1f);
+    }
+
+    public void Stop()
+    {
+        m_Rigidbody.velocity = Vector2.zero;
+        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, 0);
     }
 }
 
