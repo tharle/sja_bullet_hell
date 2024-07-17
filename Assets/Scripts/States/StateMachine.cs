@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 public class StateMachine : MonoBehaviour
 {
     [SerializeField] Animator m_Animator;
+    [SerializeField] bool m_LookingLeft = true;
 
     // https://github.com/SolidAlloy/ClassTypeReference-for-Unity
     [SerializeField, Inherits(typeof(State))] protected TypeReference m_DefaultState;
@@ -35,7 +36,14 @@ public class StateMachine : MonoBehaviour
 
     private void Update()
     {
+        UpdateVelocity();
+
         m_CurrentState?.Update();
+    }
+
+    private void UpdateVelocity()
+    {
+        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, m_Rigidbody.velocity.magnitude);
     }
 
     private void FixedUpdate()
@@ -93,25 +101,33 @@ public class StateMachine : MonoBehaviour
         return null;
     }
 
-    public void Move(Vector2 m_Direction)
+    public void Move(Vector2 direction)
     {
-        //transform.forward = m_Direction;
-        m_Rigidbody.velocity = m_Direction * 0.2f; // TODO change for entity 
-        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, 1f);
+        m_Rigidbody.velocity = direction * 0.2f; // TODO change for entity 
+        Flip(direction);
+    }
+
+    private void Flip(Vector2 direction)
+    {
+        if (direction.x < 0 && !m_LookingLeft) return;
+        if (direction.x > 0 && m_LookingLeft) return;
+
+        m_LookingLeft = !m_LookingLeft;
+        Vector2 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     public void Stop()
     {
         m_Rigidbody.velocity = Vector2.zero;
-        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, 0);
     }
 }
 
 [Flags]
 public enum EStateRules
 {
-    AcceptInputs = 1,
-    UnCancellable = 2
+    UnCancellable = 1
 }
 
 [Serializable]
@@ -141,7 +157,7 @@ public abstract class State
 
     public virtual void SetParams(params Param[] stateParams) { }
 
-    public virtual void OnEnter() { }
+    public virtual void OnEnter() { Owner.StopAllCoroutines();}
     public virtual void Update() { }
     public virtual void FixedUpdate() { }
 
