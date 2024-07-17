@@ -23,6 +23,7 @@ public class PatrolState : State
     public override void Update()
     {
         base.Update();
+        Owner.CheckTargetRange();
     }
 
     private Vector2 GetRandomDirection()

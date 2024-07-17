@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -10,6 +9,7 @@ public class IdleState : State
     public override void Update()
     {
         base.Update();
+        Owner.CheckTargetRange();
     }
 
     public override void OnEnter()

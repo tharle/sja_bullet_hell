@@ -16,10 +16,10 @@ public class GameManager : MonoBehaviour
     private Item m_ItemBlueberry;
 
     //GameManager
-    private Save currentSave;
-    private PlayerEntity playerEntity;
+    private Save m_CurrentSave;
+    private PlayerEntity m_PlayerEntity;
 
-    public PlayerEntity PlayerEntity => playerEntity;
+    public PlayerEntity PlayerEntity => m_PlayerEntity;
 
     private void Awake()
     {
@@ -44,41 +44,41 @@ public class GameManager : MonoBehaviour
 
     public void NewGame(Save _save, bool loadScene = true)
     {
-        currentSave = _save;
+        m_CurrentSave = _save;
         if(loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 
     public void LoadGame(Save _save, bool loadScene = true)
     {
-        currentSave = _save;
+        m_CurrentSave = _save;
         if (loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 
     public void SetPlayer(PlayerEntity _playerEntiy)
     {
-        playerEntity = _playerEntiy;
+        m_PlayerEntity = _playerEntiy;
 
-        if (currentSave != null && !currentSave.NewGame)
-            playerEntity.SetSave(currentSave);
+        if (m_CurrentSave != null && !m_CurrentSave.NewGame)
+            m_PlayerEntity.SetSave(m_CurrentSave);
     }
 
     public void Save()
     {
-        if (currentSave == null)
+        if (m_CurrentSave == null)
             return;
 
-        currentSave.UpdateSave(playerEntity.Items, playerEntity.CurrentHealth,playerEntity.Stats);
-        if (SaveManagerJson.Save(currentSave, currentSave.SaveName))
+        m_CurrentSave.UpdateSave(m_PlayerEntity.Items, m_PlayerEntity.CurrentHealth,m_PlayerEntity.Stats);
+        if (SaveManagerJson.Save(m_CurrentSave, m_CurrentSave.SaveName))
             Debug.Log("Saved Sucessfully !!");
     }
 
     private void OnGUI()
     {
-        if (playerEntity)
+        if (m_PlayerEntity)
         {
-            GUILayout.Label($"Player Health : {playerEntity.CurrentHealth}");
+            GUILayout.Label($"Player Health : {m_PlayerEntity.CurrentHealth}");
             if (GUILayout.Button("Take Damage"))
-                playerEntity.TakeDamage(5);
+                m_PlayerEntity.TakeDamage(5);
             if (GUILayout.Button("Save"))
                 GameManager.Instance.Save();
 

@@ -7,8 +7,10 @@ using Unity.VisualScripting;
 
 public class StateMachine : MonoBehaviour
 {
-    [SerializeField] Animator m_Animator;
-    [SerializeField] bool m_LookingLeft = true;
+    [SerializeField] private Animator m_Animator;
+    [SerializeField] private bool m_LookingLeft = true;
+    [SerializeField] private float m_AttackTriggerRange; // TODO Change to Entity
+    [SerializeField] private float m_AttackRange; // TODO Change to Entity
 
     // https://github.com/SolidAlloy/ClassTypeReference-for-Unity
     [SerializeField, Inherits(typeof(State))] protected TypeReference m_DefaultState;
@@ -37,7 +39,6 @@ public class StateMachine : MonoBehaviour
     private void Update()
     {
         UpdateVelocity();
-
         m_CurrentState?.Update();
     }
 
@@ -107,6 +108,15 @@ public class StateMachine : MonoBehaviour
         Flip(direction);
     }
 
+    public void MoveToPlayer()
+    {
+        PlayerEntity player = GameManager.Instance.PlayerEntity;
+
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        Move(direction);
+    }
+
     private void Flip(Vector2 direction)
     {
         if (direction.x < 0 && !m_LookingLeft) return;
@@ -121,6 +131,23 @@ public class StateMachine : MonoBehaviour
     public void Stop()
     {
         m_Rigidbody.velocity = Vector2.zero;
+    }
+
+    public void CheckTargetRange()
+    {
+        if (DistanceFromPlayer() <= m_AttackTriggerRange)
+            ChangeState<ChaseState>();
+    }
+
+    public float DistanceFromPlayer()
+    {
+        Vector2 playerPosition = GameManager.Instance.PlayerEntity.transform.position;
+        return Vector2.Distance(transform.position, playerPosition);
+    }
+
+    public bool IsInAttackRange()
+    {
+        return DistanceFromPlayer() <= m_AttackRange;
     }
 }
 
