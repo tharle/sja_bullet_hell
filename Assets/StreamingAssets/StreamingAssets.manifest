@@ -1,13 +1,13 @@
 ManifestFileVersion: 0
-CRC: 2678446531
+CRC: 1450051423
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: sfx
       Dependencies: {}
     Info_1:
-      Name: item
+      Name: bullet
       Dependencies: {}
     Info_2:
-      Name: bullet
+      Name: item
       Dependencies: {}

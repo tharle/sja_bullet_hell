@@ -4,19 +4,17 @@ using UnityEngine;
 [System.Serializable]
 public class IdleState : State
 {
-    [SerializeField] private Vector2 m_WaitTimeRange;
-
     public override void Update()
     {
         base.Update();
-        Owner.CheckTargetRange();
+        m_Owner.CheckPlayerInTauntRange();
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
         Debug.Log("ENTER IDLE");
-        Owner.StartCoroutine(WaitRoutine());
+        m_Owner.StartCoroutine(WaitRoutine());
     }
 
     public override void OnExit()
@@ -27,13 +25,13 @@ public class IdleState : State
 
     private IEnumerator WaitRoutine()
     {
-        Owner.Stop();
+        m_Owner.Stop();
         yield return new WaitForSeconds(GetWaitTime());
-        Owner.ChangeState<PatrolState>();
+        m_Owner.ChangeState<PatrolState>();
     }
 
     private float GetWaitTime()
     {
-        return Random.Range(m_WaitTimeRange.x, m_WaitTimeRange.y);
+        return m_Owner.Enemy.IdleTime;
     }
 }

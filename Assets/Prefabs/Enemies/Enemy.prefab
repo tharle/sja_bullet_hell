@@ -115,9 +115,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8920678533832326164}
-  - component: {fileID: 3847364713976199965}
   - component: {fileID: 7982687921254757253}
   - component: {fileID: 9076506891480724907}
+  - component: {fileID: 1677279191713183649}
+  - component: {fileID: 3847364713976199965}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -141,63 +142,6 @@ Transform:
   - {fileID: 2461481145095073786}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3847364713976199965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8937771572160661641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8212ab09c206dfe4fab879c91ef58a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Animator: {fileID: 6620843556915262020}
-  m_LookingLeft: 1
-  m_AttackTriggerRange: 1
-  m_AttackRange: 0.5
-  m_DefaultState:
-    GuidAssignmentFailed: 0
-    GUID: 072a0cb38cdd8c243ad25241e22033f8
-    _typeNameAndAssembly: PatrolState, Assembly-CSharp
-    _suppressLogs: 0
-  m_States:
-  - rid: 7938316003318431744
-  - rid: 7938316003318431745
-  - rid: 8331348550105432067
-  - rid: 8331348550105432065
-  references:
-    version: 2
-    RefIds:
-    - rid: 7938316003318431744
-      type: {class: IdleState, ns: , asm: Assembly-CSharp}
-      data:
-        Owner: {fileID: 0}
-        m_Id: 0
-        m_Rules: 0
-        m_WaitTimeRange: {x: 0.5, y: 2}
-    - rid: 7938316003318431745
-      type: {class: PatrolState, ns: , asm: Assembly-CSharp}
-      data:
-        Owner: {fileID: 0}
-        m_Id: 1
-        m_Rules: 0
-        m_PatrolTimeRange: {x: 0.5, y: 2}
-    - rid: 8331348550105432065
-      type: {class: AttackState, ns: , asm: Assembly-CSharp}
-      data:
-        Owner: {fileID: 0}
-        m_Id: 3
-        m_Rules: 0
-        m_DelayAttack: 0.2
-    - rid: 8331348550105432067
-      type: {class: ChaseState, ns: , asm: Assembly-CSharp}
-      data:
-        Owner: {fileID: 0}
-        m_Id: 2
-        m_Rules: 0
-        m_FatigueTime: 1
 --- !u!50 &7982687921254757253
 Rigidbody2D:
   serializedVersion: 4
@@ -270,3 +214,73 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.30927837, y: 0.20669603}
   m_EdgeRadius: 0
+--- !u!114 &1677279191713183649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937771572160661641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23a4ea9375be6d49b96e6c966075610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Data: {fileID: 0}
+--- !u!114 &3847364713976199965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8937771572160661641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8212ab09c206dfe4fab879c91ef58a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 6620843556915262020}
+  m_LookingLeft: 1
+  m_AttackTriggerRange: 1
+  m_AttackRange: 0.5
+  m_DefaultState:
+    GuidAssignmentFailed: 0
+    GUID: 072a0cb38cdd8c243ad25241e22033f8
+    _typeNameAndAssembly: PatrolState, Assembly-CSharp
+    _suppressLogs: 0
+  m_States:
+  - rid: 7938316003318431744
+  - rid: 7938316003318431745
+  - rid: 8331348550105432067
+  - rid: 8331348550105432065
+  references:
+    version: 2
+    RefIds:
+    - rid: 7938316003318431744
+      type: {class: IdleState, ns: , asm: Assembly-CSharp}
+      data:
+        Owner: {fileID: 0}
+        m_Id: 0
+        m_Rules: 0
+        m_WaitTimeRange: {x: 0.5, y: 2}
+    - rid: 7938316003318431745
+      type: {class: PatrolState, ns: , asm: Assembly-CSharp}
+      data:
+        Owner: {fileID: 0}
+        m_Id: 1
+        m_Rules: 0
+        m_PatrolTimeRange: {x: 0.5, y: 2}
+    - rid: 8331348550105432065
+      type: {class: AttackState, ns: , asm: Assembly-CSharp}
+      data:
+        Owner: {fileID: 0}
+        m_Id: 3
+        m_Rules: 0
+        m_DelayAttack: 0.2
+    - rid: 8331348550105432067
+      type: {class: ChaseState, ns: , asm: Assembly-CSharp}
+      data:
+        Owner: {fileID: 0}
+        m_Id: 2
+        m_Rules: 0
+        m_FatigueTime: 1

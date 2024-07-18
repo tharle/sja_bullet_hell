@@ -5,8 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class ChaseState : State
 {
-    [SerializeField] private float m_FatigueTime = 1.0f;
-
     private float m_ElapseTime;
 
     public override void OnEnter()
@@ -14,8 +12,8 @@ public class ChaseState : State
         base.OnEnter();
         Debug.Log("ENTER CHASE");
 
-        Owner.StopAllCoroutines();
-        Owner.StartCoroutine(MoveToPlayerRoutine());
+        m_Owner.StopAllCoroutines();
+        m_Owner.StartCoroutine(MoveToPlayerRoutine());
     }
 
     public override void Update()
@@ -33,19 +31,19 @@ public class ChaseState : State
     {
         
         m_ElapseTime = 0.0f;
-        while (m_ElapseTime < m_FatigueTime)
+        while (m_ElapseTime < m_Owner.Enemy.Fatigue)
         {
-            Owner.MoveToPlayer();
-            yield return new WaitForSeconds(0.1f);
-            m_ElapseTime += 0.1f;
+            m_Owner.MoveToPlayer();
+            yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_TICK_CHECK_IN_SECONDS);
+            m_ElapseTime += GameParameters.Prefs.ENEMY_TICK_CHECK_IN_SECONDS;
 
-            if (Owner.IsInAttackRange())
+            if (m_Owner.IsInAttackRange())
             {
-                Owner.ChangeState<AttackState>();
+                m_Owner.ChangeState<AttackState>();
                 yield break;
             }
         }
 
-        Owner.ChangeState<IdleState>();
+        m_Owner.ChangeState<IdleState>();
     }
 }

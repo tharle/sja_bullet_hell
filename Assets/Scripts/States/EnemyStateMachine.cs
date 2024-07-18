@@ -5,12 +5,13 @@ using TypeReferences;
 using UnityEngine.XR;
 using Unity.VisualScripting;
 
-public class StateMachine : MonoBehaviour
+public class EnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private Animator m_Animator;
-    [SerializeField] private bool m_LookingLeft = true;
-    [SerializeField] private float m_AttackTriggerRange; // TODO Change to Entity
-    [SerializeField] private float m_AttackRange; // TODO Change to Entity
+    private bool m_LookingLeft = true;
+
+    private EnemyEntity m_Enemy;
+    public EnemyEntity Enemy => m_Enemy;
 
     // https://github.com/SolidAlloy/ClassTypeReference-for-Unity
     [SerializeField, Inherits(typeof(State))] protected TypeReference m_DefaultState;
@@ -24,13 +25,14 @@ public class StateMachine : MonoBehaviour
     {
         foreach (var state in m_States)
         {
-            state.Owner = this;
+            state.setOwner(this);
         }
     }
 
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Enemy = GetComponent<EnemyEntity>();
 
         State state = GetState(m_DefaultState.Type);
         if (state != null) ChangeState(state);
@@ -110,11 +112,16 @@ public class StateMachine : MonoBehaviour
 
     public void MoveToPlayer()
     {
-        PlayerEntity player = GameManager.Instance.PlayerEntity;
+        Move(DirectionToPlayer());
+    }
 
+    public Vector2 DirectionToPlayer()
+    {
+        PlayerEntity player = GameManager.Instance.PlayerEntity;
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
-        Move(direction);
+
+        return direction;
     }
 
     private void Flip(Vector2 direction)
@@ -133,9 +140,9 @@ public class StateMachine : MonoBehaviour
         m_Rigidbody.velocity = Vector2.zero;
     }
 
-    public void CheckTargetRange()
+    public void CheckPlayerInTauntRange()
     {
-        if (DistanceFromPlayer() <= m_AttackTriggerRange)
+        if (DistanceFromPlayer() <= m_Enemy.TautDistance)
             ChangeState<ChaseState>();
     }
 
@@ -147,7 +154,22 @@ public class StateMachine : MonoBehaviour
 
     public bool IsInAttackRange()
     {
-        return DistanceFromPlayer() <= m_AttackRange;
+        return DistanceFromPlayer() <= m_Enemy.AttackRange;
+    }
+
+    public void Shoot()
+    {
+        GameObject bulletGO = Instantiate(m_Enemy.BulletPrefab, transform.position, Quaternion.identity);
+        if (bulletGO.TryGetComponent<Projectile>(out var projectile))
+        {
+            var wallEffect = new List<ItemEffect>();
+            foreach (var item in m_Enemy.Items)
+                wallEffect.AddRange(item.wallEffects);
+
+            projectile.SetBulllet(DirectionToPlayer(), m_Enemy, transform.position, wallEffect);
+            AudioManager.Instance.Play(EAudio.SFXFishingRod, transform.position);
+            m_Enemy.HasShoot();
+        }
     }
 }
 
@@ -160,7 +182,7 @@ public enum EStateRules
 [Serializable]
 public abstract class State
 {
-    [HideInInspector] public StateMachine Owner;
+    protected EnemyStateMachine m_Owner;
 
     public struct Param
     {
@@ -184,11 +206,15 @@ public abstract class State
 
     public virtual void SetParams(params Param[] stateParams) { }
 
-    public virtual void OnEnter() { Owner.StopAllCoroutines();}
+    public virtual void OnEnter() { m_Owner.StopAllCoroutines();}
     public virtual void Update() { }
     public virtual void FixedUpdate() { }
 
     public virtual void OnCancel() { }
     public virtual void OnExit() { }
 
+    public void setOwner(EnemyStateMachine owner)
+    {
+        m_Owner = owner;
+    }
 }

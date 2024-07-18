@@ -12,6 +12,12 @@ public class GameParameters
         public const string TRIGGER_ATTACK = "attack";
         public const string FLOAT_VELOCITY = "velocity";
     }
+    
+    public class Prefs
+    {
+        public const float GRID_SIZE_IN_PIXEL = 0.16f;
+        public const float ENEMY_TICK_CHECK_IN_SECONDS = 0.1f;
+    }
 
     public class AnimationPlayer
     {

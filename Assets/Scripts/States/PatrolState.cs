@@ -5,13 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class PatrolState : State
 {
-    [SerializeField] private Vector2 m_PatrolTimeRange;
 
     public override void OnEnter()
     {
         base.OnEnter();
         Debug.Log("ENTER PATROL");
-        Owner.StartCoroutine(WalkRoutine());
+        m_Owner.StartCoroutine(WalkRoutine());
     }
 
     public override void OnExit()
@@ -23,7 +22,7 @@ public class PatrolState : State
     public override void Update()
     {
         base.Update();
-        Owner.CheckTargetRange();
+        m_Owner.CheckPlayerInTauntRange();
     }
 
     private Vector2 GetRandomDirection()
@@ -35,24 +34,19 @@ public class PatrolState : State
         return direction;
     }
 
-    private float GetWalkTime()
-    {
-        return Random.Range(m_PatrolTimeRange.x, m_PatrolTimeRange.y);
-    }
-
     private IEnumerator WalkRoutine()
     {
         Vector2 direction = GetRandomDirection();
         
         if(direction.x == 0 && direction.y == 0)
         {
-            Owner.ChangeState<IdleState>();
+            m_Owner.ChangeState<IdleState>();
             yield break;
         }
 
-        Owner.Move(direction);
-        yield return new WaitForSeconds(GetWalkTime());
-        Owner.ChangeState<IdleState>();
+        m_Owner.Move(direction);
+        yield return new WaitForSeconds(m_Owner.Enemy.PatrolTime);
+        m_Owner.ChangeState<IdleState>();
     }
 
 

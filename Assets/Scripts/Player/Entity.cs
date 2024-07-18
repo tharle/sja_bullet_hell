@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamageable, IContainer
 {
+    protected const float MULTIPLI_PIXEL = GameParameters.Prefs.GRID_SIZE_IN_PIXEL;
+
     public Action OnDead;
     public Action OnHit;
     public Action OnHeal;

@@ -1,18 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 [System.Serializable]
 public class AttackState : State
 {
-    [SerializeField] float m_DelayAttack;
-
     public override void OnEnter()
     {
         base.OnEnter();
         Debug.Log("ENTER ATTACK");
-        Owner.Stop();
-        Owner.StartCoroutine(AttackRoutine());
+        m_Owner.Stop();
+        m_Owner.StartCoroutine(AttackRoutine());
     }
 
     public override void Update()
@@ -28,13 +28,15 @@ public class AttackState : State
 
     private IEnumerator AttackRoutine()
     {
-        while (Owner.IsInAttackRange())
+        while (m_Owner.IsInAttackRange())
         {
             // TODO do attack
             Debug.Log("HE ATACKS :3333");
-            yield return new WaitForSeconds(m_DelayAttack);
+            m_Owner.Shoot();
+
+            yield return new WaitForSeconds(m_Owner.Enemy.CooldownAttack);
         }
 
-        Owner.ChangeState<ChaseState>();
+        m_Owner.ChangeState<ChaseState>();
     }
 }

@@ -22,6 +22,7 @@ public struct Stats
     public int Damage;
     public float LifeSteal;
     public float BulletSpeed;
+    public float BulletRange;
 
     public static Stats operator +(Stats _a,Stats _b)
     {
@@ -33,6 +34,7 @@ public struct Stats
             Damage = _a.Damage + _b.Damage, 
             BulletSpeed = _a.BulletSpeed + _b.BulletSpeed,
             LifeSteal = _a.LifeSteal + _b.LifeSteal,
+            BulletRange = _a.BulletRange + _b.BulletRange
         };
     }
 
@@ -46,6 +48,7 @@ public struct Stats
             Damage = _a.Damage - _b.Damage,
             BulletSpeed = _a.BulletSpeed - _b.BulletSpeed,
             LifeSteal = _a.LifeSteal - _b.LifeSteal,
+            BulletRange = _a.BulletRange - _b.BulletRange
         };
     }
 }

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a15085812b5d8f144967408d9d9f792a, type: 3}
-  m_Name: Player
+  m_Name: BaseEnemy
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 1853477602023161482, guid: 746dc95e6aa572943b41aac302c6628f, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 0}
   StartingItems: []
-  Bullet: 0
+  Bullet: 1
   stats:
     BulletPerSeconds: 1
-    MaxHealth: 10
-    Speed: 3
+    MaxHealth: 3
+    Speed: 1.5
     Damage: 1
     LifeSteal: 0
-    BulletSpeed: 3
-    BulletRange: 8
+    BulletSpeed: 5
+    BulletRange: 3
