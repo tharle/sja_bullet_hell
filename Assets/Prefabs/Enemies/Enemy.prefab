@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2461481145095073786}
   - component: {fileID: 5207248774157582255}
   - component: {fileID: 6620843556915262020}
+  - component: {fileID: 3376922308957886996}
   m_Layer: 0
-  m_Name: model
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3376922308957886996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710548614969605586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d29996514cbe4749adffcb69ae675d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8937771572160661641
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23a4ea9375be6d49b96e6c966075610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Data: {fileID: 0}
+  m_Data: {fileID: 11400000, guid: 0ec822d3b5e424546ab9f2012ebe86a4, type: 2}
   m_IdleTimeRange: {x: 0.5, y: 2}
   m_PatrolTimeRange: {x: 0.5, y: 2}
   m_TautDistance: 6
@@ -244,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8212ab09c206dfe4fab879c91ef58a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 6620843556915262020}
+  m_Animator: {fileID: 3376922308957886996}
   m_DefaultState:
     GuidAssignmentFailed: 0
     GUID: 072a0cb38cdd8c243ad25241e22033f8
@@ -255,6 +268,7 @@ MonoBehaviour:
   - rid: 7938316003318431745
   - rid: 8331348550105432067
   - rid: 8331348550105432065
+  - rid: 8331348560878239744
   references:
     version: 2
     RefIds:
@@ -278,6 +292,11 @@ MonoBehaviour:
       data:
         m_Id: 2
         m_Rules: 0
+    - rid: 8331348560878239744
+      type: {class: DeadState, ns: , asm: Assembly-CSharp}
+      data:
+        m_Id: 4
+        m_Rules: -1
 --- !u!1001 &3129325969746390074
 PrefabInstance:
   m_ObjectHideFlags: 0

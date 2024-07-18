@@ -13,17 +13,23 @@ public class UILifeBar : MonoBehaviour
     private void Start()
     {
         m_Parent = GetComponentInParent<Entity>();
-        m_BarValue.gameObject.SetActive(false);
+        OnHideBar();
         SubscribeAllAction();
     }
 
     private void SubscribeAllAction()
     {
-        m_Parent.OnHit += ChangeAndShow;
-        m_Parent.OnHeal += ChangeAndShow;
+        m_Parent.OnHit += OnChangeAndShow;
+        m_Parent.OnHeal += OnChangeAndShow;
+        m_Parent.OnDead += OnHideBar;
     }
 
-    private void ChangeAndShow(float ratio)
+    private void OnHideBar()
+    {
+        m_BarValue.gameObject.SetActive(false);
+    }
+
+    private void OnChangeAndShow(float ratio)
     {
         StopAllCoroutines();
         m_BarValue.gameObject.SetActive(true);
@@ -34,6 +40,6 @@ public class UILifeBar : MonoBehaviour
     IEnumerator HideAfterSomeTimeRoutine()
     {
         yield return new WaitForSeconds(GameParameters.Prefs.UI_LIFE_BAR_DISPLAY_TIME);
-        m_BarValue.gameObject.SetActive(false);
+        OnHideBar();
     }
 }

@@ -42,6 +42,8 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     {
         m_CurrentHealth -= amount;
         OnHit?.Invoke( (float)m_CurrentHealth/ (float)m_CurrentStats.MaxHealth);
+
+        if (!IsAlive()) Kill();
     }
 
     public void Heal(int amount)
@@ -99,5 +101,10 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     public void RemoveStats(Stats stats)
     {
         m_CurrentStats += stats;
+    }
+
+    public bool IsAlive()
+    {
+        return m_CurrentHealth > 0;
     }
 }

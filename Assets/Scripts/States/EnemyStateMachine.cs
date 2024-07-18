@@ -4,10 +4,12 @@ using UnityEngine;
 using TypeReferences;
 using UnityEngine.XR;
 using Unity.VisualScripting;
+using System.Xml;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    [SerializeField] private Animator m_Animator;
+    [SerializeField] private EnemyAnimation m_Animator;
+    public EnemyAnimation EnemyAnimation => m_Animator;
     private bool m_LookingLeft = true;
 
     private EnemyEntity m_Enemy;
@@ -36,17 +38,24 @@ public class EnemyStateMachine : MonoBehaviour
 
         State state = GetState(m_DefaultState.Type);
         if (state != null) ChangeState(state);
+
+        SubscribeAll();
+    }
+
+    private void SubscribeAll()
+    {
+        m_Enemy.OnDead += OnDead;
+    }
+
+    private void OnDead()
+    {
+        Destroy(gameObject, GameParameters.Prefs.ENEMY_DIE_DURATION);
+        ChangeState<DeadState>();
     }
 
     private void Update()
     {
-        UpdateVelocity();
         m_CurrentState?.Update();
-    }
-
-    private void UpdateVelocity()
-    {
-        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, m_Rigidbody.velocity.magnitude);
     }
 
     private void FixedUpdate()
@@ -107,6 +116,7 @@ public class EnemyStateMachine : MonoBehaviour
     public void Move(Vector2 direction)
     {
         m_Rigidbody.velocity = direction * 0.2f; // TODO change for entity 
+        m_Animator.ChangeVelocity(m_Rigidbody.velocity.magnitude);
         Flip(direction);
     }
 
@@ -138,11 +148,12 @@ public class EnemyStateMachine : MonoBehaviour
     public void Stop()
     {
         m_Rigidbody.velocity = Vector2.zero;
+        m_Animator.ChangeVelocity(0.0f);
     }
 
     public void CheckPlayerInTauntRange()
     {
-        if (DistanceFromPlayer() <= m_Enemy.TautDistance)
+        if (m_Enemy.IsAlive() && DistanceFromPlayer() <= m_Enemy.TautDistance)
             ChangeState<ChaseState>();
     }
 
