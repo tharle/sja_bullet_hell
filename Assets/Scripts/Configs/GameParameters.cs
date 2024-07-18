@@ -42,7 +42,7 @@ public class GameParameters
     public class BundleNames
     {
         public const string PREFAB_ACHIVEMENTS = "prefab_achivement";
-        public const string PREFAB_LEVEL = "prefab_level";
+        public const string PREFAB_ENEMY = "prefab_enemy";
         public const string BULLET = "bullet";
         public const string ITEM = "item";
         public const string SCRIT_OBJETS = "data";
@@ -57,7 +57,7 @@ public class GameParameters
         public const string STREAMING_ASSETS = "Assets/StreamingAssets";
 
         public const string PREFAB_ACHIVEMENTS = "/Prefabs/Achivements";
-        public const string PREFAB_LEVELS = "/Prefabs/Levels";
+        public const string PREFAB_ENEMY = "/Prefabs/Enemies";
         public const string BULLETS = "/Data/Bullets";
         public const string ITEM = "/Data/Itens";
         public const string SCRIT_OBJETS = "/Data";

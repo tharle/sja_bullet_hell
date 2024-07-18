@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EEnemy
+{
+    COW
+}
+
 public class EnemyEntity : Entity
 {
+    [SerializeField] private EEnemy m_Type;
+    public EEnemy Type => m_Type;
+
+
     // Range for random time for wait in idle after be in patrol
     [SerializeField]  private Vector2 m_IdleTimeRange = new Vector2(0.5f, 2f); // in senconds
 

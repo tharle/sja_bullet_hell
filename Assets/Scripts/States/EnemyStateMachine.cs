@@ -49,7 +49,6 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void OnDead()
     {
-        Destroy(gameObject, GameParameters.Prefs.ENEMY_DIE_DURATION);
         ChangeState<DeadState>();
     }
 

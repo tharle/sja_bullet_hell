@@ -21,6 +21,14 @@ public class CreatAssetBundles
             assetBundleDefinitionList.Add(ab);
         }
 
+        // ENEMY PREFABS
+        {
+            AssetBundleBuild ab = new();
+            ab.assetBundleName = BundleNames.PREFAB_ENEMY;
+            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.PREFAB_ENEMY).ToArray();
+            assetBundleDefinitionList.Add(ab);
+        }
+
         // SCRIPT OBJETS
         {
             AssetBundleBuild ab = new();

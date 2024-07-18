@@ -47,9 +47,11 @@ public class ItemLoader : MonoBehaviour
     {
         if (m_Items.Count > 0 && !forceLoad) return;
 
-        List<Item> items = BundleLoader.Instance.LoadAll<Item>(GameParameters.BundleNames.ITEM, true);
+        List<Item> items = BundleLoader.Instance.LoadAll<Item, EItem>(GameParameters.BundleNames.ITEM, true);
         foreach (Item itemData in items)
         {
+            if(itemData == null) continue;
+
             if (!m_Items.ContainsKey(itemData.Type)) m_Items.Add(itemData.Type, itemData);
             else m_Items[itemData.Type] = itemData;
         }

@@ -52,7 +52,7 @@ public class BulletLoader : MonoBehaviour
     {
         if (m_Bullets.Count > 0 && !forceLoad) return;
 
-        List<GameObject> bullets = BundleLoader.Instance.LoadAll<GameObject>(GameParameters.BundleNames.BULLET, true);
+        List<GameObject> bullets = BundleLoader.Instance.LoadAll<GameObject, EBullet>(GameParameters.BundleNames.BULLET, true);
         foreach (GameObject bulletPrefab in bullets)
         {
             if (Enum.TryParse<EBullet>(bulletPrefab.name, true, out EBullet bulletType))

@@ -18,5 +18,12 @@ public class DeadState : State
         Debug.Log("ENTER DIE");
         m_Owner.Stop();
         m_Owner.EnemyAnimation.Dead();
+        m_Owner.StartCoroutine(WaitToDead());
+    }
+
+    private IEnumerator WaitToDead()
+    {
+        yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_DIE_DURATION);
+        m_Owner.enabled = false;
     }
 }

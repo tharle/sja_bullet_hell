@@ -52,7 +52,7 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
         OnHeal?.Invoke((float)m_CurrentHealth / (float)m_CurrentStats.MaxHealth);
     }
 
-    public void Kill()
+    virtual public void Kill()
     {
         m_CurrentHealth = 0;
         OnDead?.Invoke();
