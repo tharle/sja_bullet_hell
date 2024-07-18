@@ -22,5 +22,5 @@ MonoBehaviour:
     Speed: 1.5
     Damage: 1
     LifeSteal: 0
-    BulletSpeed: 5
-    BulletRange: 3
+    BulletSpeed: 2
+    BulletRange: 5

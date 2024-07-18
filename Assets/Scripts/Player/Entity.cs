@@ -8,8 +8,8 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     protected const float MULTIPLI_PIXEL = GameParameters.Prefs.GRID_SIZE_IN_PIXEL;
 
     public Action OnDead;
-    public Action OnHit;
-    public Action OnHeal;
+    public Action<float> OnHit;
+    public Action<float> OnHeal;
     public Action OnShoot;
 
     [Header("Entity")]
@@ -38,16 +38,16 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
             AddItem(item);
     }
 
-    public void TakeDamage(int _amount)
+    public void TakeDamage(int amount)
     {
-        m_CurrentHealth -= _amount;
-        OnHit?.Invoke();
+        m_CurrentHealth -= amount;
+        OnHit?.Invoke( (float)m_CurrentHealth/ (float)m_CurrentStats.MaxHealth);
     }
 
-    public void Heal(int _amount)
+    public void Heal(int amount)
     {
-        m_CurrentHealth += _amount;
-        OnHeal?.Invoke();
+        m_CurrentHealth += amount;
+        OnHeal?.Invoke((float)m_CurrentHealth / (float)m_CurrentStats.MaxHealth);
     }
 
     public void Kill()
@@ -67,16 +67,16 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
         OnShoot?.Invoke();
     }
 
-    public void AddItem(Item _item)
+    public void AddItem(Item item)
     {
-        m_Items.Add(_item);
-        foreach (var item in _item.addedEffect)
-            item.Execute(this);
+        m_Items.Add(item);
+        foreach (var effect in item.addedEffect)
+            effect.Execute(this);
     }
 
-    public void RemoveItem(Item _item)
+    public void RemoveItem(Item item)
     {
-        m_Items.Remove(_item);
+        m_Items.Remove(item);
     }
 
     public void RemoveAllIItem()
@@ -84,20 +84,20 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
         m_Items.Clear();
     }
 
-    public bool HasItem(Item _item)
+    public bool HasItem(Item item)
     {
-        return m_Items.Contains(_item);
+        return m_Items.Contains(item);
     }
 
-    public void AddStats(Stats _stats)
+    public void AddStats(Stats stats)
     {
-        m_CurrentStats += _stats;
-        if (_stats.MaxHealth > 0)
-            m_CurrentHealth += _stats.MaxHealth;
+        m_CurrentStats += stats;
+        if (stats.MaxHealth > 0)
+            m_CurrentHealth += stats.MaxHealth;
     }
 
-    public void RemoveStats(Stats _stats)
+    public void RemoveStats(Stats stats)
     {
-        m_CurrentStats += _stats;
+        m_CurrentStats += stats;
     }
 }

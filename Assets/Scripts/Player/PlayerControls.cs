@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
-public class PlayerControls : MonoBehaviour
+public class PlayerControls :  MonoBehaviour
 {
     private PlayerAnimation m_PlayerAnimation;
     private Weapon m_Weapon;

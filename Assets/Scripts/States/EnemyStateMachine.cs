@@ -165,8 +165,10 @@ public class EnemyStateMachine : MonoBehaviour
             var wallEffect = new List<ItemEffect>();
             foreach (var item in m_Enemy.Items)
                 wallEffect.AddRange(item.wallEffects);
+            Vector2 direction = DirectionToPlayer();
+            projectile.SetBulllet(direction, m_Enemy, transform.position, wallEffect);
+            Flip(direction);
 
-            projectile.SetBulllet(DirectionToPlayer(), m_Enemy, transform.position, wallEffect);
             AudioManager.Instance.Play(EAudio.SFXFishingRod, transform.position);
             m_Enemy.HasShoot();
         }
