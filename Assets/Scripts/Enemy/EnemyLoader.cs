@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -33,7 +34,8 @@ public class EnemyLoader
         List<GameObject> enemies = BundleLoader.Instance.LoadAll<GameObject, EEnemy>(GameParameters.BundleNames.PREFAB_ENEMY);
         foreach (GameObject enemyObject in enemies)
         {
-            // TODO fixer ici
+            if (enemyObject == null) continue; // some enums cannot have an object, and the load all return always a null object
+
             if (enemyObject.TryGetComponent<EnemyEntity>(out EnemyEntity enemy)) m_EnemyMap.Add(enemy.Type, enemy);
         }
     }
@@ -42,9 +44,11 @@ public class EnemyLoader
     {
         if (!m_EnemyMap.ContainsKey(type))
         {
-            GameObject enemyObject = BundleLoader.Instance.Load<GameObject>(GameParameters.BundleNames.PREFAB_ENEMY, nameof(type));
+           
+            GameObject enemyObject = BundleLoader.Instance.Load<GameObject, EEnemy>(GameParameters.BundleNames.PREFAB_ENEMY, type);
 
             if (enemyObject == null) return null;
+
 
             if (enemyObject.TryGetComponent<EnemyEntity>(out EnemyEntity enemy)) m_EnemyMap.Add(enemy.Type, enemy);
             else return null;

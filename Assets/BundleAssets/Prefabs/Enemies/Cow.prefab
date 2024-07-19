@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1677279191713183649}
   - component: {fileID: 3847364713976199965}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data: {fileID: 11400000, guid: 0ec822d3b5e424546ab9f2012ebe86a4, type: 2}
+  m_Type: 0
   m_IdleTimeRange: {x: 0.5, y: 2}
   m_PatrolTimeRange: {x: 0.5, y: 2}
   m_TautDistance: 6
@@ -260,42 +261,37 @@ MonoBehaviour:
   m_Animator: {fileID: 3376922308957886996}
   m_DefaultState:
     GuidAssignmentFailed: 0
-    GUID: 072a0cb38cdd8c243ad25241e22033f8
-    _typeNameAndAssembly: PatrolState, Assembly-CSharp
+    GUID: bc9d24dbd016ceb4a9c8f36a0f41463a
+    _typeNameAndAssembly: EnemyPatrolState, Assembly-CSharp
     _suppressLogs: 0
   m_States:
-  - rid: 7938316003318431744
-  - rid: 7938316003318431745
-  - rid: 8331348550105432067
-  - rid: 8331348550105432065
-  - rid: 8331348560878239744
+  - rid: 8331348580803280901
+  - rid: 8331348580803280902
+  - rid: 8331348580803280903
+  - rid: 8331348580803280904
+  - rid: 8331348580803280905
   references:
     version: 2
     RefIds:
-    - rid: 7938316003318431744
-      type: {class: IdleState, ns: , asm: Assembly-CSharp}
+    - rid: 8331348580803280901
+      type: {class: EnemyIdleState, ns: , asm: Assembly-CSharp}
       data:
-        m_Id: 0
         m_Rules: 0
-    - rid: 7938316003318431745
-      type: {class: PatrolState, ns: , asm: Assembly-CSharp}
+    - rid: 8331348580803280902
+      type: {class: EnemyPatrolState, ns: , asm: Assembly-CSharp}
       data:
-        m_Id: 1
         m_Rules: 0
-    - rid: 8331348550105432065
-      type: {class: AttackState, ns: , asm: Assembly-CSharp}
+    - rid: 8331348580803280903
+      type: {class: EnemyChaseState, ns: , asm: Assembly-CSharp}
       data:
-        m_Id: 3
         m_Rules: 0
-    - rid: 8331348550105432067
-      type: {class: ChaseState, ns: , asm: Assembly-CSharp}
+    - rid: 8331348580803280904
+      type: {class: EnemyAttackState, ns: , asm: Assembly-CSharp}
       data:
-        m_Id: 2
         m_Rules: 0
-    - rid: 8331348560878239744
-      type: {class: DeadState, ns: , asm: Assembly-CSharp}
+    - rid: 8331348580803280905
+      type: {class: EnemyDeadState, ns: , asm: Assembly-CSharp}
       data:
-        m_Id: 4
         m_Rules: -1
 --- !u!1001 &3129325969746390074
 PrefabInstance:

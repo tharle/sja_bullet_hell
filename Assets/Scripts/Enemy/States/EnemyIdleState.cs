@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
-public class IdleState : State
+public class EnemyIdleState : AEnemyState
 {
     public override void Update()
     {
@@ -27,7 +27,7 @@ public class IdleState : State
     {
         m_Owner.Stop();
         yield return new WaitForSeconds(GetWaitTime());
-        m_Owner.ChangeState<PatrolState>();
+        m_Owner.ChangeState<EnemyPatrolState>();
     }
 
     private float GetWaitTime()

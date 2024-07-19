@@ -237,8 +237,9 @@ GameObject:
   m_Component:
   - component: {fileID: 117644142}
   - component: {fileID: 117644143}
+  - component: {fileID: 117644144}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,54 +270,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 117644141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb887f3c581e9e458f72da992704310, type: 3}
+  m_Script: {fileID: 11500000, guid: 48133c6659adf2d408e73765e1dfaa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Spots: []
---- !u!1 &247212306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 247212308}
-  - component: {fileID: 247212307}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &247212307
+  m_Spots:
+  - {fileID: 67193891}
+  - {fileID: 1515730658}
+  - {fileID: 1257946167}
+  WaveCount: 0
+  m_DefaultState:
+    GuidAssignmentFailed: 0
+    GUID: 01dd3c5fed84f5844a50568c40997c4e
+    _typeNameAndAssembly: GameWaveState, Assembly-CSharp
+    _suppressLogs: 0
+  m_States:
+  - rid: 8331348580803280896
+  references:
+    version: 2
+    RefIds:
+    - rid: 8331348580803280896
+      type: {class: GameWaveState, ns: , asm: Assembly-CSharp}
+      data:
+        m_Rules: 0
+        m_EnemyPerWaveBaseAmount: 2
+--- !u!114 &117644144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247212306}
+  m_GameObject: {fileID: 117644141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a76c8d9360857a47a45e7eed8cfaf30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &247212308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247212306}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4975006, y: -0.06698884, z: 0.0004159005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303734462
 GameObject:
   m_ObjectHideFlags: 0
@@ -59051,7 +59039,6 @@ SceneRoots:
   - {fileID: 5831272467921772722}
   - {fileID: 653074187}
   - {fileID: 748301552}
-  - {fileID: 247212308}
   - {fileID: 1094347740}
   - {fileID: 99969287}
   - {fileID: 117644142}

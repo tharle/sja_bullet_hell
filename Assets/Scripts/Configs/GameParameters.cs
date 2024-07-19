@@ -19,6 +19,7 @@ public class GameParameters
         public const float ENEMY_TICK_CHECK_IN_SECONDS = 0.1f;
         public const float ENEMY_DIE_DURATION = 1f;
         public const float UI_LIFE_BAR_DISPLAY_TIME = 1f;
+        public const float WAVE_COOLDOWN_TIME = 2f;
     }
 
     public class AnimationPlayer

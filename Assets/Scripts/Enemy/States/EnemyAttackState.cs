@@ -5,7 +5,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 [System.Serializable]
-public class AttackState : State
+public class EnemyAttackState : AEnemyState
 {
     public override void OnEnter()
     {
@@ -37,6 +37,6 @@ public class AttackState : State
             yield return new WaitForSeconds(m_Owner.Enemy.CooldownAttack);
         }
 
-        m_Owner.ChangeState<ChaseState>();
+        m_Owner.ChangeState<EnemyChaseState>();
     }
 }

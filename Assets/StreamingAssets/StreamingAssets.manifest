@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2884925546
+CRC: 1956428980
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: sfx
       Dependencies: {}
     Info_1:
-      Name: item
+      Name: bullet
       Dependencies: {}
     Info_2:
-      Name: bullet
+      Name: item
       Dependencies: {}
     Info_3:
       Name: prefab_enemy

@@ -7,10 +7,10 @@ public class EnemyAnimation : MonoBehaviour
 {
     private Animator m_Animator;
 
-    // Start is called before the first frame update
-    void Start()
+    private Animator GetAnimator()
     {
-        m_Animator = GetComponent<Animator>();
+        if(m_Animator == null) m_Animator = GetComponent<Animator>();
+        return m_Animator;
     }
 
     public void Shoot()
@@ -25,12 +25,12 @@ public class EnemyAnimation : MonoBehaviour
 
     public void Dead()
     {
-        m_Animator.SetTrigger(GameParameters.AnimationEnemy.TRIGGER_DIE);
+        GetAnimator().SetTrigger(GameParameters.AnimationEnemy.TRIGGER_DIE);
     }
 
     // Update is called once per frame
     public void ChangeVelocity(float velocity)
     {
-        m_Animator.SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, velocity);
+        GetAnimator().SetFloat(GameParameters.AnimationEnemy.FLOAT_VELOCITY, velocity);
     }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2721981454
+CRC: 2194807859
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 914cc4ea9f2ebc6c3eb170d1aa3e8a2f
+    Hash: 408b121897216a410f5fdc43c406dec5
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 421972ea195551bf2ad76d0b8475d6b6
+    Hash: 8e6f2706acc34ef1cfaa945ebd38bcb6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -32,25 +32,25 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a15085812b5d8f144967408d9d9f792a, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 8212ab09c206dfe4fab879c91ef58a0c, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: c23a4ea9375be6d49b96e6c966075610, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: f9498b010536932469ec104a2ed2c2ad, type: 3}
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fb911bb97eea01a4f918d7d8775a7e23, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: f9498b010536932469ec104a2ed2c2ad, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 4d29996514cbe4749adffcb69ae675d5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8212ab09c206dfe4fab879c91ef58a0c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c23a4ea9375be6d49b96e6c966075610, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 212
@@ -65,15 +65,15 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
 - AssemblyName: Assembly-CSharp
-  ClassName: AttackState
+  ClassName: EnemyAttackState
 - AssemblyName: Assembly-CSharp
-  ClassName: ChaseState
+  ClassName: EnemyChaseState
 - AssemblyName: Assembly-CSharp
-  ClassName: DeadState
+  ClassName: EnemyDeadState
 - AssemblyName: Assembly-CSharp
-  ClassName: IdleState
+  ClassName: EnemyIdleState
 - AssemblyName: Assembly-CSharp
-  ClassName: PatrolState
+  ClassName: EnemyPatrolState
 - AssemblyName: Assembly-CSharp
   ClassName: Stats
 - AssemblyName: TypeReferences
@@ -93,5 +93,5 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.SpriteState
 Assets:
-- Assets/BundleAssets/Prefabs/Enemies/Enemy.prefab
+- Assets/BundleAssets/Prefabs/Enemies/Cow.prefab
 Dependencies: []

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PatrolState : State
+public class EnemyPatrolState : AEnemyState
 {
 
     public override void OnEnter()
@@ -37,16 +37,15 @@ public class PatrolState : State
     private IEnumerator WalkRoutine()
     {
         Vector2 direction = GetRandomDirection();
-        
-        if(direction.x == 0 && direction.y == 0)
+
+        if (direction.x == 0 && direction.y == 0)
         {
-            m_Owner.ChangeState<IdleState>();
+            m_Owner.ChangeState<EnemyIdleState>();
             yield break;
         }
-
         m_Owner.Move(direction);
         yield return new WaitForSeconds(m_Owner.Enemy.PatrolTime);
-        m_Owner.ChangeState<IdleState>();
+        m_Owner.ChangeState<EnemyIdleState>();
     }
 
 

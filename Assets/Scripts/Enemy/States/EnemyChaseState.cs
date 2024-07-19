@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class ChaseState : State
+public class EnemyChaseState : AEnemyState
 {
     private float m_ElapseTime;
 
@@ -39,11 +39,11 @@ public class ChaseState : State
 
             if (m_Owner.IsInAttackRange())
             {
-                m_Owner.ChangeState<AttackState>();
+                m_Owner.ChangeState<EnemyAttackState>();
                 yield break;
             }
         }
 
-        m_Owner.ChangeState<IdleState>();
+        m_Owner.ChangeState<EnemyIdleState>();
     }
 }

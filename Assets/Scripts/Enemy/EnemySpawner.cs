@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private List<EnemyEntity> m_Enemies = new();
-
     private static EnemySpawner m_Instance;
     public static EnemySpawner Instance
     {
@@ -23,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        if (m_Instance != null)
+        if (m_Instance != null && m_Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -34,22 +32,9 @@ public class EnemySpawner : MonoBehaviour
 
     public EnemyEntity SpawnEnemy(EEnemy type, Vector2 position)
     {
-        EnemyEntity enemy = m_Enemies.Find(enemy => enemy.isActiveAndEnabled && enemy.Type == type);
-
-        if (enemy == null) enemy = SpawnNewEnemy(type, position);
-        else enemy.transform.position = position;
-
-        return Instantiate(enemy);
-    }
-
-    
-
-    private EnemyEntity SpawnNewEnemy(EEnemy type, Vector2 position)
-    {
         EnemyEntity enemy = EnemyLoader.Instance.Get(type);
         enemy.transform.parent = transform;
-        m_Enemies.Add(enemy);
-        return EnemyLoader.Instance.Get(type);
+        enemy.transform.position = position;
+        return Instantiate(enemy);
     }
-
 }

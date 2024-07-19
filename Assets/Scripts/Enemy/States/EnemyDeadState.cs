@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class DeadState : State
+public class EnemyDeadState : AEnemyState
 {
     public override void Update()
     {
@@ -24,6 +24,6 @@ public class DeadState : State
     private IEnumerator WaitToDead()
     {
         yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_DIE_DURATION);
-        m_Owner.enabled = false;
+        m_Owner.DestroyIt();
     }
 }

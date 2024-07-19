@@ -33,6 +33,13 @@ public class BundleLoader: MonoBehaviour
         m_Instance = this;
     }
 
+    public T Load<T, E>(string bundleName, E type) where T : UnityEngine.Object where E : Enum
+    {
+        string assetName = Enum.GetName(typeof(E), type);
+
+        return Load<T>(bundleName, assetName);
+    }
+
     public T Load<T>(string bundleName, string assetName) where T : UnityEngine.Object
     {
         AssetBundle localAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, bundleName));

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum EEnemy
 {
-    COW
+    Cow
 }
 
 public class EnemyEntity : Entity
@@ -28,7 +28,6 @@ public class EnemyEntity : Entity
     public float TautDistance => m_TautDistance * MULTIPLI_PIXEL;
 
     public float IdleTime { get { return Random.Range(m_IdleTimeRange.x, m_IdleTimeRange.y); } }
-
     public float PatrolTime { get { return Random.Range(m_PatrolTimeRange.x, m_PatrolTimeRange.y); } }
 
     public float Fatigue => m_Fatigue;
@@ -36,6 +35,6 @@ public class EnemyEntity : Entity
     public float AttackRange { get { return Stats.BulletRange * MULTIPLI_PIXEL; } }
 
     public float CooldownAttack { get {
-            return 1.0f / Stats.BulletPerSeconds;
-        } }
+        return 1.0f / Stats.BulletPerSeconds;
+    } }
 }

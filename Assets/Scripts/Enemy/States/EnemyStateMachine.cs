@@ -16,10 +16,10 @@ public class EnemyStateMachine : MonoBehaviour
     public EnemyEntity Enemy => m_Enemy;
 
     // https://github.com/SolidAlloy/ClassTypeReference-for-Unity
-    [SerializeField, Inherits(typeof(State))] protected TypeReference m_DefaultState;
+    [SerializeField, Inherits(typeof(AEnemyState))] private TypeReference m_DefaultState;
 
-    [SerializeReference, SubclassSelector] protected List<State> m_States;
-    protected State m_CurrentState;
+    [SerializeReference, SubclassSelector] private List<AEnemyState> m_States;
+    private AEnemyState m_CurrentState;
 
     Rigidbody2D m_Rigidbody;
 
@@ -36,7 +36,7 @@ public class EnemyStateMachine : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Enemy = GetComponent<EnemyEntity>();
 
-        State state = GetState(m_DefaultState.Type);
+        AEnemyState state = GetState(m_DefaultState.Type);
         if (state != null) ChangeState(state);
 
         SubscribeAll();
@@ -49,7 +49,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void OnDead()
     {
-        ChangeState<DeadState>();
+        ChangeState<EnemyDeadState>();
     }
 
     private void Update()
@@ -67,7 +67,7 @@ public class EnemyStateMachine : MonoBehaviour
         m_CurrentState?.OnCancel();
     }
 
-    public bool ChangeState(State newState, params State.Param[] stateParams)
+    public bool ChangeState(AEnemyState newState, params AEnemyState.Param[] stateParams)
     {
         if (newState == null) return false;
 
@@ -81,22 +81,22 @@ public class EnemyStateMachine : MonoBehaviour
         return true;
     }
 
-    public bool ChangeState<T>(params State.Param[] stateParams)
+    public bool ChangeState<T>(params AEnemyState.Param[] stateParams)
     {
-        State newState = GetState<T>();
+        AEnemyState newState = GetState<T>();
         return ChangeState(newState, stateParams);
     }
 
-    public bool CanChangeState(State newState)
+    public bool CanChangeState(AEnemyState newState)
     {
         if (m_CurrentState == null || m_CurrentState == newState) return true;
 
-        if (m_CurrentState != null) return m_CurrentState.Rules is not EStateRules.UnCancellable;
+        if (m_CurrentState != null) return m_CurrentState.Rules is not EEnemyStateRules.UnCancellable;
 
         return true;
     }
 
-    public State GetState(Type type)
+    private AEnemyState GetState(Type type)
     {
         foreach (var state in m_States)
             if (state.GetType() == type) return state;
@@ -104,7 +104,7 @@ public class EnemyStateMachine : MonoBehaviour
         return null;
     }
 
-    public State GetState<T>()
+    public AEnemyState GetState<T>()
     {
         foreach (var state in m_States)
             if (state is T) return state;
@@ -153,7 +153,7 @@ public class EnemyStateMachine : MonoBehaviour
     public void CheckPlayerInTauntRange()
     {
         if (m_Enemy.IsAlive() && DistanceFromPlayer() <= m_Enemy.TautDistance)
-            ChangeState<ChaseState>();
+            ChangeState<EnemyChaseState>();
     }
 
     public float DistanceFromPlayer()
@@ -183,16 +183,21 @@ public class EnemyStateMachine : MonoBehaviour
             m_Enemy.HasShoot();
         }
     }
+
+    internal void DestroyIt()
+    {
+        Destroy(gameObject);
+    }
 }
 
 [Flags]
-public enum EStateRules
+public enum EEnemyStateRules
 {
     UnCancellable = 1
 }
 
 [Serializable]
-public abstract class State
+public abstract class AEnemyState
 {
     protected EnemyStateMachine m_Owner;
 
@@ -208,13 +213,8 @@ public abstract class State
         }
     }
 
-    // changer par enum apres
-    [SerializeField] private string m_Id;
-    [SerializeField] private EStateRules m_Rules;
-
-
-    public string Id => m_Id;
-    public EStateRules Rules => m_Rules;
+    [SerializeField] private EEnemyStateRules m_Rules;
+    public EEnemyStateRules Rules => m_Rules;
 
     public virtual void SetParams(params Param[] stateParams) { }
 

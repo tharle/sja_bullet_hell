@@ -28,6 +28,8 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     public List<Item> StartingItems => m_Data.StartingItems;
     public List<Item> Items { get => m_Items; set { } }
 
+    private bool m_DeadWasNotify = false;
+
     protected virtual void Awake()
     {
         m_CurrentStats = m_Data.stats;
@@ -54,6 +56,9 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
 
     virtual public void Kill()
     {
+        if (m_DeadWasNotify) return;
+
+        m_DeadWasNotify = true;
         m_CurrentHealth = 0;
         OnDead?.Invoke();
     }
