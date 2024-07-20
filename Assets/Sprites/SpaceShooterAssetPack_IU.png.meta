@@ -110,22 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_life_bar_01
+      name: ui_frame_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 25
+        x: 16
+        y: 96
         width: 16
-        height: 6
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90051e336d02a3c48a7490a2c3992077
-      internalID: -196951137
+      spriteID: 0497295cd79e1d344aa3c8fb67e2f6e5
+      internalID: -2010335761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_frame_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6725fcaae34dca54f81d15367f41d542
+      internalID: 2146759284
       vertices: []
       indices: 
       edges: []
@@ -141,6 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      ui_frame_0: -2010335761
+      ui_frame_1: 2146759284
       ui_life_bar_01: -196951137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

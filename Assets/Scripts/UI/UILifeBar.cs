@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class UILifeBar : MonoBehaviour
 {
+    [SerializeField] Entity m_Parent;
     [SerializeField] private Slider m_BarValue;
+    [SerializeField] private bool m_AllwaysDisplay = false;
 
-    private Entity m_Parent;
 
     private void Start()
     {
-        m_Parent = GetComponentInParent<Entity>();
         OnHideBar();
         SubscribeAllAction();
     }
@@ -26,7 +26,7 @@ public class UILifeBar : MonoBehaviour
 
     private void OnHideBar()
     {
-        m_BarValue.gameObject.SetActive(false);
+        if(!m_AllwaysDisplay) m_BarValue.gameObject.SetActive(false);
     }
 
     private void OnChangeAndShow(float ratio)
@@ -34,7 +34,7 @@ public class UILifeBar : MonoBehaviour
         StopAllCoroutines();
         m_BarValue.gameObject.SetActive(true);
         m_BarValue.value = ratio;
-        StartCoroutine(HideAfterSomeTimeRoutine());
+        if(!m_AllwaysDisplay) StartCoroutine(HideAfterSomeTimeRoutine());
     }
 
     IEnumerator HideAfterSomeTimeRoutine()

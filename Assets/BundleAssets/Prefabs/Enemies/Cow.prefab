@@ -304,6 +304,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8920678533832326164}
     m_Modifications:
+    - target: {fileID: 2361104108765177416, guid: 29843d5d2bd81114391af3e036280a37, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361104108765177416, guid: 29843d5d2bd81114391af3e036280a37, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755699065166689548, guid: 29843d5d2bd81114391af3e036280a37, type: 3}
+      propertyPath: m_Parent
+      value: 
+      objectReference: {fileID: 1677279191713183649}
     - target: {fileID: 4827406528076753416, guid: 29843d5d2bd81114391af3e036280a37, type: 3}
       propertyPath: m_Name
       value: UIEntityCanvas
