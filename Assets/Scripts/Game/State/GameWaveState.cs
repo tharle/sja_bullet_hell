@@ -7,17 +7,14 @@ public class GameWaveState : AGameState
 {
     [SerializeField] private int m_EnemyPerWaveBaseAmount;
     private bool m_EndSpaw;
-    private int m_EnemiesCount;
 
 
     public override void OnEnter()
     {
         base.OnEnter();
         Debug.Log("ENTER Game WaveState ");
-        Debug.Log($"START Wave {m_Owner.WaveCount} ");
 
         m_EndSpaw = false;
-        m_EnemiesCount = 0;
         m_Owner.StartCoroutine(SpawnEnemies());
     }
     public override void Update()
@@ -26,13 +23,10 @@ public class GameWaveState : AGameState
 
         if (!m_EndSpaw) return;
 
-        if (AllEnemiesAreDead()) m_Owner.ChangeState<GameWaveState>();
+        if (m_Owner.Wave.AllEnemiesAreDead()) m_Owner.ChangeState<GameWaveState>();
     }
 
-    private bool AllEnemiesAreDead()
-    {
-        return m_EnemiesCount <= 0;
-    }
+    
 
     public override void OnExit()
     {
@@ -40,13 +34,23 @@ public class GameWaveState : AGameState
         Debug.Log("EXIT Game WaveState");
     }
 
+    private void NotifyWaveInfos() 
+    {
+        GameEventSystem.Instance.TriggerEvent(EGameEvent.WaveInfoChanged, new GameEventMessage(EGameEventMessage.WaveData, m_Owner.Wave));
+    }
+
     private IEnumerator SpawnEnemies()
     {
-        m_Owner.WaveCount++;
+
+        m_Owner.Wave.Index++;
+        m_Owner.Wave.EnnemiesAmount = m_EnemyPerWaveBaseAmount * m_Owner.Wave.Index;
+        m_Owner.Wave.EnnemiesDeads = 0;
+
+        NotifyWaveInfos();
 
         for (int i = 0; i < m_EnemyPerWaveBaseAmount; i++)
         {
-            for (int j = 0; j< m_Owner.WaveCount; j++)
+            for (int j = 0; j< m_Owner.Wave.Index; j++)
             {
                 Vector2 position = GetRandomSpotPosition();
                 EnemyEntity enemy = EnemySpawner.Instance.SpawnEnemy(EEnemy.Cow, position);
@@ -55,7 +59,6 @@ public class GameWaveState : AGameState
                 yield return new WaitForSeconds(0.5f);
                 enemy = m_Owner.Cast<EnemyEntity>(enemy);
                 enemy.OnDead += OnEnemyDead;
-                m_EnemiesCount++;
                 yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_SPAWN_COOLDOWN);
 
             }
@@ -68,7 +71,8 @@ public class GameWaveState : AGameState
     }
     private void OnEnemyDead()
     {
-        m_EnemiesCount--;
+        m_Owner.Wave.EnnemiesDeads++;
+        NotifyWaveInfos();
     }
 
     public Vector2 GetRandomSpotPosition()

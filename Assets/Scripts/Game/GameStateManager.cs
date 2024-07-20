@@ -3,11 +3,25 @@ using System.Collections.Generic;
 using TypeReferences;
 using UnityEngine;
 
+
+public struct  WaveData
+{
+    public int Index;
+    public int EnnemiesAmount;
+    public int EnnemiesDeads;
+
+    public bool AllEnemiesAreDead()
+    {
+        return EnnemiesDeads >= EnnemiesAmount;
+    }
+}
+
 public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private List<Transform> m_Spots;
     public List<Transform> Spots => m_Spots;
-    public int WaveCount = 0;
+
+    public WaveData Wave;
 
 
     // https://github.com/SolidAlloy/ClassTypeReference-for-Unity
