@@ -50,6 +50,7 @@ public class PlayerControls :  MonoBehaviour
 
     private void UpdateInputs()
     {
+
         if (m_IsLockInputs || m_IsDashing)
             return;
 

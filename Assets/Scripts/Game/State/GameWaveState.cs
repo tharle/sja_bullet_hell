@@ -48,18 +48,24 @@ public class GameWaveState : AGameState
         {
             for (int j = 0; j< m_Owner.WaveCount; j++)
             {
-                EnemyEntity enemy = EnemySpawner.Instance.SpawnEnemy(EEnemy.Cow, GetRandomSpotPosition());
+                Vector2 position = GetRandomSpotPosition();
+                EnemyEntity enemy = EnemySpawner.Instance.SpawnEnemy(EEnemy.Cow, position);
+                EffectManager.Instance.CastEffect(EEffect.Summon, position, enemy.ColorShow, 0);
+
+                yield return new WaitForSeconds(0.5f);
+                enemy = m_Owner.Cast<EnemyEntity>(enemy);
                 enemy.OnDead += OnEnemyDead;
                 m_EnemiesCount++;
+                yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_SPAWN_COOLDOWN);
+
             }
 
-            yield return new WaitForSeconds(GameParameters.Prefs.WAVE_COOLDOWN_TIME);
+            yield return new WaitForSeconds(GameParameters.Prefs.WAVE_COOLDOWN);
         }
 
 
         m_EndSpaw = true;
     }
-
     private void OnEnemyDead()
     {
         m_EnemiesCount--;

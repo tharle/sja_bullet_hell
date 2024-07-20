@@ -12,6 +12,12 @@ public class EnemyEntity : Entity
     [SerializeField] private EEnemy m_Type;
     public EEnemy Type => m_Type;
 
+    [SerializeField] private Color m_ColorShow;
+    public Color ColorShow => m_ColorShow;
+
+    [SerializeField] private Color m_ColorDie;
+    public Color ColorDie => m_ColorDie;
+
 
     // Range for random time for wait in idle after be in patrol
     [SerializeField]  private Vector2 m_IdleTimeRange = new Vector2(0.5f, 2f); // in senconds

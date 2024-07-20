@@ -6,10 +6,11 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyDeadState : AEnemyState
 {
+    [SerializeField] float m_Duration = GameParameters.Prefs.ENEMY_DIE_DURATION;
+
     public override void Update()
     {
         base.Update();
-        m_Owner.CheckPlayerInTauntRange();
     }
 
     public override void OnEnter()
@@ -23,7 +24,8 @@ public class EnemyDeadState : AEnemyState
 
     private IEnumerator WaitToDead()
     {
-        yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_DIE_DURATION);
-        m_Owner.DestroyIt();
+        m_Owner.DestroyIt(m_Duration);
+        yield return new WaitForSeconds(m_Duration);
+        
     }
 }

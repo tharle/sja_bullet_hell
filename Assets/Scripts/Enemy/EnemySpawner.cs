@@ -35,6 +35,6 @@ public class EnemySpawner : MonoBehaviour
         EnemyEntity enemy = EnemyLoader.Instance.Get(type);
         enemy.transform.parent = transform;
         enemy.transform.position = position;
-        return Instantiate(enemy);
+        return enemy;
     }
 }

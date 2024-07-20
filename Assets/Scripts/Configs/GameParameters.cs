@@ -19,7 +19,8 @@ public class GameParameters
         public const float ENEMY_TICK_CHECK_IN_SECONDS = 0.1f;
         public const float ENEMY_DIE_DURATION = 1f;
         public const float UI_LIFE_BAR_DISPLAY_TIME = 1f;
-        public const float WAVE_COOLDOWN_TIME = 2f;
+        public const float WAVE_COOLDOWN = 4f;
+        public const float ENEMY_SPAWN_COOLDOWN = 1f;
     }
 
     public class AnimationPlayer
@@ -29,21 +30,11 @@ public class GameParameters
         public const string TRIGGER_IDLE = "idle";
     }
 
-    public class AnimationTips
-    {
-        public const string TRIGGER_SHOW = "show";
-        public const string TRIGGER_HIDE = "hide";
-    }
-
-    public class BundleExtension
-    {
-        public static readonly string[] SFX = {"mp3", "wav"};
-    }
-
     public class BundleNames
     {
         public const string PREFAB_ACHIVEMENTS = "prefab_achivement";
         public const string PREFAB_ENEMY = "prefab_enemy";
+        public const string PREFAB_EFFECT = "prefab_effect";
         public const string BULLET = "bullet";
         public const string ITEM = "item";
         public const string SCRIT_OBJETS = "data";
@@ -59,6 +50,7 @@ public class GameParameters
 
         public const string PREFAB_ACHIVEMENTS = "/Prefabs/Achivements";
         public const string PREFAB_ENEMY = "/Prefabs/Enemies";
+        public const string PREFAB_EFFECT = "/Prefabs/Effects";
         public const string BULLETS = "/Data/Bullets";
         public const string ITEM = "/Data/Itens";
         public const string SCRIT_OBJETS = "/Data";

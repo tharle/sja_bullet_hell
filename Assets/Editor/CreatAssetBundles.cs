@@ -12,6 +12,13 @@ public class CreatAssetBundles
     {
         List<AssetBundleBuild> assetBundleDefinitionList = new();
 
+        // BULLETS PREFABS
+        {
+            AssetBundleBuild ab = new();
+            ab.assetBundleName = BundleNames.PREFAB_EFFECT;
+            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.PREFAB_EFFECT).ToArray();
+            assetBundleDefinitionList.Add(ab);
+        }
 
         // BULLETS PREFABS
         {

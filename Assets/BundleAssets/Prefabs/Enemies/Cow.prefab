@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -1333972491, guid: e0758fb54893b6343a3914971bb9d484, type: 3}
+  m_Sprite: {fileID: -321979616, guid: e0758fb54893b6343a3914971bb9d484, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -242,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Data: {fileID: 11400000, guid: 0ec822d3b5e424546ab9f2012ebe86a4, type: 2}
   m_Type: 0
+  m_ColorShow: {r: 0.83921576, g: 0.7294118, b: 0.63529414, a: 1}
+  m_ColorDie: {r: 0.8705883, g: 0.61960787, b: 0.6117647, a: 1}
   m_IdleTimeRange: {x: 0.5, y: 2}
   m_PatrolTimeRange: {x: 0.5, y: 2}
   m_TautDistance: 6
@@ -293,6 +295,7 @@ MonoBehaviour:
       type: {class: EnemyDeadState, ns: , asm: Assembly-CSharp}
       data:
         m_Rules: -1
+        m_Duration: 1
 --- !u!1001 &3129325969746390074
 PrefabInstance:
   m_ObjectHideFlags: 0

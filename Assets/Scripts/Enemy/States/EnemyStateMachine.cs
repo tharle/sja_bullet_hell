@@ -5,6 +5,8 @@ using TypeReferences;
 using UnityEngine.XR;
 using Unity.VisualScripting;
 using System.Xml;
+using static UnityEngine.EventSystems.EventTrigger;
+using UnityEngine.UIElements;
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -184,9 +186,11 @@ public class EnemyStateMachine : MonoBehaviour
         }
     }
 
-    internal void DestroyIt()
+    public void DestroyIt(float time)
     {
-        Destroy(gameObject);
+        if(gameObject.TryGetComponent<BoxCollider2D>(out var collider)) Destroy(collider);
+        Destroy(gameObject, time);
+        EffectManager.Instance.CastEffect(EEffect.Unsummon, transform.position, m_Enemy.ColorDie, time);
     }
 }
 

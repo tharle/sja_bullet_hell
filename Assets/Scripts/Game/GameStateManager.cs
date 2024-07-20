@@ -90,6 +90,11 @@ public class GameStateManager : MonoBehaviour
         return null;
     }
 
+    public T Cast<T>(T gameObject) where T : Object
+    {
+        return Instantiate(gameObject);
+    }
+
 }
 
 [System.Flags]

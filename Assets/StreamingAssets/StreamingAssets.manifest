@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1956428980
+CRC: 2729658588
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -13,4 +13,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_3:
       Name: prefab_enemy
+      Dependencies: {}
+    Info_4:
+      Name: prefab_effect
       Dependencies: {}

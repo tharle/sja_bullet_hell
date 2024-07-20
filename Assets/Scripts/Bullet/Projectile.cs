@@ -43,6 +43,7 @@ public class Projectile : MonoBehaviour
         
     }
 
+
     private float GetTravelledDistance()
     {
         return Vector2.Distance(m_PosStart, transform.position);
@@ -67,6 +68,8 @@ public class Projectile : MonoBehaviour
         else if (collision.TryGetComponent<IDamageable>(out var damageable))
         {
             if(damageable is Entity entity && entity == m_Owner) return;
+
+            if (m_Owner is EnemyEntity && damageable is EnemyEntity) return; // No more friend fire =(
 
             damageable.TakeDamage(m_Damage);
             DestroyBullet();
