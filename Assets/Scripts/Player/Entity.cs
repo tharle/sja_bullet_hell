@@ -79,6 +79,9 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
         m_Items.Add(item);
         foreach (var effect in item.addedEffect)
             effect.Execute(this);
+
+        foreach(var effect in item.pickupEffect)
+            effect.Execute(this);
     }
 
     public void RemoveItem(Item item)
@@ -111,5 +114,10 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     public bool IsAlive()
     {
         return m_CurrentHealth > 0;
+    }
+
+    internal void RestoreLife(int hp)
+    {
+        m_CurrentHealth += hp;
     }
 }

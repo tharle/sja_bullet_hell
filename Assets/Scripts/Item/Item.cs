@@ -23,7 +23,7 @@ public class Item : ScriptableObject
     [Header("Player Effects")]
     [SerializeReference, SubclassSelector] public List<ItemEffect> addedEffect; 
     //[SerializeReference, SubclassSelector] public List<ItemEffect> dashingEffect; 
-    //[SerializeReference, SubclassSelector] public List<ItemEffect> pickupEffect; 
+    [SerializeReference, SubclassSelector] public List<ItemEffect> pickupEffect; 
     //[SerializeReference, SubclassSelector] public List<ItemEffect> startWaveEffects;
     //[SerializeReference, SubclassSelector] public List<ItemEffect> endWaveEffects;
     //[SerializeReference, SubclassSelector] public List<ItemEffect> updateEffects;

@@ -22,3 +22,14 @@ public class RemoveStatsEffect : ItemEffect
         _owner.RemoveStats(statsToRemove);
     }
 }
+
+[Serializable]
+public class PickupStatsEffect : ItemEffect
+{
+    [SerializeField] public int HP;
+
+    public override void Execute(Entity _owner)
+    {
+        _owner.RestoreLife(HP);
+    }
+}

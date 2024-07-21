@@ -15,6 +15,7 @@ MonoBehaviour:
   Icon: {fileID: -2000982798, guid: 3d44a885ac220bd469da7d858143c024, type: 3}
   addedEffect:
   - rid: 8331348553765486592
+  pickupEffect: []
   shootEffects: []
   wallEffects: []
   references:
@@ -23,7 +24,8 @@ MonoBehaviour:
     - rid: 8331348553765486592
       type: {class: AddStatsEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: Speed Bullet Up
+        m_Name: Give more attack speed.
+        m_Description: Bullet Spd +1
         statsToAdd:
           BulletPerSeconds: 0
           MaxHealth: 0
@@ -31,3 +33,4 @@ MonoBehaviour:
           Damage: 0
           LifeSteal: 0
           BulletSpeed: 1
+          BulletRange: 0

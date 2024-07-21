@@ -13,21 +13,17 @@ MonoBehaviour:
   m_Name: Orange
   m_EditorClassIdentifier: 
   Icon: {fileID: 1116922879, guid: 3d44a885ac220bd469da7d858143c024, type: 3}
-  addedEffect:
-  - rid: 9201663711878053896
+  addedEffect: []
+  pickupEffect:
+  - rid: 8331348640240762885
   shootEffects: []
   wallEffects: []
   references:
     version: 2
     RefIds:
-    - rid: 9201663711878053896
-      type: {class: AddStatsEffect, ns: , asm: Assembly-CSharp}
+    - rid: 8331348640240762885
+      type: {class: PickupStatsEffect, ns: , asm: Assembly-CSharp}
       data:
-        name: Hp up
-        statsToAdd:
-          BulletPerSeconds: 0
-          MaxHealth: 1
-          Speed: 0
-          Damage: 0
-          LifeSteal: 0
-          BulletSpeed: 0
+        m_Name: Restore life
+        m_Description: HP + 1
+        HP: 1

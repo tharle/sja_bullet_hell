@@ -22,6 +22,11 @@ public class HUDMenuGame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_Range;
     [SerializeField] private TextMeshProUGUI m_Speed;
 
+    [Header("Itens")]
+    [SerializeField] private GameObject m_ItensContent;
+    [SerializeField] private HUDItemSlot m_ItemSlotPrefab;
+    private List<HUDItemSlot> m_ItemSlotsShowed = new List<HUDItemSlot>();
+
     void Start()
     {
         m_MenuOpen = false;
@@ -38,6 +43,7 @@ public class HUDMenuGame : MonoBehaviour
     private void OnMenuOpen(GameEventMessage message)
     {
         ToogleMenu();
+        ChangeToSubMenuStats();
 
         if (!m_MenuOpen) return;
 
@@ -59,6 +65,18 @@ public class HUDMenuGame : MonoBehaviour
 
         if(m_MenuOpen) Time.timeScale = 0f;
         else Time.timeScale = 1.0f;
+    }
+
+    public void ChangeToSubMenuItens()
+    {
+        m_MenuStats.SetActive(false);
+        m_MenuItens.SetActive(true);
+    }
+
+    public void ChangeToSubMenuStats()
+    {
+        m_MenuStats.SetActive(true);
+        m_MenuItens.SetActive(false);
     }
 
     public void Load()
@@ -88,6 +106,17 @@ public class HUDMenuGame : MonoBehaviour
 
     private void LoadItens(List<Item> itens)
     {
-        
+        //Clean
+        m_ItemSlotsShowed.ForEach(item =>  Destroy(item.gameObject) );
+        m_ItemSlotsShowed.Clear();
+
+        // Create all itens in invetentory
+        itens.ForEach(item =>
+        {
+            HUDItemSlot itemSlot = Instantiate(m_ItemSlotPrefab);
+            itemSlot.transform.SetParent(m_ItensContent.transform);
+            itemSlot.Init(item);
+            m_ItemSlotsShowed.Add(itemSlot);
+        });
     }
 }
