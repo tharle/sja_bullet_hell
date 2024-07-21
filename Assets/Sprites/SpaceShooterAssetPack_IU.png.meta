@@ -118,7 +118,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: 6725fcaae34dca54f81d15367f41d542
       internalID: 2146759284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_scroll_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 80
+        width: 4
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 3, z: 1, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca1184783783a34799dcb782e2e252a
+      internalID: 2129651788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_scroll_1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 81
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4da5980c5dadce4b948d1f852abd8dc
+      internalID: 178479239
       vertices: []
       indices: 
       edges: []
@@ -162,9 +204,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      SpaceShooterAssetPack_IU_0: -1073714587
       ui_frame_0: -2010335761
       ui_frame_1: 2146759284
       ui_life_bar_01: -196951137
+      ui_scroll_0: 2129651788
+      ui_scroll_1: 178479239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
