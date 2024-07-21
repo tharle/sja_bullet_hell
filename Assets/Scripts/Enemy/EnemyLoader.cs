@@ -27,11 +27,6 @@ public class EnemyLoader
         LoadAll();
     }
 
-    private void OnDestroy()
-    {
-
-    }
-
     private void LoadAll()
     {
         m_EnemyMap = new Dictionary<EEnemy, EnemyEntity>();
@@ -60,5 +55,11 @@ public class EnemyLoader
         }
 
         return m_EnemyMap[type];
+    }
+
+    public void Destroy()
+    {
+        m_EnemyMap.Clear();
+        m_Instance = null;
     }
 }

@@ -12,16 +12,14 @@ public class GameParameters
         public const string TRIGGER_ATTACK = "attack";
         public const string FLOAT_VELOCITY = "velocity";
     }
-    
-    public class Prefs
+
+    public class AnimationMainMenu
     {
-        public const float GRID_SIZE_IN_PIXEL = 0.16f;
-        public const float ENEMY_TICK_CHECK_IN_SECONDS = 0.1f;
-        public const float ENEMY_DIE_DURATION = 1f;
-        public const float UI_LIFE_BAR_DISPLAY_TIME = 1f;
-        public const float WAVE_COOLDOWN = 4f;
-        public const float ENEMY_SPAWN_COOLDOWN = 1f;
+        public const string TRIGGER_FADE_OUT = "menu_fade_out";
+        public const string TRIGGER_LOAD_ENTER = "menu_load_enter";
+        public const string TRIGGER_LOAD_EXIT = "menu_load_exit";
     }
+
 
     public class AnimationPlayer
     {
@@ -64,6 +62,16 @@ public class GameParameters
         public const string AXIS_VERTICAL = "Vertical";
         public const string AXIS_MOUSE_HORIZONTAL = "Mouse X";
         public const KeyCode GAME_MENU = KeyCode.Escape;
+    }
+
+    public class Prefs
+    {
+        public const float GRID_SIZE_IN_PIXEL = 0.16f;
+        public const float ENEMY_TICK_CHECK_IN_SECONDS = 0.1f;
+        public const float ENEMY_DIE_DURATION = 1f;
+        public const float UI_LIFE_BAR_DISPLAY_TIME = 1f;
+        public const float WAVE_COOLDOWN = 4f;
+        public const float ENEMY_SPAWN_COOLDOWN = 1f;
     }
 
     public class SceneName

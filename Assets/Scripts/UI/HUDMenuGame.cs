@@ -47,6 +47,11 @@ public class HUDMenuGame : MonoBehaviour
         GameEventSystem.Instance.SubscribeTo(EGameEvent.MenuOpen, OnMenuOpen);
     }
 
+    private void OnDestroy()
+    {
+        GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.MenuOpen, OnMenuOpen);
+    }
+
     private void OnMenuOpen(GameEventMessage message)
     {
         ToogleMenu();

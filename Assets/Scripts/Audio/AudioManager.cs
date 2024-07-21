@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -51,10 +52,21 @@ public class AudioManager
         audioSource.transform.position = soundPosition;
         audioSource.volume = volume;
 
-        if (!audioSource.isPlaying) 
+        try
         {
-            audioSource.Play();
-            audioSource.loop = isLooping;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+                audioSource.loop = isLooping;
+            }
+        }catch(Exception ex)
+        {
+
+            Debug.LogException(ex);
+            // Ignore, its a bug in walk sounds, some times will not be  loaded correcty (File not found exeption),
+            // But its will called some other times in animations,
+            // I think is not a problem just ignore for my small project.
+
         }
     }
 

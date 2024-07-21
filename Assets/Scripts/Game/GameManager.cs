@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     //GameManager
     private Save m_CurrentSave;
     private PlayerEntity m_PlayerEntity;
+    [SerializeField] bool m_NewGameSlot1;
 
     public PlayerEntity PlayerEntity => m_PlayerEntity;
 
@@ -41,12 +43,28 @@ public class GameManager : MonoBehaviour
         m_ItemApple = ItemLoader.Instance.Get(EItem.Apple);
         m_ItemBlueberry = ItemLoader.Instance.Get(EItem.Blueberry);
         m_ItemOrange = ItemLoader.Instance.Get(EItem.Orange);
+
+        if(m_NewGameSlot1 || !LoadGame(1, false)) NewGame(1, false);
     }
 
-    public void NewGame(Save _save, bool loadScene = true)
+    public void NewGame(int index, bool loadScene = true)
     {
-        m_CurrentSave = _save;
+        // if exist data, delete
+        SaveManagerJson.DeleteSave(index.ToString()); // TODO pe trater lerreur apres
+        m_CurrentSave = new Save(true, index, index.ToString(), new List<Item>(), 0);
         if(loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
+    }
+
+    public bool LoadGame(int slotIndex, bool loadScene = true)
+    {
+        Save save = SaveManagerJson.Load<Save>(slotIndex.ToString());
+        if (save != null) 
+        {
+            LoadGame(save, loadScene);
+            return true;
+        }
+
+        return false;
     }
 
     public void LoadGame(Save _save, bool loadScene = true)
@@ -55,10 +73,9 @@ public class GameManager : MonoBehaviour
         if (loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 
-    public void ReloadCurrentGame(bool loadScene = true)
+    public void ReloadCurrentGame()
     {
-        Save save = SaveManagerJson.Load<Save>(m_CurrentSave.Index.ToString());
-        if (save != null) LoadGame(save, loadScene);
+        LoadGame(m_CurrentSave.Index);
     }
 
     public void SetPlayer(PlayerEntity _playerEntiy)

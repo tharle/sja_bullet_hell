@@ -34,7 +34,7 @@ public class ItemLoader : MonoBehaviour
         }
 
         m_Instance = this;
-        m_Items = new Dictionary<EItem, Item>();   
+        m_Items = new Dictionary<EItem, Item>();
     }
 
     private void Start()

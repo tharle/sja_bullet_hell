@@ -22,7 +22,6 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        m_Animator = GetComponent<Animator>();
 
         SubscribeAll();
     }
@@ -46,10 +45,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void StartGameFromSlot(int slotIndex)
     {
-        // if exist data, delete
-        SaveManagerJson.DeleteSave(slotIndex.ToString()); // TODO pe trater lerreur apres
-        Save newSave = new Save(true, slotIndex, slotIndex.ToString(), new List<Item>(), 0);
-        GameManager.Instance.NewGame(newSave, false);
+        GameManager.Instance.NewGame(slotIndex, false);
         LoadGame();
     }
 
@@ -124,15 +120,23 @@ public class MainMenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    private Animator GetAnimator()
+    {
+        if(m_Animator== null || m_Animator.IsDestroyed()) m_Animator = GetComponent<Animator>();
+
+        return m_Animator;
+    }
+
     private void AnimationMenuLoad(bool enter)
     {
-        if(enter) m_Animator.SetTrigger("menu_load_enter");
-        else m_Animator.SetTrigger("menu_load_exit");
+        if(enter) GetAnimator().SetTrigger(GameParameters.AnimationMainMenu.TRIGGER_LOAD_ENTER);
+        else GetAnimator().SetTrigger(GameParameters.AnimationMainMenu.TRIGGER_LOAD_EXIT);
     }
 
     private void AnimationStartGame()
     {
-        m_Animator.SetTrigger("menu_fade_out");
+
+        GetAnimator().SetTrigger(GameParameters.AnimationMainMenu.TRIGGER_FADE_OUT);
     }
 
     IEnumerator StartGameRoutine()

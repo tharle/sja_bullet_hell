@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,12 @@ public class EnemySpawner : MonoBehaviour
         }
 
         m_Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        EnemyLoader.Instance.Destroy();
+        m_Instance = null;
     }
 
     public EnemyEntity SpawnEnemy(EEnemy type, Vector2 position)

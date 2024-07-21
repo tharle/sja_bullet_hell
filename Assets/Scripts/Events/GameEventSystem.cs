@@ -10,7 +10,8 @@ public enum EGameEvent
     MainMenuLoadSlot,
     AddItem,
     WaveInfoChanged,
-    MenuOpen
+    MenuOpen,
+    CloseGame
 }
 
 public class GameEventSystem

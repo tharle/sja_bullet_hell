@@ -30,6 +30,8 @@ public class BundleLoader: MonoBehaviour
             return;
         }
 
+        CleanData();
+
         m_Instance = this;
     }
 
@@ -105,6 +107,14 @@ public class BundleLoader: MonoBehaviour
         if (IsCallUnload) localAssetBundle.Unload(false);
 
         return assets;
+    }
+
+    public void CleanData()
+    {
+        foreach(var assetBundle in AssetBundle.GetAllLoadedAssetBundles())
+        {
+            assetBundle.Unload(true);
+        }
     }
 
 }
