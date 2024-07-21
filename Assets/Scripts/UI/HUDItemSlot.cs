@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,5 +18,16 @@ public class HUDItemSlot : MonoBehaviour
     {
         m_Icon.sprite = item.Icon;
         m_NameItem.text = item.name;
+        UpdateAmount(1);
+
+        // Dans ma logic, les itens de player ont UN EFFECT pour item
+        ItemEffect itemEffect = item.GetAllEffects()[0];
+        m_Description.text = itemEffect.Name;
+        m_DescriptionValue.text = itemEffect.Description;
+    }
+
+    public void UpdateAmount(int amount)
+    {
+        m_Amount.text = $"x{amount.ToString("00")}";
     }
 }

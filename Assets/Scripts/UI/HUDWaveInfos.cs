@@ -26,7 +26,7 @@ public class HUDWaveInfos : MonoBehaviour
         if(message.Contains<WaveData>(EGameEventMessage.WaveData, out WaveData wave))
         {
             m_WaveInfo.text = $"Wave {wave.Index}";
-            m_EnnemisCount.text = $"{wave.EnnemiesDeads} / {wave.EnnemiesAmount}";
+            m_EnnemisCount.text = $"{wave.EnnemiesDeads.ToString("00")} / {wave.EnnemiesAmount.ToString("00")}";
         }
     }
 }

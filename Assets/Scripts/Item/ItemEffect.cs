@@ -5,7 +5,9 @@ using UnityEngine;
 public abstract class ItemEffect
 {
     [SerializeField] private string m_Name;
+    public string Name => m_Name;
     [SerializeField] private string m_Description;
+    public string Description => m_Description;
 
     public abstract void Execute(Entity owner);
 }

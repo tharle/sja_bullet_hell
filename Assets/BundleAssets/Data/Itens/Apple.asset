@@ -24,7 +24,7 @@ MonoBehaviour:
     - rid: 8331348553765486592
       type: {class: AddStatsEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_Name: Give more attack speed.
+        m_Name: The bullets go more fast.
         m_Description: Bullet Spd +1
         statsToAdd:
           BulletPerSeconds: 0

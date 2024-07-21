@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -42,5 +43,17 @@ public class Item : ScriptableObject
             if (Enum.TryParse<EItem>(name, out EItem type)) return type;
             return EItem.None;
         }
+    }
+
+    public List<ItemEffect> GetAllEffects()
+    {
+        List<ItemEffect> result = new();
+
+        result.AddRange(addedEffect);
+        result.AddRange(pickupEffect);
+        result.AddRange(shootEffects);
+        result.AddRange(wallEffects);
+
+        return result;
     }
 }

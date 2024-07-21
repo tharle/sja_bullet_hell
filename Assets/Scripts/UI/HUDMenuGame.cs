@@ -5,6 +5,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public struct ItemSlotData
+{
+    public int Amount;
+    public Item Item;
+    public HUDItemSlot Slot;
+}
+
 public class HUDMenuGame : MonoBehaviour
 {
     [SerializeField] GameObject m_Menu;
@@ -25,7 +32,7 @@ public class HUDMenuGame : MonoBehaviour
     [Header("Itens")]
     [SerializeField] private GameObject m_ItensContent;
     [SerializeField] private HUDItemSlot m_ItemSlotPrefab;
-    private List<HUDItemSlot> m_ItemSlotsShowed = new List<HUDItemSlot>();
+    Dictionary<EItem, ItemSlotData> m_ItensSlot = new();
 
     void Start()
     {
@@ -106,17 +113,36 @@ public class HUDMenuGame : MonoBehaviour
 
     private void LoadItens(List<Item> itens)
     {
-        //Clean
-        m_ItemSlotsShowed.ForEach(item =>  Destroy(item.gameObject) );
-        m_ItemSlotsShowed.Clear();
+        // Clean Amounts
+        List<EItem> keys = new List<EItem>(m_ItensSlot.Keys);
+        foreach (EItem itemType in keys) 
+        {
+            ItemSlotData itemSlot = m_ItensSlot[itemType];
+            itemSlot.Amount = 0;
+            m_ItensSlot[itemType] = itemSlot;
+        }
+
 
         // Create all itens in invetentory
-        itens.ForEach(item =>
+        foreach(Item item in itens) 
         {
-            HUDItemSlot itemSlot = Instantiate(m_ItemSlotPrefab);
-            itemSlot.transform.SetParent(m_ItensContent.transform);
-            itemSlot.Init(item);
-            m_ItemSlotsShowed.Add(itemSlot);
-        });
+            ItemSlotData itemSlot;
+
+            if (m_ItensSlot.ContainsKey(item.Type))
+            {
+                itemSlot = m_ItensSlot[item.Type];
+                itemSlot.Amount += 1;
+                itemSlot.Slot.UpdateAmount(itemSlot.Amount);
+                m_ItensSlot[item.Type] = itemSlot;
+                continue;
+            }
+
+            itemSlot.Item = item;
+            itemSlot.Amount = 1;
+            itemSlot.Slot = Instantiate(m_ItemSlotPrefab);
+            itemSlot.Slot.transform.SetParent(m_ItensContent.transform);
+            itemSlot.Slot.Init(item);
+            m_ItensSlot.Add(item.Type, itemSlot);
+        }
     }
 }

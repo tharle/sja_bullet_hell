@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3496393736
+CRC: 2426303287
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 384b544fd76649d7d337ec0c67169a96
+    Hash: 8b3120048893ef2e4882e85cc6d4c07b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9dba085d757ada5132c6733b541e269f
+    Hash: 538dbd4572313acffd2d2d29fe83ee70
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -20,6 +20,8 @@ ClassTypes:
 SerializeReferenceClassIdentifiers:
 - AssemblyName: Assembly-CSharp
   ClassName: AddStatsEffect
+- AssemblyName: Assembly-CSharp
+  ClassName: PickupStatsEffect
 Assets:
 - Assets/BundleAssets/Data/Itens/Apple.asset
 - Assets/BundleAssets/Data/Itens/Orange.asset
