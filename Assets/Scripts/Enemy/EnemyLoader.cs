@@ -27,6 +27,11 @@ public class EnemyLoader
         LoadAll();
     }
 
+    private void OnDestroy()
+    {
+
+    }
+
     private void LoadAll()
     {
         m_EnemyMap = new Dictionary<EEnemy, EnemyEntity>();

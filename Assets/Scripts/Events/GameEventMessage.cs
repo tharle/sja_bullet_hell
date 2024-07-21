@@ -10,6 +10,9 @@ public enum EGameEventMessage
     IsNewGame,
     Item,
     WaveData,
+    Stats,
+    Itens,
+    CurrentHealth,
 }
 
 public class GameEventMessage

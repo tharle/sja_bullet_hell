@@ -50,6 +50,15 @@ public class PlayerControls :  MonoBehaviour
 
     private void UpdateInputs()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameEventMessage message = new GameEventMessage(EGameEventMessage.Stats, m_PlayerEntity.Stats );
+            message.Add(EGameEventMessage.CurrentHealth, m_PlayerEntity.CurrentHealth);
+            message.Add(EGameEventMessage.Itens, m_PlayerEntity.Items);
+
+            GameEventSystem.Instance.TriggerEvent(EGameEvent.MenuOpen, message);
+        }
+
 
         if (m_IsLockInputs || m_IsDashing)
             return;

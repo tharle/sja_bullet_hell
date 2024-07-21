@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -52,6 +53,12 @@ public class GameManager : MonoBehaviour
     {
         m_CurrentSave = _save;
         if (loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
+    }
+
+    public void ReloadCurrentGame(bool loadScene = true)
+    {
+        Save save = SaveManagerJson.Load<Save>(m_CurrentSave.Index.ToString());
+        if (save != null) LoadGame(save, loadScene);
     }
 
     public void SetPlayer(PlayerEntity _playerEntiy)

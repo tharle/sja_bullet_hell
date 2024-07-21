@@ -139,6 +139,6 @@ public class MainMenuManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
 
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 }
