@@ -6,49 +6,42 @@ using UnityEngine;
 [Serializable]
 public class Save
 {
-    [SerializeField] private bool newGame;
-    [SerializeField] private int index;
-    [SerializeField] private string saveName;
-    [SerializeField] private List<Item> items;
-    [SerializeField] int currentHealth;
-    [SerializeField] private Stats stats;
+    [SerializeField] private bool m_IsNewGame;
+    [SerializeField] private int m_Index;
+    [SerializeField] private string m_SaveName;
+    [SerializeField] private List<Item> m_Items;
+    [SerializeField] int m_CurrentHealth;
+    [SerializeField] private Stats m_Stats;
+    [SerializeField] private int m_WaveIndex;
 
-    public string SaveName => saveName;
-    public List<Item> Items => items;
-    public Stats Stats => stats;
-    public int CurrentHealth => currentHealth;
-    public int Index => index;
-    public bool NewGame { get => newGame; set => newGame = value; }
+    public string SaveName => m_SaveName;
+    public List<Item> Items => m_Items;
+    public Stats Stats => m_Stats;
+    public int CurrentHealth => m_CurrentHealth;
+    public int Index => m_Index;
+    public bool IsNewGame { get => m_IsNewGame; set => m_IsNewGame = value; }
 
     public Save()
     {
-        index = 0;
-        saveName = "Save 0";
-        items = new List<Item>();
-        currentHealth = 0;
+        m_Index = 0;
+        m_SaveName = "Save 0";
+        m_Items = new List<Item>();
+        m_CurrentHealth = 0;
     }
 
-    public Save(int _index,string _saveName,List<Item> _items,int _currentHealth)
-    { 
-        index = _index;
-        saveName = _saveName;
-        items = _items;
-        currentHealth = _currentHealth;
-    }
-
-    public Save(bool _newGame,int _index, string _saveName, List<Item> _items, int _currentHealth)
+    public Save(bool _newGame,int _index, string _saveName, List<Item> _items, int _currentHealth, float m_WaveIndex)
     {
-        newGame = _newGame;
-        index = _index;
-        saveName = _saveName;
-        items = _items;
-        currentHealth = _currentHealth;
+        m_IsNewGame = _newGame;
+        m_Index = _index;
+        m_SaveName = _saveName;
+        m_Items = _items;
+        m_CurrentHealth = _currentHealth;
     }
 
-    public void UpdateSave(List<Item> _items, int _currentHealth,Stats _stats)
+    public void UpdateSave(List<Item> _items, int _currentHealth,Stats _stats, float m_WaveIndex)
     {
-        stats = _stats; 
-        items = _items;
-        currentHealth = _currentHealth;
+        m_Stats = _stats; 
+        m_Items = _items;
+        m_CurrentHealth = _currentHealth;
     }
 }

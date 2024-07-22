@@ -52,7 +52,7 @@ public class MainMenuManager : MonoBehaviour
     private void StartGameFromSlot(int slotIndex)
     {
         GameManager.Instance.NewGame(slotIndex, false);
-        LoadGame();
+        InitGame();
     }
 
     private void LoadGameFromSlot(int slotIndex)
@@ -60,13 +60,13 @@ public class MainMenuManager : MonoBehaviour
         Save save = m_Saves[slotIndex];
 
         if (save == null) return;
-        save.NewGame = false ;
+        save.IsNewGame = false ;
 
         GameManager.Instance.LoadGame(save, false);
-        LoadGame();
+        InitGame();
     }
 
-    public void LoadGame()
+    private void InitGame()
     {
         AnimationStartGame();
         StartCoroutine(StartGameRoutine());

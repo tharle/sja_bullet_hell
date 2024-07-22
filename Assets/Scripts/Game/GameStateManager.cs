@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TypeReferences;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -36,12 +37,35 @@ public class GameStateManager : MonoBehaviour
         {
             state.setOwner(this);
         }
+
+        SubscribeAll();
     }
 
     private void Start()
     {
         AGameState state = GetState(m_DefaultState.Type);
         if (state != null) ChangeState(state);
+    }
+
+    private void SubscribeAll()
+    {
+        GameEventSystem.Instance.SubscribeTo(EGameEvent.StartGame, OnStartGame);
+    }
+
+    private void OnStartGame(GameEventMessage message)
+    {
+        if(message.Contains<int>(EGameEventMessage.WaveIndex, out int indexWave)) Wave.Index = indexWave;
+    }
+
+    private void OnDestroy()
+    {
+        UnsubscribeAll();
+        m_CurrentState?.OnCancel();
+    }
+
+    private void UnsubscribeAll()
+    {
+        GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.StartGame, OnStartGame);
     }
 
     private void Update()
@@ -52,11 +76,6 @@ public class GameStateManager : MonoBehaviour
     private void FixedUpdate()
     {
         m_CurrentState?.FixedUpdate();
-    }
-
-    private void OnDestroy()
-    {
-        m_CurrentState?.OnCancel();
     }
 
     public bool ChangeState(AGameState newState, params AGameState.Param[] stateParams)
@@ -75,6 +94,8 @@ public class GameStateManager : MonoBehaviour
 
     public bool ChangeState<T>(params AGameState.Param[] stateParams)
     {
+        GameManager.Instance.Save(Wave.Index);
+
         AGameState newState = GetState<T>();
         return ChangeState(newState, stateParams);
     }

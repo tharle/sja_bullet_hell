@@ -13,6 +13,7 @@ public enum EGameEventMessage
     Stats,
     Itens,
     CurrentHealth,
+    WaveIndex,
 }
 
 public class GameEventMessage

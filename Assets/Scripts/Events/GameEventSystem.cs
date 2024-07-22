@@ -11,7 +11,8 @@ public enum EGameEvent
     AddItem,
     WaveInfoChanged,
     MenuOpen,
-    CloseGame
+    CloseGame,
+    StartGame
 }
 
 public class GameEventSystem
