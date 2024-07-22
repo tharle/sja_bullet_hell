@@ -5,18 +5,19 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AudioPool
+public class AudioPool 
 {
     private List<AudioSource> m_AudioPool = new List<AudioSource>();
 
-    public AudioSource GetAvailable()
+    public AudioSource GetAvailable(Transform parent)
     {
         CleanAllDestroyed();
         AudioSource audio = m_AudioPool.Find(audio => !audio.isPlaying && !audio.gameObject.IsDestroyed());
         if(audio == null)
         {
             // Pas d'audio disponible
-            GameObject go = new GameObject("Audio Source");
+            GameObject go = new GameObject("Audio Source"); 
+            go.transform.SetParent(parent);
             audio = go.AddComponent<AudioSource>();
             m_AudioPool.Add(audio);
         }

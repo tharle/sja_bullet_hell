@@ -66,6 +66,7 @@ public class BundleLoader: MonoBehaviour
 
         string[] assetNames = Enum.GetNames(typeof(EAudio));
         List<AudioClip> audioClips = LoadAll<AudioClip>(GameParameters.BundleNames.SFX, false, assetNames);
+
         foreach (AudioClip clip in audioClips)
         {
             if (Enum.TryParse(clip.name, out EAudio audioId))

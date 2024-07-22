@@ -20,7 +20,7 @@ public enum EAudio
     SFXWinGame
     
 }
-public class AudioManager
+public class AudioManager : MonoBehaviour
 {
     private Dictionary<EAudio, AudioClip> m_AudioClips;
     private AudioPool m_AudioPool;
@@ -28,45 +28,47 @@ public class AudioManager
     private BundleLoader m_Loader;
 
     private static AudioManager m_Instance;
-
-    public static AudioManager Instance { 
-        get {
-            if (m_Instance == null) m_Instance = new AudioManager();
+    public static AudioManager Instance
+    {
+        get
+        {
+            if (m_Instance == null)
+            {
+                GameObject go = new GameObject("AudioManager");
+                go.AddComponent<AudioManager>();
+            }
 
             return m_Instance;
         }
     }
 
-    private AudioManager()
+    private void Awake()
     {
+        if (m_Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         m_AudioPool = new AudioPool();
         m_Loader = BundleLoader.Instance;
         m_AudioClips = m_Loader.LoadSFX();
+
+        m_Instance = this;
     }
 
     public void Play(EAudio audioClipId, Vector3 soundPosition, bool isLooping = false, float volume = 1f)
     {
         AudioSource audioSource;
-        audioSource = m_AudioPool.GetAvailable();
+        audioSource = m_AudioPool.GetAvailable(transform);
         audioSource.clip = m_AudioClips[audioClipId];
         audioSource.transform.position = soundPosition;
         audioSource.volume = volume;
 
-        try
+        if (!audioSource.isPlaying)
         {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-                audioSource.loop = isLooping;
-            }
-        }catch(Exception ex)
-        {
-
-            Debug.LogException(ex);
-            // Ignore, its a bug in walk sounds, some times will not be  loaded correcty (File not found exeption),
-            // But its will called some other times in animations,
-            // I think is not a problem just ignore for my small project.
-
+            audioSource.Play();
+            audioSource.loop = isLooping;
         }
     }
 
