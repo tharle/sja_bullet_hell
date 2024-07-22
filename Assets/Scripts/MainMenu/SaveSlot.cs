@@ -36,6 +36,12 @@ public class SaveSlot : MonoBehaviour
         GameEventSystem.Instance.SubscribeTo(EGameEvent.MainMenuLoadSlot, OnLoadSlot);
     }
 
+
+    private void OnDestroy()
+    {
+        GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.MainMenuLoadSlot, OnLoadSlot);
+    }
+
     private void OnLoadSlot(GameEventMessage message)
     {
         if (!message.Contains<int>(EGameEventMessage.SlotIndex, out int SlotIndex) || SlotIndex != m_SlotIndex)

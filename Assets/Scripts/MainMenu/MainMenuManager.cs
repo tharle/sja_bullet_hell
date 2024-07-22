@@ -5,6 +5,7 @@ using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,6 +30,11 @@ public class MainMenuManager : MonoBehaviour
     private void SubscribeAll()
     {
         GameEventSystem.Instance.SubscribeTo(EGameEvent.MainMenuSelectSlot, OnMenuSlotSelect);
+    }
+
+    private void OnDestroy()
+    {
+        GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.MainMenuSelectSlot, OnMenuSlotSelect);
     }
 
     private void OnMenuSlotSelect(GameEventMessage message)
@@ -122,6 +128,7 @@ public class MainMenuManager : MonoBehaviour
 
     private Animator GetAnimator()
     {
+        if (gameObject.IsDestroyed()) return null;
         if(m_Animator== null || m_Animator.IsDestroyed()) m_Animator = GetComponent<Animator>();
 
         return m_Animator;
