@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool m_NewGameSlot1;
 
     public PlayerEntity PlayerEntity => m_PlayerEntity;
+    public int LastWaveIndex => m_CurrentSave != null? m_CurrentSave.WaveIndex : 0;
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         // if exist data, delete
         SaveManagerJson.DeleteSave(index.ToString()); // TODO pe trater lerreur apres
-        m_CurrentSave = new Save(true, index, index.ToString(), new List<Item>(), 0, 1);
+        m_CurrentSave = new Save(true, index, index.ToString(), new List<Item>(), 0, 0);
         if(loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 
@@ -59,8 +60,6 @@ public class GameManager : MonoBehaviour
     public void LoadGame(Save save, bool loadScene = true)
     {
         m_CurrentSave = save;
-
-        GameEventSystem.Instance.TriggerEvent(EGameEvent.StartGame, new GameEventMessage(EGameEventMessage.WaveIndex, save.Index));
         if (loadScene) SceneManager.LoadScene(GameParameters.SceneName.GAME);
     }
 

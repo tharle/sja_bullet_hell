@@ -37,35 +37,18 @@ public class GameStateManager : MonoBehaviour
         {
             state.setOwner(this);
         }
-
-        SubscribeAll();
     }
 
     private void Start()
     {
         AGameState state = GetState(m_DefaultState.Type);
+        Wave.Index = GameManager.Instance.LastWaveIndex;
         if (state != null) ChangeState(state);
-    }
-
-    private void SubscribeAll()
-    {
-        GameEventSystem.Instance.SubscribeTo(EGameEvent.StartGame, OnStartGame);
-    }
-
-    private void OnStartGame(GameEventMessage message)
-    {
-        if(message.Contains<int>(EGameEventMessage.WaveIndex, out int indexWave)) Wave.Index = indexWave;
     }
 
     private void OnDestroy()
     {
-        UnsubscribeAll();
         m_CurrentState?.OnCancel();
-    }
-
-    private void UnsubscribeAll()
-    {
-        GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.StartGame, OnStartGame);
     }
 
     private void Update()

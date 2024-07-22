@@ -20,6 +20,7 @@ public class Save
     public int CurrentHealth => m_CurrentHealth;
     public int Index => m_Index;
     public bool IsNewGame { get => m_IsNewGame; set => m_IsNewGame = value; }
+    public int WaveIndex => m_WaveIndex;
 
     public Save()
     {
@@ -29,19 +30,21 @@ public class Save
         m_CurrentHealth = 0;
     }
 
-    public Save(bool _newGame,int _index, string _saveName, List<Item> _items, int _currentHealth, float m_WaveIndex)
+    public Save(bool _newGame,int _index, string _saveName, List<Item> _items, int _currentHealth, int waveIndex)
     {
         m_IsNewGame = _newGame;
         m_Index = _index;
         m_SaveName = _saveName;
         m_Items = _items;
         m_CurrentHealth = _currentHealth;
+        m_WaveIndex = waveIndex;
     }
 
-    public void UpdateSave(List<Item> _items, int _currentHealth,Stats _stats, float m_WaveIndex)
+    public void UpdateSave(List<Item> _items, int _currentHealth,Stats _stats, int waveIndex)
     {
         m_Stats = _stats; 
         m_Items = _items;
         m_CurrentHealth = _currentHealth;
+        m_WaveIndex = waveIndex;
     }
 }
