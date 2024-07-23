@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public struct SaveSlotData
 {
-    public string Info;
+    public string InfoWave;
+    public string InfoItems;
     public Sprite Icon;
 }
 
@@ -15,7 +16,8 @@ public class SaveSlot : MonoBehaviour
 {
     [SerializeField] private int m_SlotIndex;
     [SerializeField] private Image m_Icon;
-    [SerializeField] private TextMeshProUGUI m_Info;
+    [SerializeField] private TextMeshProUGUI m_InfoWave;
+    [SerializeField] private TextMeshProUGUI m_InfoItens;
     [SerializeField] private TextMeshProUGUI m_ButtonText;
 
     private SaveSlotData m_DefaultSlotData;
@@ -24,7 +26,7 @@ public class SaveSlot : MonoBehaviour
 
     private void Start()
     {
-        m_DefaultSlotData.Info = m_Info.text;
+        m_DefaultSlotData.InfoWave = m_InfoWave.text;
         m_DefaultSlotData.Icon = m_Icon.sprite;
         m_HasData = false;
 
@@ -53,7 +55,8 @@ public class SaveSlot : MonoBehaviour
 
         if (message.Contains<SaveSlotData>(EGameEventMessage.SlotData, out SaveSlotData slotData))
         {
-            m_Info.text = slotData.Info;
+            m_InfoWave.text = slotData.InfoWave;
+            m_InfoItens.text = slotData.InfoItems;
             m_Icon.sprite = slotData.Icon;
             m_HasData = true;
             m_ButtonText.text = m_IsNewGame ? "Overwrite" : "Load";
@@ -66,7 +69,7 @@ public class SaveSlot : MonoBehaviour
 
     public void EmptySlot()
     {
-        m_Info.text = m_DefaultSlotData.Info;
+        m_InfoWave.text = m_DefaultSlotData.InfoWave;
         m_Icon.sprite = m_DefaultSlotData.Icon;
         m_ButtonText.text = "New";
         m_HasData = false;

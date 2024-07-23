@@ -96,7 +96,9 @@ public class MainMenuManager : MonoBehaviour
             if (m_Saves[i] != null)
             {
                 SaveSlotData slotData;
-                slotData.Info = "Has data!";
+                slotData.InfoWave = $"Wave: {m_Saves[i].WaveIndex.ToString("00")}";
+                slotData.InfoItems = $"{m_Saves[i].Items.Count.ToString("00")} itens";
+                
                 slotData.Icon = m_IconSlotFull;
                 message.Add(EGameEventMessage.SlotData, slotData);
             }
