@@ -14,12 +14,12 @@ public struct ItemSlotData
 
 public class HUDMenuGame : MonoBehaviour
 {
+
+    [Header("Stats")]
     [SerializeField] GameObject m_Menu;
     [SerializeField] GameObject m_MenuStats;
     [SerializeField] GameObject m_MenuItens;
     bool m_MenuOpen;
-
-
 
     [Header("Stats")]
     [SerializeField] private TextMeshProUGUI m_HP;
@@ -34,10 +34,15 @@ public class HUDMenuGame : MonoBehaviour
     [SerializeField] private HUDItemSlot m_ItemSlotPrefab;
     Dictionary<EItem, ItemSlotData> m_ItensSlot = new();
 
+    [Header("Game Over")]
+    [SerializeField] private GameObject m_GameOver;
+    [SerializeField] private TextMeshProUGUI m_WaveIndex;
+
     void Start()
     {
         m_MenuOpen = false;
         m_Menu.SetActive(m_MenuOpen);
+        m_GameOver.SetActive(false);
 
         SubscribeAll();
     }
@@ -45,11 +50,13 @@ public class HUDMenuGame : MonoBehaviour
     private void SubscribeAll()
     {
         GameEventSystem.Instance.SubscribeTo(EGameEvent.MenuOpen, OnMenuOpen);
+        GameEventSystem.Instance.SubscribeTo(EGameEvent.GameOver, OnGameOver);
     }
 
     private void OnDestroy()
     {
         GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.MenuOpen, OnMenuOpen);
+        GameEventSystem.Instance.UnsubscribeFrom(EGameEvent.GameOver, OnGameOver);
     }
 
     private void OnMenuOpen(GameEventMessage message)
@@ -68,6 +75,18 @@ public class HUDMenuGame : MonoBehaviour
          
 
         if (message.Contains<List<Item>>(EGameEventMessage.Itens, out List<Item> itens)) LoadItens(itens);
+    }
+
+
+    private void OnGameOver(GameEventMessage message)
+    {
+        if(message.Contains<int>(EGameEventMessage.WaveIndex, out int WaveIndex))
+        {
+            m_WaveIndex.text = WaveIndex.ToString("00");
+            m_GameOver.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
     }
 
     public void ToogleMenu()

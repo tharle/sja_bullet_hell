@@ -12,7 +12,9 @@ public enum EGameEvent
     WaveInfoChanged,
     MenuOpen,
     CloseGame,
-    StartGame
+    StartGame,
+    GameOver,
+    PlayerDie
 }
 
 public class GameEventSystem
@@ -55,7 +57,7 @@ public class GameEventSystem
         if (m_Events[eventId] == null) m_Events.Remove(eventId);
     }
 
-    public void TriggerEvent(EGameEvent eventId, GameEventMessage parameters)
+    public void TriggerEvent(EGameEvent eventId, GameEventMessage parameters = default)
     {
         if (!m_Events.ContainsKey(eventId)) 
         {

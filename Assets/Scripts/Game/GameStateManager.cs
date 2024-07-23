@@ -44,6 +44,18 @@ public class GameStateManager : MonoBehaviour
         AGameState state = GetState(m_DefaultState.Type);
         Wave.Index = GameManager.Instance.LastWaveIndex;
         if (state != null) ChangeState(state);
+
+        SubscribeAll();
+    }
+
+    private void SubscribeAll()
+    {
+        GameEventSystem.Instance.SubscribeTo(EGameEvent.PlayerDie, OnPlayerDie);
+    }
+
+    private void OnPlayerDie(GameEventMessage message)
+    {
+        GameEventSystem.Instance.TriggerEvent(EGameEvent.GameOver, new GameEventMessage(EGameEventMessage.WaveIndex, Wave.Index));
     }
 
     private void OnDestroy()

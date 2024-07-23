@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
@@ -32,6 +33,12 @@ public class PlayerControls :  MonoBehaviour
     private void SubscribeAll()
     {
         GameEventSystem.Instance.SubscribeTo(EGameEvent.AddItem, OnAddItem);
+        m_PlayerEntity.OnDead += OnDead;
+    }
+
+    private void OnDead()
+    {
+        GameEventSystem.Instance.TriggerEvent(EGameEvent.PlayerDie);
     }
 
     private void OnAddItem(GameEventMessage message)
