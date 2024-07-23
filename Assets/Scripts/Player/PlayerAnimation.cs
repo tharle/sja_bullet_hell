@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator m_Animator;
-    private new String name;
 
     private void Start()
     {
@@ -15,7 +12,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public void AddVelocity(float velocity)
     {
-        m_Animator.SetFloat("velocity", velocity);
+        m_Animator.SetFloat(GameParameters.AnimationPlayer.FLOAT_VELOCITY, velocity);
     }
 
     public void PlayWalkSound()
@@ -26,5 +23,10 @@ public class PlayerAnimation : MonoBehaviour
     public void StopWalkSound()
     {
         AudioManager.Instance.StopAllLooping();
+    }
+
+    public void Damage()
+    {
+        m_Animator.SetTrigger(GameParameters.AnimationPlayer.TRIGGER_DAMAGE);
     }
 }

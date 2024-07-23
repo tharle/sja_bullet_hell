@@ -34,11 +34,19 @@ public class PlayerControls :  MonoBehaviour
     {
         GameEventSystem.Instance.SubscribeTo(EGameEvent.AddItem, OnAddItem);
         m_PlayerEntity.OnDead += OnDead;
+        m_PlayerEntity.OnHit += OnHit;
+    }
+
+    private void OnHit(float obj)
+    {
+        m_PlayerAnimation.Damage();
     }
 
     private void OnDead()
     {
         GameEventSystem.Instance.TriggerEvent(EGameEvent.PlayerDie);
+        m_PlayerEntity.OnDead -= OnDead;
+        m_PlayerEntity.OnHit -= OnHit;
     }
 
     private void OnAddItem(GameEventMessage message)
