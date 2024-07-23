@@ -1,13 +1,16 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator m_Animator;
+    private SpriteRenderer m_SpriteRenderer;
 
     private void Start()
     {
         m_Animator = GetComponent<Animator>();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void AddVelocity(float velocity)
@@ -27,6 +30,19 @@ public class PlayerAnimation : MonoBehaviour
 
     public void Damage()
     {
-        m_Animator.SetTrigger(GameParameters.AnimationPlayer.TRIGGER_DAMAGE);
+        StopCoroutine(OnHitAnimation());
+        StartCoroutine(OnHitAnimation());
+    }
+
+    IEnumerator OnHitAnimation()
+    {
+        yield return null;
+        m_SpriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        m_SpriteRenderer.enabled = true;
+        yield return new WaitForSeconds(0.1f); 
+        m_SpriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        m_SpriteRenderer.enabled = true;
     }
 }
