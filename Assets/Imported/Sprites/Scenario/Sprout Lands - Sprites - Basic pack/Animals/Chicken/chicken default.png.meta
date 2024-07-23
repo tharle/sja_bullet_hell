@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,532 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: chicken_0_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed363436c67b0f44b90fcb34f39a13b
+      internalID: -1885747474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4ccc6c4bc78c444919cf3b4470f82d
+      internalID: -1114400052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f192795fd146beb46b5f938f4e348674
+      internalID: 140511460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a400c7eef3ea90546afc2194eec7f5d1
+      internalID: -1868679523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 400
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0974d673df12e0745b6432f45ca5744c
+      internalID: 2076464393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d268e2d65aba45479906bacb25c0178
+      internalID: 1989220978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eff511196a2c2040897c508732d8e8e
+      internalID: 696465557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9368ba0224f80742951ff7f0783c047
+      internalID: 680937290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923fdc4b31c08c44a999e46f2e3cea45
+      internalID: -403695194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e1730714fade247bcbedbb81e9a1bd
+      internalID: 1547082175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93abe4159fd311348868078169b1aefd
+      internalID: 909497986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2675a43e5b349b6499ac27f35bc75589
+      internalID: 2113678823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_walk_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 384
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb72c8e27ef80843b7d2be33bd4cf4a
+      internalID: -706633704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cebd5b79c348546957e2e4407e9c29
+      internalID: 471092637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a73c06aec8d3f2478212d3373320699
+      internalID: 986672578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6754647b7b1a55438b63871c09f006f
+      internalID: -22527870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488221b4d087d6d479bf98f10317b48e
+      internalID: 658484474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_idle_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d107d25bc7a6b44a45ab2d5a67b6c3
+      internalID: -2117946717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a784499ea4c677c4d9d7661d2f591485
+      internalID: -507712077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3b3411d2515ee4c820b589fc822e0f
+      internalID: 682336887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c955292c7baa034d9bfae8c389d72f3
+      internalID: -1831060474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e9a2ade9013114795b7f4afb23ac50
+      internalID: 630406687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4be64c89b1e01408ecbeb84e66a069
+      internalID: 724847500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8857ed8ed4fbd804197dee5d0e68b337
+      internalID: 829792080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken_0_die_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39231153fe0a3d245b6aafe32f3e1f0f
+      internalID: -1322221221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +683,120 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chicken default_0: 400069855
+      chicken default_1: 1648122928
+      chicken default_100: -1252964218
+      chicken default_101: 1547409449
+      chicken default_102: 494096587
+      chicken default_103: 1737346767
+      chicken default_104: -14216205
+      chicken default_105: -415183647
+      chicken default_106: -1526268416
+      chicken default_107: 1280811972
+      chicken default_19: 821820136
+      chicken default_2: -80821708
+      chicken default_20: -996598505
+      chicken default_21: -1338886925
+      chicken default_22: -1802486946
+      chicken default_23: 965522488
+      chicken default_24: 567040835
+      chicken default_25: 1768468917
+      chicken default_26: -1353735579
+      chicken default_27: -919876700
+      chicken default_28: -2011363716
+      chicken default_29: 299204686
+      chicken default_3: 1510408405
+      chicken default_30: 871957256
+      chicken default_31: -794144061
+      chicken default_32: -2081293893
+      chicken default_33: 745658632
+      chicken default_34: 83838896
+      chicken default_35: -1597396736
+      chicken default_36: 1618797869
+      chicken default_37: -511048466
+      chicken default_38: 448784618
+      chicken default_39: -1111883448
+      chicken default_40: 267701306
+      chicken default_41: -1118411754
+      chicken default_42: 2352916
+      chicken default_43: -772356053
+      chicken default_44: 1546020812
+      chicken default_45: -956920591
+      chicken default_46: -1882702862
+      chicken default_47: 1620954951
+      chicken default_48: -1158445629
+      chicken default_49: -818208988
+      chicken default_50: -237751444
+      chicken default_51: 1806622137
+      chicken default_52: -1058674452
+      chicken default_53: 699926864
+      chicken default_54: -2066058883
+      chicken default_55: -765685011
+      chicken default_56: -5202955
+      chicken default_57: 85948730
+      chicken default_58: -406190377
+      chicken default_59: 1068985796
+      chicken default_60: -103255608
+      chicken default_61: 269991802
+      chicken default_62: -651669721
+      chicken default_63: -148586551
+      chicken default_64: -1472187977
+      chicken default_65: 204976500
+      chicken default_71: 786569023
+      chicken default_72: -1460948659
+      chicken default_73: -613142795
+      chicken default_74: 798773313
+      chicken default_75: -1166169613
+      chicken default_76: 680039229
+      chicken default_77: -2073671736
+      chicken default_78: 282227586
+      chicken default_79: -1146283014
+      chicken default_80: -5042775
+      chicken default_81: -505814249
+      chicken default_82: -97931630
+      chicken default_83: -1921718845
+      chicken default_84: 110062381
+      chicken default_85: 1260846771
+      chicken default_86: 1208031672
+      chicken default_87: -1093202916
+      chicken default_88: 677195139
+      chicken default_89: -960904982
+      chicken default_90: 335517105
+      chicken default_91: 1066868123
+      chicken default_92: 1943432536
+      chicken default_93: -1447257523
+      chicken default_94: -614665316
+      chicken default_95: 1019046195
+      chicken default_96: -965501727
+      chicken default_97: -822031085
+      chicken default_98: -1990578086
+      chicken default_99: -2139619499
+      chicken_0_die_0: -507712077
+      chicken_0_die_1: 682336887
+      chicken_0_die_2: -1831060474
+      chicken_0_die_3: 630406687
+      chicken_0_die_4: 724847500
+      chicken_0_die_5: 829792080
+      chicken_0_die_6: -1322221221
+      chicken_0_idle_0: -1885747474
+      chicken_0_idle_1: -1114400052
+      chicken_0_idle_2: 140511460
+      chicken_0_idle_3: -1868679523
+      chicken_0_idle_4: 2076464393
+      chicken_0_idle_5: 471092637
+      chicken_0_idle_6: 986672578
+      chicken_0_idle_7: -22527870
+      chicken_0_idle_8: 658484474
+      chicken_0_idle_9: -2117946717
+      chicken_0_walk_0: 1989220978
+      chicken_0_walk_1: 696465557
+      chicken_0_walk_2: 680937290
+      chicken_0_walk_3: -403695194
+      chicken_0_walk_4: 1547082175
+      chicken_0_walk_5: 909497986
+      chicken_0_walk_6: 2113678823
+      chicken_0_walk_7: -706633704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

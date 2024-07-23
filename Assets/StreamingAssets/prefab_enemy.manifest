@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 188201895
+CRC: 1199146420
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 602503533d76ce79fd6aa46d16aa3fd2
+    Hash: 4091c2f0059ae8d7dfc34be6b66e9faf
   TypeTreeHash:
     serializedVersion: 2
     Hash: 1ee29b5a080ad08773e705389b9fe885
@@ -93,5 +93,6 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.UI
   ClassName: UnityEngine.UI.SpriteState
 Assets:
+- Assets/BundleAssets/Prefabs/Enemies/Chicken.prefab
 - Assets/BundleAssets/Prefabs/Enemies/Cow.prefab
 Dependencies: []

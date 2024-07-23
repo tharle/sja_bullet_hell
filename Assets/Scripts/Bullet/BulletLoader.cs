@@ -6,7 +6,8 @@ using UnityEngine;
 public enum EBullet
 {
     Default,
-    Milk
+    Milk,
+    Egg
 }
 
 public class BulletLoader : MonoBehaviour

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum EEnemy
 {
-    Cow
+    Cow,
+    Chicken
 }
 
 public class EnemyEntity : Entity

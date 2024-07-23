@@ -53,7 +53,7 @@ public class GameWaveState : AGameState
             for (int j = 0; j< m_Owner.Wave.Index; j++)
             {
                 Vector2 position = GetRandomSpotPosition();
-                EnemyEntity enemy = EnemySpawner.Instance.SpawnEnemy(EEnemy.Cow, position);
+                EnemyEntity enemy = EnemySpawner.Instance.SpawnRandom(m_Owner.Wave.Index, position);
                 EffectManager.Instance.CastEffect(EEffect.Summon, position, enemy.ColorShow, 0);
 
                 yield return new WaitForSeconds(0.5f);
