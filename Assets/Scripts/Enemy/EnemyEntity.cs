@@ -5,7 +5,8 @@ using UnityEngine;
 public enum EEnemy
 {
     Cow,
-    Chicken
+    Chicken,
+    Bull
 }
 
 public class EnemyEntity : Entity
@@ -32,6 +33,9 @@ public class EnemyEntity : Entity
     // Time max for chasing, after that the enemy will be in Idle/Patrol
     [SerializeField] private float m_Fatigue = 1f; // in seconds
 
+    // Damage for colliding with player
+    [SerializeField] private int m_PhysicalDamage = 0;
+
     public float TautDistance => m_TautDistance * MULTIPLI_PIXEL;
 
     public float IdleTime { get { return Random.Range(m_IdleTimeRange.x, m_IdleTimeRange.y); } }
@@ -40,6 +44,8 @@ public class EnemyEntity : Entity
     public float Fatigue => m_Fatigue;
 
     public float AttackRange { get { return Stats.BulletRange * MULTIPLI_PIXEL; } }
+
+    public int PhysicalDamage => m_PhysicalDamage;
 
     public float CooldownAttack { get {
         return 1.0f / Stats.BulletPerSeconds;

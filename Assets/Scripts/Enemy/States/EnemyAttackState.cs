@@ -26,12 +26,10 @@ public class EnemyAttackState : AEnemyState
         Debug.Log("EXIT ATTACK");
     }
 
-    private IEnumerator AttackRoutine()
+    protected virtual IEnumerator AttackRoutine()
     {
         while (m_Owner.IsInAttackRange())
         {
-            // TODO do attack
-            Debug.Log("HE ATACKS :3333");
             m_Owner.Shoot();
 
             yield return new WaitForSeconds(m_Owner.Enemy.CooldownAttack);

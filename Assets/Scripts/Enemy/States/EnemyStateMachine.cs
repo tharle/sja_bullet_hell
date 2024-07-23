@@ -65,6 +65,27 @@ public class EnemyStateMachine : MonoBehaviour
         m_CurrentState?.OnCancel();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            ChangeState<EnemyIdleState>();
+        }
+        else if (collision.collider.TryGetComponent<IDamageable>(out var damageable))
+        {
+            if (damageable is EnemyEntity) return; // No more friend fire =(
+
+            damageable.TakeDamage(m_Enemy.PhysicalDamage);
+            StartCoroutine(StopAfterRoutine(3));
+        }
+    }
+
+    private IEnumerator StopAfterRoutine(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ChangeState<EnemyIdleState>();
+    }
+
     public bool ChangeState(AEnemyState newState, params AEnemyState.Param[] stateParams)
     {
         if (newState == null) return false;
@@ -117,9 +138,9 @@ public class EnemyStateMachine : MonoBehaviour
         Flip(direction);
     }
 
-    public void MoveToPlayer()
+    public void MoveToPlayer(int multVelocity = 1)
     {
-        Move(DirectionToPlayer());
+        Move(DirectionToPlayer() * multVelocity);
     }
 
     public Vector2 DirectionToPlayer()

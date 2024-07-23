@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -321979616, guid: e0758fb54893b6343a3914971bb9d484, type: 3}
+  m_Sprite: {fileID: -715050215, guid: 5abded10bcf6ecd48b455507cb46d7dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 3710548614969605586}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ede9fbc46f1adf54282f54630e3794d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4cb5410f9b120ec44b32260458e0cfa8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1677279191713183649}
   - component: {fileID: 3847364713976199965}
   m_Layer: 8
-  m_Name: Cow
+  m_Name: Bull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.427, y: 0.18, z: -0.16702151}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2461481145095073786}
@@ -215,7 +215,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004855752, y: -0.050151378}
+  m_Offset: {x: 0.015278101, y: -0.068394296}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -226,7 +226,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.28401017, y: 0.20669603}
+  m_Size: {x: 0.20620593, y: 0.1702102}
   m_EdgeRadius: 0
 --- !u!114 &1677279191713183649
 MonoBehaviour:
@@ -240,14 +240,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23a4ea9375be6d49b96e6c966075610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Data: {fileID: 11400000, guid: 0ec822d3b5e424546ab9f2012ebe86a4, type: 2}
-  m_Type: 0
-  m_ColorShow: {r: 0.83921576, g: 0.7294118, b: 0.63529414, a: 1}
-  m_ColorDie: {r: 0.8705883, g: 0.61960787, b: 0.6117647, a: 1}
+  m_Data: {fileID: 11400000, guid: 45546f483573339439b988ba0ea97889, type: 2}
+  m_Type: 2
+  m_ColorShow: {r: 0.7411765, g: 0.7176471, b: 0.75294125, a: 1}
+  m_ColorDie: {r: 0.3529412, g: 0.3019608, b: 0.5803922, a: 1}
   m_IdleTimeRange: {x: 0.5, y: 2}
   m_PatrolTimeRange: {x: 0.5, y: 2}
-  m_TautDistance: 6
-  m_Fatigue: 1
+  m_TautDistance: 18
+  m_Fatigue: 3
+  m_PhysicalDamage: 4
 --- !u!114 &3847364713976199965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,11 +271,15 @@ MonoBehaviour:
   - rid: 8331348580803280901
   - rid: 8331348580803280902
   - rid: 8331348580803280903
-  - rid: 8331348580803280904
+  - rid: 7938316163350265856
   - rid: 8331348580803280905
   references:
     version: 2
     RefIds:
+    - rid: 7938316163350265856
+      type: {class: EnemyAttackCloseState, ns: , asm: Assembly-CSharp}
+      data:
+        m_Rules: 0
     - rid: 8331348580803280901
       type: {class: EnemyIdleState, ns: , asm: Assembly-CSharp}
       data:
@@ -285,10 +290,6 @@ MonoBehaviour:
         m_Rules: 0
     - rid: 8331348580803280903
       type: {class: EnemyChaseState, ns: , asm: Assembly-CSharp}
-      data:
-        m_Rules: 0
-    - rid: 8331348580803280904
-      type: {class: EnemyAttackState, ns: , asm: Assembly-CSharp}
       data:
         m_Rules: 0
     - rid: 8331348580803280905
