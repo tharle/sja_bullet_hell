@@ -33,6 +33,7 @@ public class GameParameters
         public const string PREFAB_ACHIVEMENTS = "prefab_achivement";
         public const string PREFAB_ENEMY = "prefab_enemy";
         public const string PREFAB_EFFECT = "prefab_effect";
+        public const string PREFAB_ITEM_COLLETABLE = "prefab_item_colletable";
         public const string BULLET = "bullet";
         public const string ITEM = "item";
         public const string SCRIT_OBJETS = "data";
@@ -49,6 +50,7 @@ public class GameParameters
         public const string PREFAB_ACHIVEMENTS = "/Prefabs/Achivements";
         public const string PREFAB_ENEMY = "/Prefabs/Enemies";
         public const string PREFAB_EFFECT = "/Prefabs/Effects";
+        public const string PREFAB_ITEM_COLLETABLE = "/Prefabs/Itens";
         public const string BULLETS = "/Data/Bullets";
         public const string ITEM = "/Data/Itens";
         public const string SCRIT_OBJETS = "/Data";
@@ -72,6 +74,8 @@ public class GameParameters
         public const float UI_LIFE_BAR_DISPLAY_TIME = 1f;
         public const float WAVE_COOLDOWN = 4f;
         public const float ENEMY_SPAWN_COOLDOWN = 1f;
+        public const float ITEM_DESPAWN_TIME = 4f;
+        public const int ITEM_DROP_CHANCE = 99; // in %
     }
 
     public class SceneName

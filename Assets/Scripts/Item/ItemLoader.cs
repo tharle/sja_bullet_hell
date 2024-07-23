@@ -1,6 +1,8 @@
+
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemLoader : MonoBehaviour 
@@ -23,6 +25,7 @@ public class ItemLoader : MonoBehaviour
     #endregion
 
     private Dictionary<EItem, Item> m_Items; // Name/ItemScriptableObject
+    private ItemColletable m_ItemColletablePrefab;
 
 
     private void Awake()
@@ -35,15 +38,26 @@ public class ItemLoader : MonoBehaviour
 
         m_Instance = this;
         m_Items = new Dictionary<EItem, Item>();
-    }
-
-    private void Start()
-    {
-        LoadAll();
+        LoadItemColletable();
+        LoadAlltens();
         
     }
 
-    public void LoadAll(bool forceLoad = false)
+    private void LoadItemColletable()
+    {
+        GameObject go = BundleLoader.Instance.Load<GameObject>(GameParameters.BundleNames.PREFAB_ITEM_COLLETABLE, GameParameters.BundleNames.PREFAB_ITEM_COLLETABLE);
+
+        if (go.TryGetComponent<ItemColletable>(out m_ItemColletablePrefab))
+        {
+            m_ItemColletablePrefab.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("ItemLoader : Can't load Item colletable.");
+        }
+    }
+
+    public void LoadAlltens(bool forceLoad = false)
     {
         if (m_Items.Count > 0 && !forceLoad) return;
 
@@ -59,7 +73,7 @@ public class ItemLoader : MonoBehaviour
 
     public Item Get(EItem itemType)
     {
-        if (m_Items.Count <= 0) LoadAll();
+        if (m_Items.Count <= 0) LoadAlltens();
 
         if (!m_Items.ContainsKey(itemType))
         {
@@ -73,7 +87,7 @@ public class ItemLoader : MonoBehaviour
 
     public List<Item> GetAll()
     {
-        if(m_Items.Count <= 0) LoadAll();
+        if(m_Items.Count <= 0) LoadAlltens();
 
         List<Item> result = new List<Item>();
 
@@ -85,5 +99,31 @@ public class ItemLoader : MonoBehaviour
         }
 
         return result;
+    }
+
+    private ItemColletable GetRandom()
+    {
+        List<EItem> typesIten = System.Enum.GetValues(typeof(EItem)).Cast<EItem>().ToList();
+
+        int randomId = Random.Range(0, typesIten.Count);
+        EItem randomItemType = typesIten[randomId];
+
+        ItemColletable itemColletable = Instantiate(m_ItemColletablePrefab);
+        itemColletable.Item = m_Items[randomItemType];
+        return itemColletable;
+    }
+
+    public void DropRandomItem(Vector3 position, float delay)
+    {
+        StartCoroutine(DoDropRandom(position, delay));
+    }
+
+    private IEnumerator DoDropRandom(Vector3 position, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ItemColletable itemColletable = GetRandom();
+        itemColletable.gameObject.SetActive(true);
+        itemColletable.gameObject.transform.position = position;
+        itemColletable.LoadItem();
     }
 }

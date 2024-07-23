@@ -9,7 +9,6 @@ using UnityEngine;
 // Is the name of item
 public enum EItem
 {
-    None,
     Apple,
     Blueberry,
     Orange
@@ -41,7 +40,7 @@ public class Item : ScriptableObject
     public EItem Type { get
         {
             if (Enum.TryParse<EItem>(name, out EItem type)) return type;
-            return EItem.None;
+            return EItem.Orange;
         }
     }
 

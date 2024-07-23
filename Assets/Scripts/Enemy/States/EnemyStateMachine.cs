@@ -1,12 +1,8 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TypeReferences;
-using UnityEngine.XR;
-using Unity.VisualScripting;
-using System.Xml;
-using static UnityEngine.EventSystems.EventTrigger;
-using UnityEngine.UIElements;
+using System;
+using System.Collections;
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -98,7 +94,7 @@ public class EnemyStateMachine : MonoBehaviour
         return true;
     }
 
-    private AEnemyState GetState(Type type)
+    private AEnemyState GetState(System.Type type)
     {
         foreach (var state in m_States)
             if (state.GetType() == type) return state;
@@ -191,6 +187,20 @@ public class EnemyStateMachine : MonoBehaviour
         if(gameObject.TryGetComponent<BoxCollider2D>(out var collider)) Destroy(collider);
         Destroy(gameObject, time);
         EffectManager.Instance.CastEffect(EEffect.Unsummon, transform.position, m_Enemy.ColorDie, time);
+
+        TrySpawItem(time + 0.5f);
+    }
+
+    private void TrySpawItem(float delay)
+    {
+        int chance = UnityEngine.Random.Range(0, 100);
+
+        if(chance <= GameParameters.Prefs.ITEM_DROP_CHANCE) DropRandomItem(delay);
+    }
+
+    private void DropRandomItem(float delay)
+    {
+        ItemLoader.Instance.DropRandomItem(transform.position, delay);
     }
 }
 

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2513336583
+CRC: 3388532996
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -16,4 +16,7 @@ AssetBundleManifest:
       Dependencies: {}
     Info_4:
       Name: prefab_effect
+      Dependencies: {}
+    Info_5:
+      Name: prefab_item_colletable
       Dependencies: {}

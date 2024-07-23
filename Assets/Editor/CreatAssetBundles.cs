@@ -12,6 +12,14 @@ public class CreatAssetBundles
     {
         List<AssetBundleBuild> assetBundleDefinitionList = new();
 
+        // Item colletables
+        {
+            AssetBundleBuild ab = new();
+            ab.assetBundleName = BundleNames.PREFAB_ITEM_COLLETABLE;
+            ab.assetNames = RecursiveGetAllAssetsInDirectory(BundlePath.BUNDLE_ASSETS + BundlePath.PREFAB_ITEM_COLLETABLE).ToArray();
+            assetBundleDefinitionList.Add(ab);
+        }
+
         // BULLETS PREFABS
         {
             AssetBundleBuild ab = new();
