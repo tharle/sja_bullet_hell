@@ -24,6 +24,13 @@ public class UILifeBar : MonoBehaviour
         m_Parent.OnDead += OnHideBar;
     }
 
+    private void OnDestroy()
+    {
+        m_Parent.OnHit -= OnChangeAndShow;
+        m_Parent.OnHeal -= OnChangeAndShow;
+        m_Parent.OnDead -= OnHideBar;
+    }
+
     private void OnHideBar()
     {
         if(!m_AllwaysDisplay) m_BarValue.gameObject.SetActive(false);

@@ -30,6 +30,6 @@ public class PickupStatsEffect : ItemEffect
 
     public override void Execute(Entity _owner)
     {
-        _owner.RestoreLife(HP);
+        _owner.Heal(HP);
     }
 }

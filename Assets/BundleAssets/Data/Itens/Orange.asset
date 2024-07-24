@@ -24,6 +24,6 @@ MonoBehaviour:
     - rid: 8331348640240762885
       type: {class: PickupStatsEffect, ns: , asm: Assembly-CSharp}
       data:
-        m_Name: Restore life
-        m_Description: HP + 1
+        m_Name: Restore life.
+        m_Description: HP + 2
         HP: 1

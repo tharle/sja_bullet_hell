@@ -115,9 +115,4 @@ public class Entity : MonoBehaviour, IDamageable, IContainer
     {
         return m_CurrentHealth > 0;
     }
-
-    internal void RestoreLife(int hp)
-    {
-        m_CurrentHealth += hp;
-    }
 }

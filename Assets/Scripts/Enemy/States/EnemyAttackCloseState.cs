@@ -9,9 +9,9 @@ public class EnemyAttackCloseState : EnemyAttackState
     {        
         while (m_Owner.IsInAttackRange())
         {
-            m_Owner.MoveToPlayer(5);
+            m_Owner.MoveToPlayer(4);
 
-            yield return new WaitForSeconds(m_Owner.Enemy.CooldownAttack);
+            yield return new WaitForSeconds(m_Owner.Enemy.Fatigue);
         }
 
         m_Owner.ChangeState<EnemyChaseState>();

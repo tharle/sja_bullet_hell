@@ -25,12 +25,12 @@ MonoBehaviour:
       type: {class: AddStatsEffect, ns: , asm: Assembly-CSharp}
       data:
         m_Name: The bullets go more fast.
-        m_Description: Bullet Spd +1
+        m_Description: Bullet Spd +0.2
         statsToAdd:
           BulletPerSeconds: 0
           MaxHealth: 0
           Speed: 0
           Damage: 0
           LifeSteal: 0
-          BulletSpeed: 1
+          BulletSpeed: 0.2
           BulletRange: 0

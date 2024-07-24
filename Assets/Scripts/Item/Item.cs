@@ -11,7 +11,11 @@ public enum EItem
 {
     Apple,
     Blueberry,
-    Orange
+    Orange,
+    Strawberry,
+    Peach,
+    Pear,
+    Grapes
 }
 
 [CreateAssetMenu,Serializable]

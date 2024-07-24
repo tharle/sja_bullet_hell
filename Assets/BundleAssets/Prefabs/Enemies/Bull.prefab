@@ -212,10 +212,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015278101, y: -0.068394296}
+  m_Offset: {x: 0.018415034, y: -0.063863076}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -226,7 +226,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20620593, y: 0.1702102}
+  m_Size: {x: 0.11209607, y: 0.10677315}
   m_EdgeRadius: 0
 --- !u!114 &1677279191713183649
 MonoBehaviour:
@@ -241,14 +241,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data: {fileID: 11400000, guid: 45546f483573339439b988ba0ea97889, type: 2}
+  m_SpriteRenderer: {fileID: 5207248774157582255}
   m_Type: 2
   m_ColorShow: {r: 0.7411765, g: 0.7176471, b: 0.75294125, a: 1}
   m_ColorDie: {r: 0.3529412, g: 0.3019608, b: 0.5803922, a: 1}
   m_IdleTimeRange: {x: 0.5, y: 2}
   m_PatrolTimeRange: {x: 0.5, y: 2}
   m_TautDistance: 18
-  m_Fatigue: 3
-  m_PhysicalDamage: 4
+  m_Fatigue: 4
 --- !u!114 &3847364713976199965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 5951318474719376404, guid: 29843d5d2bd81114391af3e036280a37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684051319292201959, guid: 29843d5d2bd81114391af3e036280a37, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

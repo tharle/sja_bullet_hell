@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,7 +16,10 @@ public class GameWaveState : AGameState
 
         m_EndSpaw = false;
         m_Owner.StartCoroutine(SpawnEnemies());
+
+        if(IsElliteTime()) m_Owner.StartCoroutine(SpawnElite());
     }
+
     public override void Update()
     {
         base.Update();
@@ -43,7 +46,7 @@ public class GameWaveState : AGameState
     {
 
         m_Owner.Wave.Index++;
-        m_Owner.Wave.EnnemiesAmount = m_EnemyPerWaveBaseAmount * m_Owner.Wave.Index;
+        m_Owner.Wave.EnnemiesAmount = (m_EnemyPerWaveBaseAmount * m_Owner.Wave.Index) + m_Owner.Wave.Index / 3;
         m_Owner.Wave.EnnemiesDeads = 0;
         yield return null;
         NotifyWaveInfos();
@@ -53,7 +56,7 @@ public class GameWaveState : AGameState
             for (int j = 0; j< m_Owner.Wave.Index; j++)
             {
                 Vector2 position = GetRandomSpotPosition();
-                EnemyEntity enemy = EnemySpawner.Instance.SpawnRandom(m_Owner.Wave.Index, position);
+                EnemyEntity enemy = EnemySpawner.Instance.SpawnRandom(position);
                 EffectManager.Instance.CastEffect(EEffect.Summon, position, enemy.ColorShow, 0);
 
                 yield return new WaitForSeconds(0.5f);
@@ -69,6 +72,31 @@ public class GameWaveState : AGameState
 
         m_EndSpaw = true;
     }
+
+    private IEnumerator SpawnElite()
+    {
+        int index = m_Owner.Wave.Index;
+        float min = GameParameters.Prefs.WAVE_COOLDOWN * index/3;
+        float max = min * (index - 1) ;
+        yield return new WaitForSeconds(UnityEngine.Random.Range(min, max));
+
+        Vector2 position = GetRandomSpotPosition();
+        EnemyEntity enemy = EnemySpawner.Instance.SpawnRandom(position, index);
+        EffectManager.Instance.CastEffect(EEffect.Summon, position, enemy.ColorShow, 0);
+
+        yield return new WaitForSeconds(0.5f);
+        enemy = m_Owner.Cast<EnemyEntity>(enemy);
+        enemy.SetElite();
+        enemy.OnDead += OnEnemyDead;
+        yield return new WaitForSeconds(GameParameters.Prefs.ENEMY_SPAWN_COOLDOWN);
+
+
+    }
+
+    private bool IsElliteTime()
+    {
+        return m_Owner.Wave.Index % 3 == 0;
+    }
     private void OnEnemyDead()
     {
         m_Owner.Wave.EnnemiesDeads++;
@@ -79,7 +107,7 @@ public class GameWaveState : AGameState
     {
         if (m_Owner.Spots.Count <= 0) return Vector2.zero;
 
-        int index = Random.Range(0, m_Owner.Spots.Count);
+        int index = UnityEngine.Random.Range(0, m_Owner.Spots.Count);
         return m_Owner.Spots[index].position;
     }
 

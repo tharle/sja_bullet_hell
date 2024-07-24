@@ -18,9 +18,9 @@ MonoBehaviour:
   Bullet: 1
   stats:
     BulletPerSeconds: 1
-    MaxHealth: 3
+    MaxHealth: 4
     Speed: 1.5
-    Damage: 1
+    Damage: 2
     LifeSteal: 0
     BulletSpeed: 2
     BulletRange: 5

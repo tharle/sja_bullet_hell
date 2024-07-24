@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Data: {fileID: 11400000, guid: 084bc6ed358192b47adecd51e582d500, type: 2}
+  m_SpriteRenderer: {fileID: 5207248774157582255}
   m_Type: 1
   m_ColorShow: {r: 0.9686275, g: 0.95294124, b: 0.7411765, a: 1}
   m_ColorDie: {r: 0.8705883, g: 0.74509805, b: 0.3529412, a: 1}

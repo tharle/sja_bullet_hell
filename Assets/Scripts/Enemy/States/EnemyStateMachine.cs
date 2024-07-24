@@ -58,6 +58,9 @@ public class EnemyStateMachine : MonoBehaviour
     private void FixedUpdate()
     {
         m_CurrentState?.FixedUpdate();
+
+        // That make all enemies be inside of ARENA
+        transform.position = Limits.Instance.Clamp(transform.position);
     }
 
     private void OnDestroy()
@@ -65,24 +68,20 @@ public class EnemyStateMachine : MonoBehaviour
         m_CurrentState?.OnCancel();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
-        {
-            ChangeState<EnemyIdleState>();
-        }
-        else if (collision.collider.TryGetComponent<IDamageable>(out var damageable))
+        if (collider.TryGetComponent<IDamageable>(out var damageable))
         {
             if (damageable is EnemyEntity) return; // No more friend fire =(
 
-            damageable.TakeDamage(m_Enemy.PhysicalDamage);
-            StartCoroutine(StopAfterRoutine(3));
+            damageable.TakeDamage(m_Enemy.Stats.Damage);
+            StartCoroutine(StopAfterRoutine());
         }
     }
 
-    private IEnumerator StopAfterRoutine(int delay)
+    private IEnumerator StopAfterRoutine()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(m_Enemy.Fatigue);
         ChangeState<EnemyIdleState>();
     }
 
@@ -196,6 +195,9 @@ public class EnemyStateMachine : MonoBehaviour
                 wallEffect.AddRange(item.wallEffects);
             Vector2 direction = DirectionToPlayer();
             projectile.SetBulllet(direction, m_Enemy, transform.position, wallEffect);
+
+            if (m_Enemy.IsElite) projectile.transform.localScale *= 2.5f;
+
             Flip(direction);
 
             AudioManager.Instance.Play(EAudio.SFXFishingRod, transform.position);

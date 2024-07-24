@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 548745167
+CRC: 1163356414
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 215291595ce8f8d1c1675b97a3004c44
+    Hash: 7a8c74566ae32a327e0196d6839e5b60
   TypeTreeHash:
     serializedVersion: 2
     Hash: 538dbd4572313acffd2d2d29fe83ee70
@@ -23,7 +23,11 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: Assembly-CSharp
   ClassName: PickupStatsEffect
 Assets:
+- Assets/BundleAssets/Data/Itens/Pear.asset
+- Assets/BundleAssets/Data/Itens/Grapes.asset
 - Assets/BundleAssets/Data/Itens/Apple.asset
 - Assets/BundleAssets/Data/Itens/Orange.asset
+- Assets/BundleAssets/Data/Itens/Strawberry.asset
 - Assets/BundleAssets/Data/Itens/Blueberry.asset
+- Assets/BundleAssets/Data/Itens/Peach.asset
 Dependencies: []

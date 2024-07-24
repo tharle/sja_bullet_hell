@@ -101,6 +101,16 @@ public class ItemLoader : MonoBehaviour
         return result;
     }
 
+    public Item GetRandomItem()
+    {
+        List<EItem> typesIten = System.Enum.GetValues(typeof(EItem)).Cast<EItem>().ToList();
+
+        int randomId = Random.Range(0, typesIten.Count);
+        EItem randomItemType = typesIten[randomId];
+
+        return m_Items[randomItemType];
+    }
+
     private ItemColletable GetRandom()
     {
         List<EItem> typesIten = System.Enum.GetValues(typeof(EItem)).Cast<EItem>().ToList();

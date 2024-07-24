@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public enum EEnemy
 {
@@ -11,6 +12,7 @@ public enum EEnemy
 
 public class EnemyEntity : Entity
 {
+    [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private EEnemy m_Type;
     public EEnemy Type => m_Type;
 
@@ -19,6 +21,9 @@ public class EnemyEntity : Entity
 
     [SerializeField] private Color m_ColorDie;
     public Color ColorDie => m_ColorDie;
+
+    private bool m_IsElite = false;
+    public bool IsElite => m_IsElite;
 
 
     // Range for random time for wait in idle after be in patrol
@@ -33,9 +38,6 @@ public class EnemyEntity : Entity
     // Time max for chasing, after that the enemy will be in Idle/Patrol
     [SerializeField] private float m_Fatigue = 1f; // in seconds
 
-    // Damage for colliding with player
-    [SerializeField] private int m_PhysicalDamage = 0;
-
     public float TautDistance => m_TautDistance * MULTIPLI_PIXEL;
 
     public float IdleTime { get { return Random.Range(m_IdleTimeRange.x, m_IdleTimeRange.y); } }
@@ -45,9 +47,16 @@ public class EnemyEntity : Entity
 
     public float AttackRange { get { return Stats.BulletRange * MULTIPLI_PIXEL; } }
 
-    public int PhysicalDamage => m_PhysicalDamage;
-
     public float CooldownAttack { get {
         return 1.0f / Stats.BulletPerSeconds;
     } }
+
+    public void SetElite()
+    {
+        m_IsElite = true;
+        m_CurrentStats.MaxHealth = m_CurrentStats.MaxHealth * 2;
+        m_CurrentHealth = m_CurrentStats.MaxHealth;
+        m_SpriteRenderer.color = Random.ColorHSV(0f, 1f, 0.7f, 1f);
+        transform.localScale = transform.localScale * 2.5f;
+    }
 }

@@ -46,14 +46,23 @@ public class EnemySpawner : MonoBehaviour
         return enemy;
     }
 
-    public EnemyEntity SpawnRandom(int WaveIndex, Vector2 position)
+    public EnemyEntity SpawnRandom(Vector2 position, int amoutRandonsItens = 0)
     {
         // TODO: use Wave index for calculs of spawn ennemies
-
         List<EEnemy> typesEnemies = System.Enum.GetValues(typeof(EEnemy)).Cast<EEnemy>().ToList();
 
         int randomId = UnityEngine.Random.Range(0, typesEnemies.Count);
+        EnemyEntity enemy = SpawnEnemy(typesEnemies[randomId], position);
 
-        return SpawnEnemy(typesEnemies[randomId], position);
+        
+        for (int i = 0; i < amoutRandonsItens; i++)
+        {
+            Item item = ItemLoader.Instance.GetRandomItem();
+            enemy.AddItem(item);
+            Debug.Log($"ELITE SPAW: {item.name} - {item.GetAllEffects()[0].Description}");
+        }
+
+
+        return enemy;
     }
 }

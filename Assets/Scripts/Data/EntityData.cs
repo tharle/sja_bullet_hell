@@ -16,7 +16,7 @@ public class EntityData : ScriptableObject
 [Serializable]
 public struct Stats
 {
-    public int BulletPerSeconds;
+    public float BulletPerSeconds;
     public int MaxHealth;
     public float Speed;
     public int Damage;
