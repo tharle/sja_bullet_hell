@@ -46,7 +46,8 @@ public class GameWaveState : AGameState
     {
 
         m_Owner.Wave.Index++;
-        m_Owner.Wave.EnnemiesAmount = (m_EnemyPerWaveBaseAmount * m_Owner.Wave.Index) + m_Owner.Wave.Index / 3;
+        m_Owner.Wave.EnnemiesAmount = (m_EnemyPerWaveBaseAmount * m_Owner.Wave.Index);
+        if (IsElliteTime()) m_Owner.Wave.EnnemiesAmount++;
         m_Owner.Wave.EnnemiesDeads = 0;
         yield return null;
         NotifyWaveInfos();
