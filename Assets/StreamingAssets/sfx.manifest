@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2655249957
+CRC: 2296884218
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e69f7e7b540effea202dcbf78e5d40aa
+    Hash: 64cf6f3b84f022e3d716d5a9a3d14d5b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9a2ca7bdbd1871f7131daf57de908e0c
@@ -14,12 +14,19 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/BundleAssets/Sounds/SFX/SFXFishingRod.wav
+- Assets/BundleAssets/Sounds/SFX/SFXCollect.wav
 - Assets/BundleAssets/Sounds/SFX/SFXConfirm.wav
 - Assets/BundleAssets/Sounds/SFX/SFXMiniGameWin.wav
+- Assets/BundleAssets/Sounds/SFX/SFXCow.ogg
 - Assets/BundleAssets/Sounds/SFX/SFXMenuHide.wav
 - Assets/BundleAssets/Sounds/SFX/SFXWalkDirty.wav
+- Assets/BundleAssets/Sounds/SFX/SFXChicken.ogg
+- Assets/BundleAssets/Sounds/SFX/SFXBullet.wav
 - Assets/BundleAssets/Sounds/SFX/SFXMiniGameLose.wav
+- Assets/BundleAssets/Sounds/SFX/SFXBull.wav
 - Assets/BundleAssets/Sounds/SFX/SFXEnterWellcome.wav
+- Assets/BundleAssets/Sounds/SFX/SFXExplosion.wav
+- Assets/BundleAssets/Sounds/SFX/SFXHit.wav
 - Assets/BundleAssets/Sounds/SFX/SFXMenuShow.wav
 - Assets/BundleAssets/Sounds/SFX/SFXCard.wav
 - Assets/BundleAssets/Sounds/SFX/SFXAmbianceSound.mp3

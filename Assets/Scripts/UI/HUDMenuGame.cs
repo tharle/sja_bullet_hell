@@ -63,6 +63,7 @@ public class HUDMenuGame : MonoBehaviour
     {
         ToogleMenu();
         ChangeToSubMenuStats();
+        AudioManager.Instance.StopAllLooping();
 
         if (!m_MenuOpen) return;
 
@@ -82,6 +83,7 @@ public class HUDMenuGame : MonoBehaviour
     {
         if(message.Contains<int>(EGameEventMessage.WaveIndex, out int WaveIndex))
         {
+            AudioManager.Instance.Play(EAudio.SFXMiniGameLose);
             m_WaveIndex.text = WaveIndex.ToString("00");
             m_GameOver.SetActive(true);
             Time.timeScale = 0f;
@@ -94,18 +96,22 @@ public class HUDMenuGame : MonoBehaviour
         m_MenuOpen = !m_MenuOpen;
         m_Menu.SetActive(m_MenuOpen);
 
-        if(m_MenuOpen) Time.timeScale = 0f;
+        AudioManager.Instance.Play(EAudio.SFXMenuShow);
+
+        if (m_MenuOpen) Time.timeScale = 0f;
         else Time.timeScale = 1.0f;
     }
 
     public void ChangeToSubMenuItens()
     {
+        AudioManager.Instance.Play(EAudio.SFXConfirm);
         m_MenuStats.SetActive(false);
         m_MenuItens.SetActive(true);
     }
 
     public void ChangeToSubMenuStats()
     {
+        AudioManager.Instance.Play(EAudio.SFXConfirm);
         m_MenuStats.SetActive(true);
         m_MenuItens.SetActive(false);
     }
@@ -119,7 +125,7 @@ public class HUDMenuGame : MonoBehaviour
     public void ToMainMenu()
     {
         Time.timeScale = 1.0f;
-
+        AudioManager.Instance.Play(EAudio.SFXConfirm);
         SceneManager.LoadScene(GameParameters.SceneName.MAIN_MENU);
     }
 

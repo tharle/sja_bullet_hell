@@ -40,6 +40,7 @@ public class PlayerControls :  MonoBehaviour
     private void OnHit(float obj)
     {
         m_PlayerAnimation.Damage();
+        AudioManager.Instance.Play(EAudio.SFXHit);
     }
 
     private void OnDead()
@@ -103,7 +104,7 @@ public class PlayerControls :  MonoBehaviour
                     wallEffect.AddRange(item.wallEffects);
 
                 projectile.SetBulllet(m_Weapon.Direction, m_PlayerEntity, m_Weapon.transform.position, wallEffect);
-                AudioManager.Instance.Play(EAudio.SFXFishingRod, transform.position);
+                AudioManager.Instance.Play(EAudio.SFXBullet, transform.position);
                 m_PlayerEntity.HasShoot();
             }
         }

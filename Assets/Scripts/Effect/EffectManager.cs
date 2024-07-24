@@ -81,5 +81,6 @@ public class EffectManager : MonoBehaviour
         effect = Instantiate(effect);
         effect.Cast(color);
         effect.transform.position = position;
+        AudioManager.Instance.Play(EAudio.SFXExplosion);
     }
 }

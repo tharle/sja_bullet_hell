@@ -202,6 +202,9 @@ public class EnemyStateMachine : MonoBehaviour
 
             AudioManager.Instance.Play(EAudio.SFXFishingRod, transform.position);
             m_Enemy.HasShoot();
+            if(m_Enemy.Type == EEnemy.Chicken) AudioManager.Instance.Play(EAudio.SFXChicken);
+            else AudioManager.Instance.Play(EAudio.SFXCow);
+            
         }
     }
 

@@ -72,6 +72,7 @@ public class Projectile : MonoBehaviour
             if (m_Owner is EnemyEntity && damageable is EnemyEntity) return; // No more friend fire =(
 
             damageable.TakeDamage(m_Damage);
+            AudioManager.Instance.Play(EAudio.SFXCollect);
             DestroyBullet();
         }
     }

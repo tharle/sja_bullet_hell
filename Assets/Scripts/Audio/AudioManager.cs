@@ -17,8 +17,17 @@ public enum EAudio
     SFXMenuHide,
     SFXMenuShow,
     SFXWalkDirty,
-    SFXWinGame
-    
+    SFXWinGame,
+    SFXCow,
+    SFXChicken,
+    SFXBull,
+    SFXHit,
+    SFXCollect,
+
+    SFXBullet,
+    SFXExplosion
+
+
 }
 public class AudioManager : MonoBehaviour
 {
@@ -56,6 +65,12 @@ public class AudioManager : MonoBehaviour
 
         m_Instance = this;
     }
+
+    public void Play(EAudio audioClipId)
+    {
+        Play(audioClipId, new());
+    }
+
 
     public void Play(EAudio audioClipId, Vector3 soundPosition, bool isLooping = false, float volume = 1f)
     {

@@ -10,7 +10,7 @@ public class EnemyAttackCloseState : EnemyAttackState
         while (m_Owner.IsInAttackRange())
         {
             m_Owner.MoveToPlayer(4);
-
+            AudioManager.Instance.Play(EAudio.SFXBull);
             yield return new WaitForSeconds(m_Owner.Enemy.Fatigue);
         }
 
