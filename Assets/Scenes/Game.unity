@@ -46761,7 +46761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5908755191542281156, guid: 2c3a23c25061de34c8913bed71596f77, type: 3}
       propertyPath: m_text
-      value: Itens
+      value: Items
       objectReference: {fileID: 0}
     - target: {fileID: 5908755191542281156, guid: 2c3a23c25061de34c8913bed71596f77, type: 3}
       propertyPath: m_fontSize
@@ -47007,7 +47007,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2112649221}
   m_HandleRect: {fileID: 2112649220}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -47281,7 +47281,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 67.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -48769,7 +48769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1245561286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62256,7 +62256,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.6
+  m_fontSize: 40.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -64659,7 +64659,7 @@ RectTransform:
   m_Father: {fileID: 486348207}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -64766,8 +64766,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 133.545}
-  m_SizeDelta: {x: -443.22, y: 0}
+  m_AnchoredPosition: {x: 0, y: 115.71002}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2140770634
 MonoBehaviour:

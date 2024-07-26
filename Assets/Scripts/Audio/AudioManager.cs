@@ -68,7 +68,7 @@ public class AudioManager : MonoBehaviour
 
     public void Play(EAudio audioClipId)
     {
-        Play(audioClipId, new());
+        Play(audioClipId, Camera.main.transform.position);
     }
 
 
